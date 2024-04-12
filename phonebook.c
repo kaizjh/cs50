@@ -16,6 +16,6 @@ int main(void)
             return 0;
         }
     }
-    printf("Not Found");
+    printf("Not Found\n");
     return 1;
 }
