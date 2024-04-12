@@ -12,7 +12,9 @@ person;
 int main(void)
 {
     person people[2];
-    /**using this struct thing to replace the older one, seems kind of 'ugly', but learn to use */
+    /**using this struct thing to replace the older one, seems kind of 'ugly', but learn to use the 'typedef struct' is the key point in here.
+     * and we will learn a better way to update the code here, make it more efficient.
+    */
     people[0].name = "Irving";
     people[0].number ="234-235-2552";
     people[1].name = "David";
