@@ -4,6 +4,7 @@
 
 int main(int argc, string argv[])
 {
+    string s = argv[];
     if(argc < 2)
     {
         printf("Missing the command line argument!");
@@ -12,6 +13,7 @@ int main(int argc, string argv[])
     {
         for(int i = 0; i < strlen(argv); i++)
         {
+
             if(argv[i] > 'a' && argv[i] < 'z')
             {
                 argv[i] = argv[i] - 32;
