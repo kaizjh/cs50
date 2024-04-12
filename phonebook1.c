@@ -12,8 +12,8 @@ person;
 int main(void)
 {
     person people[2];
-    people[].name = {"Irving", "David"};
-    people[].number ={"234-235-2552", "235-255-2352"};
+    people[2].name = {"Irving", "David"};
+    people[2].number ={"234-235-2552", "235-255-2352"};
 
     string s = get_string("name:");
     for(int i = 0; i < 2; i++)
