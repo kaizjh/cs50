@@ -17,7 +17,7 @@ void draw(int n)
     }
     printf("\n");
     n--;
-    if(!n)
+    if(n)
     {
         draw(n);
     }
