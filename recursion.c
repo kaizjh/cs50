@@ -17,6 +17,9 @@ void draw(int n)
     }
 
     draw(n - 1);
+    /**this recursion is pretty cool, the recursion is above the for loop,
+     *otherwise, we can get a upsidedown pyramid.
+    */
 
     for(int i = 0; i < n; i++)
     {
