@@ -12,6 +12,7 @@ person;
 int main(void)
 {
     person people[2];
+    /**using this struct thing to replace the older one, seems kind of 'ugly', but learn to use */
     people[0].name = "Irving";
     people[0].number ="234-235-2552";
     people[1].name = "David";
