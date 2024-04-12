@@ -12,8 +12,11 @@ person;
 int main(void)
 {
     person people[2];
-    people[2].name = {"Irving", "David"};
-    people[2].number ={"234-235-2552", "235-255-2352"};
+    people[0].name = "Irving";
+    people[0].number ="234-235-2552";
+    people[1].name = "David";
+    people[1].number ="344-355-5562";
+
 
     string s = get_string("name:");
     for(int i = 0; i < 2; i++)
