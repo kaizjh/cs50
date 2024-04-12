@@ -1,6 +1,6 @@
 #include<cs50.h>
 #include<stdio.h>
-#
+#include<string.h>
 
 int main(int argc, string argv[])
 {
@@ -10,6 +10,13 @@ int main(int argc, string argv[])
     }
     else
     {
-        
+        for(int i = 0; i < strlen(argv); i++)
+        {
+            if(argv[i] > 'a' && argv[i] < 'z')
+            {
+                argv[i] = argv[i] - 32;
+            }
+        }
     }
+    printf("%s", argv);
 }
