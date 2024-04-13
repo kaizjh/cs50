@@ -26,5 +26,5 @@ int main(void)
     printf("%p\n", &s[3]);
     printf("%p\n", &s[4]);
     printf("%p\n", &s[5]);
-    
+    printf("%p\n", &s[6]);
 }
