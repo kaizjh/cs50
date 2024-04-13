@@ -28,4 +28,5 @@ int main(void)
 
     t[0] = toupper(t[0]);
     printf ("t:%s\n", t);
+    free(t);
 }
