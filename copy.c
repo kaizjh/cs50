@@ -23,7 +23,7 @@ int main(void)
     }
     /**this for loop above actually can be replaced by
      * strcpy(t, s);
-     * just use the 
+     * just use someone's experience, and make my code more efficient.
     */
 
     t[0] = toupper(t[0]);
