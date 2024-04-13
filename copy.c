@@ -8,12 +8,11 @@ int main(void)
     char *s = "hi!";
     char *t = malloc(strlen(s) + 1);
 
-    for(int i = 0; i < strlen(s) + 1; i++)
+    for(int i = 0; i < strlen(s); i++)
     {
         t[i] = s[i];
     }
 
     t[0] = toupper(t[0]);
     printf("t:%s\n", t);
-    free t;
 }
