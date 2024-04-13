@@ -21,7 +21,10 @@ int main(void)
     {
         t[i] = s[i];
     }
-
+    /**this for loop above actually can be replaced by
+     * strcpy(t, s);
+     * just use the 
+    */
 
     t[0] = toupper(t[0]);
     printf ("t:%s\n", t);
