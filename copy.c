@@ -6,6 +6,11 @@
 int main(void)
 {
     char *s = "hi!";
+    if (s == null)
+    {
+        rerurn 1;
+    }
+
     char *t = malloc(strlen(s) + 1);
 
     for (int i = 0, n =strlen(s) + 1; i < n; i++)
@@ -16,6 +21,7 @@ int main(void)
     {
         t[i] = s[i];
     }
+
 
     t[0] = toupper(t[0]);
     printf ("t:%s\n", t);
