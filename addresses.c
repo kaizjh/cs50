@@ -15,11 +15,13 @@ int main(void)
 
 int main(void)
 {
-    char *s = "Irving";
+    char *s = "Irv";
     printf("%s\n", s);
-    printf("%p\n", s);
-
     printf("%p\n", &s);
-    printf("%p\n", &s[0]);
 
+    printf("%p\n", s);
+    printf("%p\n", &s[0]);
+    printf("%p\n", &s[1]);
+    printf("%p\n", &s[2]);
+    printf("%p\n", &s[3]);
 }
