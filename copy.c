@@ -6,9 +6,9 @@
 int main(void)
 {
     char *s = "hi!";
-    if (s == null)
+    if (s == NULL) //when you get a super super big string, then you prob
     {
-        rerurn 1;
+        return 1;
     }
 
     char *t = malloc(strlen(s) + 1);
