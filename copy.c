@@ -6,7 +6,7 @@
 int main(void)
 {
     char *s = "hi!";
-    if (s == NULL) //when you get a super super big string, then you prob
+    if (s == NULL) //when you get a super super big string, then you probably get a NULL.
     {
         return 1;
     }
