@@ -28,6 +28,10 @@ int main(int argc, char *argv[])
         n -> next = list;
         list = n;
     }
-    for (int j = 0; j)
-    printf(")
+    while(list != NULL)
+    {
+        printf("%i\n", list -> number);
+        list = list -> next;
+    }
+
 }
