@@ -11,6 +11,11 @@ node;
 
 int main(int argc, char *argv[])
 {
+    if(argc < 1)
+    {
+        printf("Missing command line arguments!");
+        return 1;
+    }
     node *list = NULL;
     for (int i = 1; i < argc; i++)
     //why 'int i = 1' here not 'int i = 0' is that the first value in argv is actually the program's name.
@@ -33,7 +38,8 @@ int main(int argc, char *argv[])
     while(ptr != NULL)
     {
         printf("%i\n", ptr -> number);
-        list = list -> next;
+        ptr = ptr -> next;
     }
-
+    free(list);
+    return 0;
 }
