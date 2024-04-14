@@ -11,10 +11,10 @@ int main()
     printf("x is %i, y is %i\n", x, y);
 }
 
-void swap(int x, int y)
+void swap(int *a, int *b)
 {
     int temp;
-    temp = x;
-    x = y;
-    y = temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
 }
