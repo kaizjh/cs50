@@ -35,15 +35,16 @@ int main(int argc, char *argv[])
         list = n;
     }
 
-    for(node *ptr = list; ptr != NULL; ptr -> next)
+    for(node *ptr = list; ptr != NULL; ptr = ptr -> next)
     {
         printf("%i\n", ptr -> number);
 
     }
 
     //the following code is to free all the memory i asked.
-    ptr = list;
+    node *ptr = list;
     while (ptr != NULL)
+    //while loop, for loop, actually, these two loops can be replaced each other.it depends on you to use which one.
     {
         node *next = ptr -> next;
         free(ptr);
