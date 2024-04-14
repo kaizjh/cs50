@@ -8,7 +8,16 @@ int main(void)
     list[1] = 1;
     list[2] = 2;
 
-    for (int i = 0; i < 3; i++)
+    int *tmp = realloc(list, 4*sizeof(int));
+    if(tmp == NULL)
+    {
+        free(list);
+        return 1;
+    }
+    list = tmp;
+    list[3] = 3;
+
+    for (int i = 0; i < 4; i++)
     {
         printf("%i\n", list[i]);
     }
