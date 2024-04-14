@@ -28,4 +28,6 @@ int main(int argc, char *argv[])
         n -> next = list;
         list = n;
     }
+    for (int j = 0; j)
+    printf(")
 }
