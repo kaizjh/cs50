@@ -11,9 +11,9 @@ node;
 
 int main(int argc, char *argv[])
 {
-    if(argc < 1)
+    if(argc < 2)
     {
-        printf("Missing command line arguments!");
+        printf("Missing command line arguments!\n");
         return 1;
     }
     node *list = NULL;
@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
             return 1;
         }
         n -> number = number;
+        //equals '(*n).number = number', the code above is obviously more efficient and more intuitive (just like a image).
         n -> next = NULL;
 
         n -> next = list;
