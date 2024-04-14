@@ -21,4 +21,6 @@ int main(void)
     {
         printf("%i\n", list[i]);
     }
+    free(list);
+    return 0;
 }
