@@ -3,6 +3,6 @@
 
 int main(void)
 {
-    unsigned long int number = get_int("Number:");
-    printf("%lu\n", number);
+    unsigned long long int number = get_int("Number:");
+    printf("%llu\n", number);
 }
