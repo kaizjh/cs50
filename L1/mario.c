@@ -12,6 +12,10 @@ int main()
 
     for (int i = 0; i < h; i++)
     {
+        for (int n = 0; n < h - i - 1; n++)
+        {
+            printf(" ");
+        }
         for (int j = 0; j < i; j++)
         {
             printf("#");
