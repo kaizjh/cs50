@@ -14,7 +14,7 @@ int main(void)
         }
         else
         {
-            sum = sum + number[i] - 48;
+            sum = sum + (number[i] - 48) * 2;
         }
     }
 
