@@ -3,11 +3,22 @@
 
 int main(void)
 {
+    int co;
     do
     {
-        int co = get_int("Change owed:");
-    }
+        co = get_int("Change owed:");
+    }while(co < 1);
+
     greedy(co);
 }
 
-void greedy
+void greedy(int n)
+{
+    int counts = 0;
+    for(; n > 24; )
+    {
+        counts = n % 25;
+        n = n - i * n;
+    }
+    
+}
