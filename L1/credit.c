@@ -35,14 +35,28 @@ int calculate(string s)
 }
 
 //Check for Card Length and Starting Digits
-int check(int sum)
+int check(int sum, string s)
 {
-    if (sum % 10)
+    int start = s[0] - 48;
+
+    if (start == 3)
     {
-        return 1;
+        return 3;
+    }
+    else if (start == 4)
+    {
+        return 4;
+    }
+    else if (start == 5)
+    {
+        return 5;
+    }
+    else if (sum % 10)
+    {
+        return 6;
     }
     else
     {
-        
+        return 7;
     }
 }
