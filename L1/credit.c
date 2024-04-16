@@ -14,7 +14,8 @@ int main(void)
     //printf the result
     switch (result)
     {
-        case 1 2:
+        case 1:
+        case 2:
             printf("INVALID");
             break;
         case 3:
