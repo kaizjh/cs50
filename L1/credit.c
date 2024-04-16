@@ -4,5 +4,5 @@
 int main(void)
 {
     unsigned int number = get_int("Number:");
-    printf("%i");
+    printf("%u", number);
 }
