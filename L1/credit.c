@@ -5,6 +5,7 @@ int main(void)
 {
     string number = get_string("Number:");
 
+    itn start_number = 
     int sum;
     for (int i = 0; i < 16; i = i + 2)
     {
