@@ -4,6 +4,7 @@
 int main(void)
 {
     string number = get_string("Number:");
+    
     printf("%s\n", number);
     printf("%i\n", number[0] -48);
     printf("%i\n", number[1] -48);
