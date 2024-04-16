@@ -3,12 +3,15 @@
 
 int main(void)
 {
-    string string = get_string("Number:");
+    string number = get_string("Number:");
 
-    string number;
+    int sum;
     for (int i = 0; i < 16; i = i + 2)
     {
-        sum = sum + (number[i] -48) * 2;
+        if (number[i] > 52)
+        {
+            sum = sum + 1 + (number[i] % 10)
+        }
     }
     for (int j = 1; j < 16; j = j + 2)
     {
