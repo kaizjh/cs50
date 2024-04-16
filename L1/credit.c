@@ -10,14 +10,14 @@ int main(void)
     {
         if (number[i] > 52)
         {
-            sum = sum + 1 + (number[i] -48 - 10);
+            sum = sum + 1 + (number[i] -48) * 2 - 10;
         }
         else
         {
             sum = sum + number[i] - 48;
         }
     }
-    
+
     for (int j = 1; j < 16; j = j + 2)
     {
         sum = sum + number[j] - 48;
