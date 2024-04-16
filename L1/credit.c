@@ -8,14 +8,7 @@ int main(void)
 
     int sum = calculate(number);
 
-    if (sum % 10)
-    {
-        printf("INVALID\n");
-    }
-    else
-    {
 
-    }
 }
 
 // Calculate Checksum
@@ -42,4 +35,14 @@ int calculate(string s)
 }
 
 //Check for Card Length and Starting Digits
-
+int check(int sum)
+{
+    if (sum % 10)
+    {
+        return 1;
+    }
+    else
+    {
+        
+    }
+}
