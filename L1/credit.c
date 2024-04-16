@@ -3,9 +3,9 @@
 
 int main(void)
 {
-    string number = get_string("Number:");
+    string string = get_string("Number:");
 
-    int sum = 0;
+    string number;
     for (int i = 0; i < 16; i = i + 2)
     {
         sum = sum + (number[i] -48) * 2;
@@ -14,7 +14,7 @@ int main(void)
     {
         sum = sum + number[j] - 48;
     }
-    
+
     if (sum % 10 == 0)
     {
         printf("VISA\n");
