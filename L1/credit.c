@@ -6,5 +6,5 @@ int main(void)
 {
     string number = get_string("Number:");
 
-    printf("%lu", strlen(number));
+    printf("%i\n", strlen(number));
 }
