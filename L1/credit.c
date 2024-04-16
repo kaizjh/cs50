@@ -14,7 +14,10 @@ int main(void)
     {
         sum = sum + number[j];
     }
-
+    if (sum % 10 == 0)
+    {
+        
+    }
     printf("%s\n", number);
     printf("%i\n", number[0] -48);
 }
