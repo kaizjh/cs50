@@ -17,33 +17,22 @@ int main(void)
 void greedy(int n)
 {
     int counts = 0;
-    if(n > 24)
+    for(; n > 24; counts++)
     {
-        for(; n > 24; counts++)
-        {
-            n = n - 25;
-        }
+        n = n - 25;
     }
-    else if(n > 9)
+    for(; n > 9; counts++)
     {
-        for(; n > 9; counts++)
-        {
-            n = n - 10;
-        }
+        n = n - 10;
     }
-    else if(n > 5)
+    for(; n > 4; counts++)
     {
-        for(; n > 4; counts++)
-        {
-            n = n - 5;
-        }
+        n = n - 5;
     }
-    else
+    for(; n > 0; counts++)
     {
-        for(; n > 0; counts++)
-        {
-            n = n - 1;
-        }
+        n = n - 1;
     }
+
     printf("%i\n", counts);
 }
