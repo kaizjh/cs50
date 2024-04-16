@@ -16,16 +16,16 @@ int main(void)
     {
         case 1:
         case 2:
-            printf("INVALID");
+            printf("INVALID\n");
             break;
         case 3:
-            printf("AMEX");
+            printf("AMEX\n");
             break;
         case 4:
-            printf("VISA");
+            printf("VISA\n");
             break;
         case 5:
-            printf("MASTERCARD");
+            printf("MASTERCARD\n");
             break;
     }
 }
