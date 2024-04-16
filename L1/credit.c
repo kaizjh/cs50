@@ -2,13 +2,31 @@
 #include <stdio.h>
 #include <string.h>
 
+int calculate(string s);
+int check(int sum, string s);
+
 int main(void)
 {
     string number = get_string("Number:");
 
     int sum = calculate(number);
-
-
+    int result = check(sum, number);
+    //printf the result
+    switch (result)
+    {
+        case 1 2:
+            printf("INVALID");
+            break;
+        case 3:
+            printf("AMEX");
+            break;
+        case 4:
+            printf("VISA");
+            break;
+        case 5:
+            printf("MASTERCARD");
+            break;
+    }
 }
 
 // Calculate Checksum
@@ -38,8 +56,11 @@ int calculate(string s)
 int check(int sum, string s)
 {
     int start = s[0] - 48;
-
-    if (start == 3)
+    if (sum % 10)
+    {
+        return 1;
+    }
+    else if (start == 3)
     {
         return 3;
     }
@@ -51,12 +72,8 @@ int check(int sum, string s)
     {
         return 5;
     }
-    else if (sum % 10)
-    {
-        return 6;
-    }
     else
     {
-        return 7;
+        return 2;
     }
 }
