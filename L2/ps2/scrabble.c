@@ -3,6 +3,10 @@
 
 int main(void)
 {
-    string p1 = get_string("Player 1:");
+    do
+    {
+        string p1 = get_string("Player 1:");
+        
+    }
     string p2 = get_string("Player 2:");
 }
