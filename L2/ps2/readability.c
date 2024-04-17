@@ -3,5 +3,6 @@
 
 int main(void)
 {
+    int text = get_string("Text: ");
     
 }
