@@ -64,15 +64,15 @@ int check(int sum, string s)
     {
         return 1;
     }
-    else if (start == 3 && length > 12 && length < 17)
+    else if (start == 3 && (next == 4 || next == 7) && length == 15)
     {
         return 3;
     }
-    else if (start == 4 && next == )
+    else if (start == 4 && length > 12 && length < 17)
     {
         return 4;
     }
-    else if (start == 5)
+    else if (start == 5 && next > 0 && next < 6 && length == 16)
     {
         return 5;
     }
