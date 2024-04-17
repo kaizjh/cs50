@@ -20,7 +20,7 @@ int main(void)
  */
 float count(string s)
 {
-    float L = 0, S = 0, letters = 0, words = 0, sentences = 0;
+    float L = 0, S = 0, letters = 0, words = 1, sentences = 0;
     for(int i = 0, n = strlen(s); i < strlen(s); i++)
     {
         if ((s[i] < 'z' && s[i] > 'a') || (s[i] < 'Z' && s[i] > 'A'))
