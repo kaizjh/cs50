@@ -13,7 +13,7 @@ int main(void)
         {
             if(p1[i] < 65 || p1[i] > 122 || (p1[i] > 90 && p1[i] < 97))
             {
-                printf("Please enter alphabets.");
+                printf("Don't enter anything but alphabets.\n");
                 mark = 1;
                 break;
             }
