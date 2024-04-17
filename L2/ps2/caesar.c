@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 string encrypt(string p, string key);
 
@@ -36,7 +37,7 @@ string encrypt(string p, string key)
     // Convert string key to int k
     for (int i = 0, n = strlen(key); i < n; i++)
     {
-        
+
     }
     // Allocate memory for the cipher string
     string cipher = p;
