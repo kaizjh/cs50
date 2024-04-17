@@ -1,3 +1,7 @@
+/**Is 'you're' two words? is ',' ended a sentence?
+ * I don't really know about this part in English, even in chinese. so i can't do this 'ToDo'.
+ * And, is grade 1 CLI(index) 0~1? or 1~2? or others? goole, i can't find the answer.
+*/
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
