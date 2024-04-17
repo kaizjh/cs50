@@ -9,7 +9,7 @@ int main(void)
 {
     string p1 = get_word_and_toupper(1);
     string p2 = get_word_and_toupper(2);
-    printf("%s %s\n", p1, p2);
+    
 
 }
 
