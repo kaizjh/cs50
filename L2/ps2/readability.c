@@ -17,7 +17,7 @@ int main(void)
  * And the S, the average number of sentences per 100 words in the text
  * Then compute the Coleman-Liau index
  */
-int index(string s)
+int count(string s)
 {
     float L = 0, S = 0, letters = 0, words = 0, sentences = 0;
     for(int i = 0, n = strlen(s); i < strlen(s); i++)
