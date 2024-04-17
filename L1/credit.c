@@ -65,13 +65,11 @@ int calculate(string s)
             sum = sum + (s[length - i] - 48) * 2;
         }
     }
-    printf("%i\n", sum);
 
     for (int j = 1; j < length + 1; j = j + 2)
     {
         sum = sum + s[length - j] - 48;
     }
-    printf("%i\n", sum);
     return sum;
 }
 
