@@ -6,9 +6,10 @@ int index(string s);
 int main(void)
 {
     // Prompt the user for some text
-    int text = get_string("Text: ");
+    string text = get_string("Text: ");
 
     int index = count(text);
+
     // Print the Grade X
 }
 
@@ -34,8 +35,9 @@ int index(string s)
             sentences++;
         }
     }
-    printf("%f %f\n", letters, words);
+    printf("%f %f %f\n", letters, words, sentences);
     L = letters / words * 100;
     S = sentences / words *100;
-    index = 0.0588 * L
+    index = 0.0588 * L - 0.296 * S -15.8
+
 }
