@@ -70,6 +70,7 @@ int calculate(string s)
     {
         sum = sum + s[length - j] - 48;
     }
+    printf("%i\n", sum);
     return sum;
 }
 
