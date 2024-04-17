@@ -1,3 +1,5 @@
+//Luhn's Algorithm, vertify a credit card's validation
+
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
