@@ -18,13 +18,20 @@ int main(void)
  */
 int index(string s)
 {
-    int L = 0, n = strlen(s);
-    for(int i = 0; i < strlen(s); i++)
+    float L = 0, S = 0, letters = 0, words = 0;
+    for(int i = 0, n = strlen(s); i < strlen(s); i++)
     {
-        if ((p[i] < 65 && p[i] > 90) || (p[i] < 122 && p[i] > 97))
+        if ((p[i] < 'z' && p[i] > 'a') || (p[i] < 'Z' && p[i] > 'A'))
         {
-            letter++;
+            letters++;
         }
-        if(p[i] == )
+        if(p[i] == ' ')
+        {
+            words++;
+        }
     }
+    printf("%f %f\n", letters, words);
+    L = letters / words * 100;
+    S = 
+    index = 0.0588 * L
 }
