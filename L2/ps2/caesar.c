@@ -1,2 +1,8 @@
 // Using Caesar's cipher to encrypt messages
-#in
+#include <cs50.h>
+#include <stdio.h>
+
+// Using command-line argument assign the key
+// Prompt user to get the plaintext
+// Encrypt the plaintext with the algorithm: c = (p + k) % 26;
+// print the ciphertext
