@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-string encrypt(string s, string a);
+string encrypt(string p, string key);
 
 int main(int argc, string argv[])
 {
@@ -31,14 +31,20 @@ int main(int argc, string argv[])
 }
 
 // Encrypt the plaintext with the algorithm: c = (p + k) % 26
-string encrypt(string p, string k)
+string encrypt(string p, string key)
 {
+    // Convert string key to int k
+    for (int i = 0, n = strlen(k); i < n; i++)
+    {
+        
+    }
+    // Allocate memory for the cipher string
     string cipher = p;
+
     for (int i = 0, n = strlen(p); i < n; i++)
     {
         char c = toupper(p[i]);
         int j = c - 'A';
-        int key = k;
         cipher[i] ='A' + (j + key) % 26;
     }
     return cipher;
