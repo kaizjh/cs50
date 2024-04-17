@@ -7,7 +7,12 @@ int check(int sum, string s);
 
 int main(void)
 {
+    do
+    {
+
+    }
     string number = get_string("Number:");
+
 
     int sum = calculate(number);
     int result = check(sum, number);
