@@ -54,7 +54,7 @@ int main(void)
 int calculate(string s)
 {
     int sum = 0;
-    for (int i = 2; i < length; i = i + 2)
+    for (int i = 2; i < length + 1; i = i + 2)
     {
         if (s[length - i] > 52)
         {
