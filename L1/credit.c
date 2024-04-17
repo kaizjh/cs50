@@ -53,7 +53,10 @@ int main(void)
 int calculate(string s)
 {
     int sum = 0;
-    printf("%s", s);
+    printf("%s\n", s);
+    printf("%i\n", s[0]);
+    printf("%i\n", s[1]);
+    printf("%i\n", s[15]);
     for (int i = 2; i < length; i = i + 2)
     {
         if (s[length - i] > 52)
