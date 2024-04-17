@@ -13,9 +13,9 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    for (int i = 0, n= strlen(argv); i < n; i++)
+    for (int i = 0, n = strlen(argv[1]); i < n; i++)
     {
-        if (argv[i] < '0' || argv[i] > '9')
+        if (argv[1][i] < '0' || argv[1][i] > '9')
         {
             printf("Usage: ./caesar key");
             return 1;
@@ -23,7 +23,7 @@ int main(int argc, string argv[])
     }
 
     string plain = get_string("plaintext:  ");
-    string cipher = string encrypt(plain, int(argv));
+    string cipher = encrypt(plain, argv[1]);
 
     printf("ciphertext: %s\n", cipher);
     return 0;
