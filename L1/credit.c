@@ -7,11 +7,11 @@ int check(int sum, string s);
 
 int main(void)
 {
+    int correct = 0;
     do
     {
         string number = get_string("Number:");
         int length = strlen(number);
-        int correct = 0;
         for (int i = 0; i < length; i++)
         {
             if (number[i] < 48 || number[i] > 57)
