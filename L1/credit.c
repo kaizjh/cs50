@@ -57,15 +57,18 @@ int calculate(string s)
 int check(int sum, string s)
 {
     int start = s[0] - 48;
+    int next = s[1] - 48;
+    int length = strlen(s);
+
     if (sum % 10)
     {
         return 1;
     }
-    else if (start == 3)
+    else if (start == 3 && length > 12 && length < 17)
     {
         return 3;
     }
-    else if (start == 4)
+    else if (start == 4 && next == )
     {
         return 4;
     }
