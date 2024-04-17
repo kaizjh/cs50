@@ -62,6 +62,7 @@ int calculate(string s)
     {
         if (s[length - i] > 52)
         {
+            printf("%i\n", s[i] - 48);
             sum = sum + 1 + (s[i] -48) * 2 - 10;
         }
         else
