@@ -3,16 +3,17 @@
 #include <stdio.h>
 #include <string.h>
 
-string get_word(int number);
+string get_word_and_toupper(int number);
 
 int main(void)
 {
+    string p1 = get_word_and_toupper(1);
+    string p2 = get_word_and_toupper(2);
+    printf("%s %s\n", p1, p2);
 
-    string d = strupr("sfdsf");
-    printf("%s", d);
 }
 
-string get_word(int number)
+string get_word_and_toupper(int number)
 {
     int mark;
     string p;
@@ -28,8 +29,10 @@ string get_word(int number)
                 mark = 1;
                 break;
             }
+            p[i] = toupper(p[i]);
         }
     }
     while (mark);
+
     return p;
 }
