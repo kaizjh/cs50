@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Using command-line argument assign the key
+
 // Prompt user to get the plaintext
 // Encrypt the plaintext with the algorithm: c = (p + k) % 26;
 // print the ciphertext
@@ -24,6 +24,5 @@ int main(int argc, string argv[])
             return 1;
         }
     }
-    printf("%s\n", argv);
 }
 
