@@ -1,9 +1,10 @@
 // Using Caesar's cipher to encrypt messages
 #include <cs50.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 
-string encrypt(string s, int a);
+string encrypt(string s, string a);
 
 int main(int argc, string argv[])
 {
@@ -30,14 +31,14 @@ int main(int argc, string argv[])
 }
 
 // Encrypt the plaintext with the algorithm: c = (p + k) % 26
-string encrypt(string p, int k)
+string encrypt(string p, string k)
 {
-    string cipher[];
+    string cipher;
     for (int i = 0, n = strlen(p); i < n; i++)
     {
         char c = toupper(p[i]);
         int j = c - 64;
-        cipher[i] = (j + k) % 26;
+        cipher[i] = (j + int(k)) % 26;
     }
     return cipher;
 }
