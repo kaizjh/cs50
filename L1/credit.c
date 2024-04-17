@@ -5,13 +5,16 @@
 int calculate(string s);
 int check(int sum, string s);
 
+int  length = 0;
+
 int main(void)
 {
     int correct = 0;
+    string number;
     do
     {
-        string number = get_string("Number:");
-        int length = strlen(number);
+        number = get_string("Number:");
+        length = strlen(number);
         for (int i = 0; i < length; i++)
         {
             if (number[i] < 48 || number[i] > 57)
@@ -49,7 +52,7 @@ int main(void)
 // Calculate Checksum
 int calculate(string s)
 {
-    int sum = 0, length = strlen(s);
+    int sum = 0;
     for (int i = 0; i < length; i = i + 2)
     {
         if (s[i] > 52)
@@ -74,7 +77,6 @@ int check(int sum, string s)
 {
     int start = s[0] - 48;
     int next = s[1] - 48;
-    int length = strlen(s);
 
     if (sum % 10)
     {
