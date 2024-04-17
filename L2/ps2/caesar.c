@@ -30,10 +30,11 @@ int main(int argc, string argv[])
 // Encrypt the plaintext with the algorithm: c = (p + k) % 26
 string encrypt(string p, int k)
 {
+    string cipher[];
     for (int i = 0, n = strlen(p); i < n; i++)
     {
-        char c = toupper(p[i])
+        char c = toupper(p[i]);
         int j = c - 64;
-        p[i] = (p[i] + k) % 26;
+        cipher[i] = (j + k) % 26;
     }
 }
