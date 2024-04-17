@@ -1,5 +1,4 @@
 // Using Caesar's cipher to encrypt messages
-echo "Usage: ./caeser key"
 
 #include <cs50.h>
 #include <stdio.h>
@@ -10,6 +9,7 @@ echo "Usage: ./caeser key"
 // print the ciphertext
 int main(int argc, string argv[])
 {
+    if(argc == 2)
     printf("%s\n", argv);
 }
 
