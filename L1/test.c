@@ -2,7 +2,7 @@
 #include <string.h>
 int main(void)
 {
-    char *s = "371449635398431";
+    char *s = "430000000000000";
     printf("%lu\n", strlen(s));
 }
 
