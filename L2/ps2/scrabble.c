@@ -4,14 +4,21 @@
 
 int main(void)
 {
+
+
+    string p2 = get_string("Player 2:");
+}
+
+string get_word()
+{
     int mark;
     do
     {
         mark = 0;
-        string p1 = get_string("Player 1:");
-        for (int i = 0, n = strlen(p1); i < n; i++)
+        string p = get_string("Player 1:");
+        for (int i = 0, n = strlen(p); i < n; i++)
         {
-            if(p1[i] < 65 || p1[i] > 122 || (p1[i] > 90 && p1[i] < 97))
+            if(p[i] < 65 || p[i] > 122 || (p[i] > 90 && p[i] < 97))
             {
                 printf("Don't enter anything but alphabets.\n");
                 mark = 1;
@@ -20,5 +27,4 @@ int main(void)
         }
     }
     while (mark);
-    string p2 = get_string("Player 2:");
 }
