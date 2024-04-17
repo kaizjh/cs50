@@ -13,6 +13,7 @@ int main(void)
     string number;
     do
     {
+        correct = 0;
         number = get_string("Number:");
         length = strlen(number);
         for (int i = 0; i < length; i++)
