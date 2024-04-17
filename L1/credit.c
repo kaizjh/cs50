@@ -10,6 +10,11 @@ int main(void)
     do
     {
         string number = get_string("Number:");
+        length = strlen(number);
+        for (int i = 0；i < length; i++)
+        {
+            if (number[i] <)
+        }
     }
     while ()
 
