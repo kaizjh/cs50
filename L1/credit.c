@@ -11,9 +11,13 @@ int main(void)
     {
         string number = get_string("Number:");
         length = strlen(number);
+        int 
         for (int i = 0；i < length; i++)
         {
-            if (number[i] <)
+            if (number[i] < 48 || number[i] > 57)
+            {
+
+            }
         }
     }
     while ()
