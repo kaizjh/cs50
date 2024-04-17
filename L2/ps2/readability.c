@@ -31,7 +31,7 @@ float count(string s)
         {
             words++;
         }
-        if(s[i] == '.' || s[i] == '?' || s[i] == '!' || s[i] == ',' || s[i] == ';' || s[i] == '.')
+        if(s[i] == '.' || s[i] == '?' || s[i] == '!' || s[i] == ';' || s[i] == '.')
         {
             sentences++;
         }
