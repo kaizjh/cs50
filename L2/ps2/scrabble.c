@@ -9,11 +9,11 @@ int main(void)
 {
     string p1 = get_word_and_toupper(1);
     string p2 = get_word_and_toupper(2);
-    
+
 
 }
 
-string get_word_and_toupper(int number)
+string get_word(int number)
 {
     int mark;
     string p;
