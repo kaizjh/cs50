@@ -1,5 +1,6 @@
-//Luhn's Algorithm, vertify a credit card, valid or not, then check it belongs to 
-
+/** Luhn's Algorithm, vertify a credit card, valid or not, then classify it.
+ * Really a hard work!
+ */
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
