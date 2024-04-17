@@ -18,7 +18,11 @@ int main(int argc, string argv[])
 
     for (int i = 0, n= strlen(argv); i < n; i++)
     {
-        d
+        if (argv[i] < '0' || argv[i] > '9')
+        {
+            printf("Usage: ./caesar key");
+            return 1;
+        }
     }
     printf("%s\n", argv);
 }
