@@ -9,9 +9,10 @@ int main(void)
 {
     do
     {
-
+        string number = get_string("Number:");
     }
-    string number = get_string("Number:");
+    while ()
+
 
 
     int sum = calculate(number);
