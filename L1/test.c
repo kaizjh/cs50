@@ -2,6 +2,7 @@
 #include <string.h>
 int main(void)
 {
-    printf("%i", strlen(4222222222222));
+    long char *s = 4222222222222;
+    printf("%i", strlen(s));
 }
 
