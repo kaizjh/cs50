@@ -34,7 +34,7 @@ int main(int argc, string argv[])
 string encrypt(string p, string key)
 {
     // Convert string key to int k
-    for (int i = 0, n = strlen(k); i < n; i++)
+    for (int i = 0, n = strlen(key); i < n; i++)
     {
         
     }
