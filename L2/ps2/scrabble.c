@@ -33,14 +33,13 @@ string get_word(int number)
 {
     string p = get_string("Player %i:", number);
     for (int i = 0, n = strlen(p); i < n; i++)
+    {
+        if(p[i] < 65 || p[i] > 122 || (p[i] > 90 && p[i] < 97))
         {
-            if(p[i] < 65 || p[i] > 122 || (p[i] > 90 && p[i] < 97))
-            {
-                p[i] = 0;
-                mark = 1;
-            }
-            p[i] = toupper(p[i]);
+            p[i] = 0;
         }
+        p[i] = toupper(p[i]);
+    }
     return p;
 }
 
