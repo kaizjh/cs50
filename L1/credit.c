@@ -53,9 +53,9 @@ int main(void)
 int calculate(string s)
 {
     int sum = 0;
-    for (int i = 0; i < length; i = i + 2)
+    for (int i = 2; i < length; i = i + 2)
     {
-        if (s[i] > 52)
+        if (s[length - i] > 52)
         {
             sum = sum + 1 + (s[i] -48) * 2 - 10;
         }
@@ -67,7 +67,7 @@ int calculate(string s)
 
     for (int j = 1; j < length; j = j + 2)
     {
-        sum = sum + s[j] - 48;
+        sum = sum + s[length - j] - 48;
     }
     return sum;
 }
