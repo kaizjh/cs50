@@ -2,8 +2,8 @@
 #include <cs50.h>
 #include <ctype.h>
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
 string encrypt(string p, string key);
 
@@ -11,7 +11,7 @@ int main(int argc, string argv[])
 {
     if (argc != 2)
     {
-        printf("Please enter one argument!");
+        printf("Please enter one argument!\n");
         return 1;
     }
 
@@ -19,7 +19,7 @@ int main(int argc, string argv[])
     {
         if (argv[1][i] < '0' || argv[1][i] > '9')
         {
-            printf("Usage: ./caesar key");
+            printf("Usage: ./caesar key\n");
             return 1;
         }
     }
@@ -34,19 +34,16 @@ int main(int argc, string argv[])
 // Encrypt the plaintext with the algorithm: c = (p + k) % 26
 string encrypt(string p, string key)
 {
-    // Convert string key to int k
-    for (int i = 0, n = strlen(key); i < n; i++)
-    {
-
-    }
     // Allocate memory for the cipher string
     string cipher = p;
+    // Convert string key to int k
+    int k = atoi(key);
 
     for (int i = 0, n = strlen(p); i < n; i++)
     {
         char c = toupper(p[i]);
         int j = c - 'A';
-        cipher[i] ='A' + (j + key) % 26;
+        cipher[i] ='A' + (j + k) % 26;
     }
     return cipher;
 }
