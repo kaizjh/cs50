@@ -36,9 +36,9 @@ float count(string s)
             sentences++;
         }
     }
-    printf("%f %f %f\n", letters, words, sentences);
     L = letters / words * 100;
     S = sentences / words *100;
     float index = 0.0588 * L - 0.296 * S -15.8;
+    printf("%f %f %f %f\n", letters, words, sentences, index);
     return index;
 }
