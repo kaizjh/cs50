@@ -7,9 +7,9 @@ string get_word(int number);
 
 int main(void)
 {
-    string p1 = uppercase(get_word(1));
-    string p2 = get_word(2);
-
+    
+    string d = toupper("sfdsf");
+    printf("%s", d);
 }
 
 string get_word(int number)
