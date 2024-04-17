@@ -39,7 +39,7 @@ string encrypt(string p, string k)
         char c = toupper(p[i]);
         int j = c - 'A';
         int key = k;
-        cipher[i] = (j + key) % 26;
+        cipher[i] ='A' + (j + key) % 26;
     }
     return cipher;
 }
