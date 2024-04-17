@@ -9,13 +9,13 @@ int main(void)
     string p2 = get_string("Player 2:");
 }
 
-string get_word()
+string get_word(int p)
 {
     int mark;
     do
     {
         mark = 0;
-        string p = get_string("Player 1:");
+        string p = get_string("Player %i:", p);
         for (int i = 0, n = strlen(p); i < n; i++)
         {
             if(p[i] < 65 || p[i] > 122 || (p[i] > 90 && p[i] < 97))
