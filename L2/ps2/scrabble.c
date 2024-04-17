@@ -7,8 +7,8 @@ string get_word(int number);
 
 int main(void)
 {
-    
-    string d = toupper("sfdsf");
+
+    string d = strupr("sfdsf");
     printf("%s", d);
 }
 
