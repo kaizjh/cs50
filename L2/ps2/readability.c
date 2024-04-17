@@ -25,5 +25,6 @@ int index(string s)
         {
             letter++;
         }
+        if(p[i] == )
     }
 }
