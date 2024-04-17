@@ -86,7 +86,7 @@ int check(int sum, string s)
     {
         return 3;
     }
-    else if (start == 4 && length > 12 && length < 17)
+    else if (start == 4 && length == 13 && length == 16)
     {
         return 4;
     }
