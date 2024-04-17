@@ -29,7 +29,7 @@ int index(string s)
         {
             words++;
         }
-        if(p[i] == '.' || p[i] == '?' || p[i] == '!')
+        if(p[i] == '.' || p[i] == '?' || p[i] == '!' || p[i] == ',' || p[i] == ';' || p[i] == '.' ||)
     }
     printf("%f %f\n", letters, words);
     L = letters / words * 100;
