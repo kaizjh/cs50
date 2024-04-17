@@ -10,17 +10,18 @@ int main(void)
     do
     {
         string number = get_string("Number:");
-        length = strlen(number);
-        int 
-        for (int i = 0；i < length; i++)
+        int length = strlen(number);
+        int correct = 0;
+        for (int i = 0; i < length; i++)
         {
             if (number[i] < 48 || number[i] > 57)
             {
-
+                correct = 1;
+                break;
             }
         }
     }
-    while ()
+    while (correct);
 
 
 
