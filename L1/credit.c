@@ -54,20 +54,15 @@ int main(void)
 int calculate(string s)
 {
     int sum = 0;
-    printf("%s\n", s);
-    printf("%i\n", s[0]);
-    printf("%i\n", s[1]);
-    printf("%i\n", s[15]);
     for (int i = 2; i < length; i = i + 2)
     {
         if (s[length - i] > 52)
         {
-            printf("%i\n", s[i] - 48);
-            sum = sum + 1 + (s[i] -48) * 2 - 10;
+            sum = sum + 1 + (s[length - i] -48) * 2 - 10;
         }
         else
         {
-            sum = sum + (s[i] - 48) * 2;
+            sum = sum + (s[length - i] - 48) * 2;
         }
     }
 
