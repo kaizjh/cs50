@@ -2,20 +2,23 @@
 #include <stdio.h>
 #include <string.h>
 
+string get_word(int number);
+
 int main(void)
 {
+    string p1 = uppercase(get_word(1));
+    string p2 = get_word(2);
 
-
-    string p2 = get_string("Player 2:");
 }
 
 string get_word(int number)
 {
     int mark;
+    string p;
     do
     {
         mark = 0;
-        string p = get_string("Player %i:", number);
+        p = get_string("Player %i:", number);
         for (int i = 0, n = strlen(p); i < n; i++)
         {
             if(p[i] < 65 || p[i] > 122 || (p[i] > 90 && p[i] < 97))
@@ -27,4 +30,5 @@ string get_word(int number)
         }
     }
     while (mark);
+    return p;
 }
