@@ -65,11 +65,12 @@ int calculate(string s)
         }
     }
 
-    for (int j = 1; j < length; j = j + 2)
+    for (int j = 1; j < length + 1; j = j + 2)
     {
         sum = sum + s[length - j] - 48;
     }
     return sum;
+    printf("%i", sum);
 }
 
 //Check for Card Length and Starting Digits
