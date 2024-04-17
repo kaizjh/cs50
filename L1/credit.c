@@ -5,7 +5,7 @@
 int calculate(string s);
 int check(int sum, string s);
 
-int  length = 0;
+int length = 0;
 
 int main(void)
 {
@@ -27,11 +27,9 @@ int main(void)
     }
     while (correct);
 
-
-
     int sum = calculate(number);
     int result = check(sum, number);
-    //printf the result
+    // printf the result
     switch (result)
     {
         case 1:
@@ -58,7 +56,7 @@ int calculate(string s)
     {
         if (s[length - i] > 52)
         {
-            sum = sum + 1 + (s[length - i] -48) * 2 - 10;
+            sum = sum + 1 + (s[length - i] - 48) * 2 - 10;
         }
         else
         {
@@ -73,7 +71,7 @@ int calculate(string s)
     return sum;
 }
 
-//Check for Card Length and Starting Digits
+// Check for Card Length and Starting Digits
 int check(int sum, string s)
 {
     int start = s[0] - 48;
