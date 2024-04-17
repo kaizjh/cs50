@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Encrypt the plaintext with the algorithm: c = (p + k) % 26;
+string encrypt(string s, int a)
 // print the ciphertext
 int main(int argc, string argv[])
 {
@@ -24,10 +24,12 @@ int main(int argc, string argv[])
     }
 
     string plain = get_string("plaintext:  ");
-    string cipher = string encrypt(p);
+    string cipher = string encrypt(plain, int(argv));
 }
 
-string encrypt(string s, )
+// Encrypt the plaintext with the algorithm: c = (p + k) % 26
+string encrypt(string p, int k)
 {
-    if
+    k = k % 26;
+    for (int i = 0; i < )
 }
