@@ -2,7 +2,7 @@
 #include <string.h>
 int main(void)
 {
-    long char *s = 4222222222222;
-    printf("%i", strlen(s));
+    char *s = 4222222222222;
+    printf("%u", strlen(s));
 }
 
