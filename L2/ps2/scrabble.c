@@ -15,15 +15,15 @@ int main(void)
     int s2 = score(p2);
     if(s1 > s2)
     {
-        printf("Player 1 wins!");
+        printf("Player 1 wins!\n");
     }
     else if(s1 < s2)
     {
-        printf("Player 2 wins!");
+        printf("Player 2 wins!\n");
     }
     else
     {
-        printf("Tie!");
+        printf("Tie!\n");
     }
 
 }
@@ -75,11 +75,11 @@ int score(string p)
         {
             score = score + 5;
         }
-        else if( p[i] == 'J' p[i] == 'X')
+        else if( p[i] == 'J' || p[i] == 'X')
         {
             score = score + 8;
         }
-        else if( p[i] == 'Q' p[i] == 'Z')
+        else if( p[i] == 'Q' || p[i] == 'Z')
         {
             score = score + 10;
         }
