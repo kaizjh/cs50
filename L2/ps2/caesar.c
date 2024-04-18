@@ -42,12 +42,12 @@ string encrypt(string p, string key)
     for (int i = 0, n = strlen(p); i < n; i++)
     {
         char c = p[i];
-        if (c > 'A' && c < 'Z')
+        if (c >= 'A' && c <= 'Z')
         {
             int j = c - 'A';
             cipher[i] ='A' + (j + k) % 26;
         }
-        else if (c > 'a' && c < 'z')
+        else if (c >= 'a' && c <= 'z')
         {
             int j = c - 'a';
             cipher[i] ='a' + (j + k) % 26;
