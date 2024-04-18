@@ -41,9 +41,14 @@ string encrypt(string p, string key)
 
     for (int i = 0, n = strlen(p); i < n; i++)
     {
-        char c = toupper(p[i]);
-        int j = c - 'A';
-        cipher[i] ='A' + (j + k) % 26;
+        char c = p[i];
+        if (c > 'A' && c < 'Z')
+        {
+            int j = c - 'A';
+            cipher[i] ='A' + (j + k) % 26;
+        }
+        
+
     }
     return cipher;
 }
