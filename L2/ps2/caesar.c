@@ -47,7 +47,7 @@ string encrypt(string p, string key)
             int j = c - 'A';
             cipher[i] ='A' + (j + k) % 26;
         }
-        else
+        else if (c > 'a' && c < 'z')
         {
             int j = c - 'a';
             cipher[i] ='a' + (j + k) % 26;
