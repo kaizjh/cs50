@@ -47,8 +47,11 @@ string encrypt(string p, string key)
             int j = c - 'A';
             cipher[i] ='A' + (j + k) % 26;
         }
-        
-
+        else
+        {
+            int j = c - 'a';
+            cipher[i] ='a' + (j + k) % 26;
+        }
     }
     return cipher;
 }
