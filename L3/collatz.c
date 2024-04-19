@@ -1,9 +1,12 @@
 #include <cs50.c>
 #include <stdio.h>
 
+int collatz(int n);
+
 int main()
 {
-    c
+    int n = get_int("Enter a positive integer:");
+    int s = collatz(n);
 }
 
 int collatz(int n)
@@ -17,6 +20,12 @@ int collatz(int n)
     {
         n = 3 * n + 1;
         step++;
+        collatz(n);
     }
     else
+    {
+        n = n / 2;
+        step++;
+        collatz(n);
+    }
 }
