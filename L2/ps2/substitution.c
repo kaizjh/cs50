@@ -37,12 +37,13 @@ int main(int argc, string argv[])
     string plain = get_string("plaintext:  ");
 
     string cipher = substitute(plain, key);
-    printf("ciphertext: %s", cipher);
+    printf("ciphertext: %s\n", cipher);
 }
 
 // Substitute the plaintext
 string substitute(string plain, string key)
 {
+    // Allocate memory for the sub string
     string sub = plain;
     int number = 0;
 
