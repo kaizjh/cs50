@@ -53,12 +53,12 @@ string substitute(string plain, string key)
         if (islower(plain[j]))
         {
             number = plain[j] - 97;
-            sub[j] = key[number];
+            sub[j] = tolower(key[number]);
         }
         else if (isupper(plain[j]))
         {
             number = plain[j] -65;
-            sub[j] = key[number];
+            sub[j] = toupper(key[number]);
         }
     }
 
