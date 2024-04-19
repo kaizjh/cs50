@@ -1,4 +1,4 @@
-#include <cs50.c>
+#include <cs50.h>
 #include <stdio.h>
 
 int collatz(int n);
@@ -12,7 +12,7 @@ int main()
 int collatz(int n)
 {
     int step = 1;
-    if (n = 1)
+    if (n == 1)
     {
         return step;
     }
