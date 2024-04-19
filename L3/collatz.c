@@ -18,14 +18,12 @@ int collatz(int n)
     }
     else if (n % 2)
     {
-        n = 3 * n + 1;
         step++;
-        collatz(n);
+        collatz(3 * n + 1);
     }
     else
     {
-        n = n / 2;
         step++;
-        collatz(n);
+        collatz(n / 2);
     }
 }
