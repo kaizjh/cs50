@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Encrypt the plaintext with substitution
 // Print the ciphertext (preserve the case in plaintext)
 
 int main(int argc, string argv[])
@@ -20,17 +19,28 @@ int main(int argc, string argv[])
         printf("Key must be 26 characters, and each letter exactly once\n");
         return 1;
     }
+
     int sum = 0;
     for (int i = 0, n = strlen(argv[1]); i < n; i++)
     {
         int t = toupper(argv[1][i]);
         sum = sum + t;
     }
+    // If each letter exactly once, sum == 2015
     if (sum != 2015)
     {
         printf("Key must be 26 characters, and each letter exactly once\n");
         return 1;
     }
-    // Prompt user to get the plaintext
-    
+    string key = argv[1];
+
+    string plain = get_string("Plaintext:  ");
+
+    string cipher = substitute(plain, key);
+}
+
+// Encrypt the plaintext with substitution
+string substitute(string p, string k)
+{
+    for ()
 }
