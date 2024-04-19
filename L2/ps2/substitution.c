@@ -1,6 +1,6 @@
 // Encrypt the plaintext by using the 26-character key to substitute the plaintext
-#include <ctype.h>
 #include <cs50.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -23,7 +23,7 @@ int main(int argc, string argv[])
     int seen[26] = {0};
     for (int i = 0; i < 26; i++)
     {
-        char c = toupper(argv[1][i]);  // Convert to uppercase for simplicity
+        char c = toupper(argv[1][i]); // Convert to uppercase for simplicity
         if (!isalpha(c))
         {
             printf("Key must be 26 alphabetic characters, and each letter exactly once\n");
@@ -34,7 +34,7 @@ int main(int argc, string argv[])
             printf("Key must be 26 alphabetic characters, and each letter exactly once\n");
             return 1;
         }
-        seen[c - 'A'] = 1;  // Mark this character as seen
+        seen[c - 'A'] = 1; // Mark this character as seen
     }
 
     string key = argv[1];
@@ -50,8 +50,8 @@ int main(int argc, string argv[])
 // Substitute the plaintext
 string substitute(string plain, string key)
 {
-    // Allocate memory for the sub string
-    string sub = plain;
+    string sub = plain; // Allocate memory for the sub string
+
     int number = 0;
 
     for (int j = 0, n = strlen(plain); j < n; j++)
@@ -63,7 +63,7 @@ string substitute(string plain, string key)
         }
         else if (isupper(plain[j]))
         {
-            number = plain[j] -65;
+            number = plain[j] - 65;
             sub[j] = toupper(key[number]);
         }
     }
