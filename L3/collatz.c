@@ -23,6 +23,6 @@ int collatz(int n)
     }
     else
     {
-        return 1 + collatz(n / 2); // Maybe named this function collatz_steps is more suitable.
+        return 1 + collatz(n / 2); // Maybe named this function collatz_steps is more suitable, and more understandable.
     }
 }
