@@ -51,7 +51,6 @@ int main(int argc, string argv[])
 string substitute(string plain, string key)
 {
     string sub = plain; // Allocate memory for the sub string
-
     int number = 0;
 
     for (int j = 0, n = strlen(plain); j < n; j++)
