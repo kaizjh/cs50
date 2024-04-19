@@ -13,12 +13,12 @@ int main(int argc, string argv[])
 {
     if (argc != 2)
     {
-        printf("Usage: ./substitution key");
+        printf("Usage: ./substitution key\n");
         return 1;
     }
     else if (strlen(argv[1]) != 26)
     {
-        printf("Key must be 26 characters, and each letter exactly once");
+        printf("Key must be 26 characters, and each letter exactly once\n");
         return 1;
     }
     int sum = 0;
@@ -29,7 +29,7 @@ int main(int argc, string argv[])
     }
     if (sum != 2015)
     {
-        printf("Key must be 26 characters, and each letter exactly once");
+        printf("Key must be 26 characters, and each letter exactly once\n");
         return 1;
     }
 }
