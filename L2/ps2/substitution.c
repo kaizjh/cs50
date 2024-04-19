@@ -4,7 +4,9 @@
 #include <stdio.h>
 #include <string.h>
 
-void check();
+void check(int argc, string argv[]);
+
+int n = strlen(argv[1]);
 
 // Prompt user to get the plaintext
 // Encrypt the plaintext with substitution
