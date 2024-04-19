@@ -20,7 +20,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    int seen[26] = {0};
+    int seen[26] = {0}; // Array to keep track of seen characters in the key
     for (int i = 0; i < 26; i++)
     {
         char c = toupper(argv[1][i]); // Convert to uppercase for simplicity
