@@ -4,12 +4,19 @@
 #include <stdio.h>
 #include <string.h>
 
-// Using command-line argument to get the 26-character (each letter exactly once) key
+void check();
+
 // Prompt user to get the plaintext
 // Encrypt the plaintext with substitution
 // Print the ciphertext (preserve the case in plaintext)
 
 int main(int argc, string argv[])
+{
+    check();
+}
+
+// Ch command-line argument to get the 26-character (each letter exactly once) key
+void check()
 {
     if (argc != 2)
     {
