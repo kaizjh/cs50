@@ -20,19 +20,12 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    int sum = 0;
-    for (int i = 0, n = strlen(argv[1]); i < n; i++)
+    int seen[26] = {0};
+    for (int i = 0; i < n; i++)
     {
-        int t = toupper(argv[1][i]);
-        sum = sum + t;
+
     }
-    printf("%i\n", sum);
-    // If each letter exactly once, sum == 2015
-    if (sum != 2015)
-    {
-        printf("Key must be 26 characters, and each letter exactly once\n");
-        return 1;
-    }
+
     string key = argv[1];
 
     string plain = get_string("plaintext:  ");
