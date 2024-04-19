@@ -16,14 +16,25 @@ int main(int argc, string argv[])
     }
     else if (strlen(argv[1]) != 26)
     {
-        printf("Key must be 26 characters, and each letter exactly once\n");
+        printf("Key must be 26 alphabetic characters, and each letter exactly once\n");
         return 1;
     }
 
     int seen[26] = {0};
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < 26; i++)
     {
-
+        char c = toupper(argv[1][i]);  // Convert to uppercase for simplicity
+        if (!isalpha(c))
+        {
+            printf("Key must be 26 alphabetic characters, and each letter exactly once\n");
+            return 1;
+        }
+        else if (seen[c - 'A'])
+        {
+            printf("Key must be 26 alphabetic characters, and each letter exactly once\n");
+            return 1;
+        }
+        seen[c - 'A'] = 1;  // Mark this character as seen
     }
 
     string key = argv[1];
