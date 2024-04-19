@@ -33,7 +33,6 @@ int main(int argc, string argv[])
         return 1;
     }
     string key = argv[1];
-    printf("%s\n", key);
 
     string plain = get_string("plaintext:  ");
 
