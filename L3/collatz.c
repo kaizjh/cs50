@@ -7,6 +7,7 @@ int main()
 {
     int n = get_int("Enter a positive integer:");
     int s = collatz(n);
+    printf("%i\n", s);
 }
 
 int collatz(int n)
@@ -19,11 +20,11 @@ int collatz(int n)
     else if (n % 2)
     {
         step++;
-        collatz(3 * n + 1);
+        return collatz(3 * n + 1);
     }
     else
     {
         step++;
-        collatz(n / 2);
+        return collatz(n / 2);
     }
 }
