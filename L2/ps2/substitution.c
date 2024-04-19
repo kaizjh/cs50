@@ -6,8 +6,6 @@
 
 void check(int argc, string argv[]);
 
-int n = strlen(argv[1]);
-
 // Prompt user to get the plaintext
 // Encrypt the plaintext with substitution
 // Print the ciphertext (preserve the case in plaintext)
