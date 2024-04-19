@@ -44,6 +44,9 @@ string substitute(string p, string k)
 {
     for (int j = 0, n = strlen(p); j < n; j++)
     {
-        if ()
+        if (islower(p[i]))
+        {
+            
+        }
     }
 }
