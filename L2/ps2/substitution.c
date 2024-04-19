@@ -4,20 +4,12 @@
 #include <stdio.h>
 #include <string.h>
 
-void check(int argc, string argv[]);
-
-// Prompt user to get the plaintext
 // Encrypt the plaintext with substitution
 // Print the ciphertext (preserve the case in plaintext)
 
 int main(int argc, string argv[])
 {
-    check(argc, argv[]);
-}
-
-// Checking the command-line argument get the 26-character key and each letter exactly once
-void check(int argc, string argv[])
-{
+    // Checking the command-line argument get the 26-character key and each letter exactly once
     if (argc != 2)
     {
         printf("Usage: ./substitution key\n");
@@ -39,4 +31,6 @@ void check(int argc, string argv[])
         printf("Key must be 26 characters, and each letter exactly once\n");
         return 1;
     }
+    // Prompt user to get the plaintext
+    
 }
