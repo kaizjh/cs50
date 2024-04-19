@@ -12,19 +12,16 @@ int main()
 
 int collatz(int n)
 {
-    int step = 1;
     if (n == 1)
     {
-        return step;
+        return 0;
     }
     else if (n % 2)
     {
-        step++;
-        return collatz(3 * n + 1);
+        return 1 + collatz(3 * n + 1);
     }
     else
     {
-        step++;
-        return collatz(n / 2);
+        return 1 + collatz(n / 2);
     }
 }
