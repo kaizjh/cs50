@@ -43,7 +43,7 @@ int main(int argc, string argv[])
 // Substitute the plaintext
 string substitute(string plain, string key)
 {
-    string sub = NULL;
+    string sub = plain;
     int number = 0;
 
     for (int j = 0, n = strlen(plain); j < n; j++)
