@@ -12,11 +12,11 @@ void check();
 
 int main(int argc, string argv[])
 {
-    check();
+    check(argc, argv[]);
 }
 
-// Ch command-line argument to get the 26-character (each letter exactly once) key
-void check()
+// Checking the command-line argument get the 26-character key and each letter exactly once
+void check(int argc, string argv[])
 {
     if (argc != 2)
     {
