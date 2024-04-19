@@ -39,7 +39,7 @@ int main(int argc, string argv[])
     string cipher = substitute(plain, key);
 }
 
-// Encrypt the plaintext with substitution
+// Substitute the plaintext
 string substitute(string p, string k)
 {
     for ()
