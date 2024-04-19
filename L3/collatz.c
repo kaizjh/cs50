@@ -1,3 +1,4 @@
+// Using recursion to get the step of the collatz algorithm
 #include <cs50.h>
 #include <stdio.h>
 
@@ -18,10 +19,10 @@ int collatz(int n)
     }
     else if (n % 2)
     {
-        return 1 + collatz(3 * n + 1);
+        return 1 + collatz(3 * n + 1); // There no need to make a variable(e.g. int step;) to record the steps
     }
     else
     {
-        return 1 + collatz(n / 2);
+        return 1 + collatz(n / 2); // Maybe named this function collatz_steps is more suitable.
     }
 }
