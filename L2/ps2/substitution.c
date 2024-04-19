@@ -38,6 +38,8 @@ int main(int argc, string argv[])
 
     string cipher = substitute(plain, key);
     printf("ciphertext: %s\n", cipher);
+
+    return 0;
 }
 
 // Substitute the plaintext
