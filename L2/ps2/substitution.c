@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Print the ciphertext (preserve the case in plaintext)
+string substitute(string plain, string key);
 
 int main(int argc, string argv[])
 {
@@ -34,19 +34,31 @@ int main(int argc, string argv[])
     }
     string key = argv[1];
 
-    string plain = get_string("Plaintext:  ");
+    string plain = get_string("plaintext:  ");
 
     string cipher = substitute(plain, key);
+    printf("ciphertext: %s", cipher);
 }
 
 // Substitute the plaintext
-string substitute(string p, string k)
+string substitute(string plain, string key)
 {
-    for (int j = 0, n = strlen(p); j < n; j++)
+    string sub = NULL;
+    int number = 0;
+
+    for (int j = 0, n = strlen(plain); j < n; j++)
     {
-        if (islower(p[i]))
+        if (islower(plain[j]))
         {
-            
+            number = plain[j] - 96;
+            sub[j] = key[number];
+        }
+        else if (isupper(plain[j]))
+        {
+            number = plain[j] -64;
+            sub[j] = key[number];
         }
     }
+
+    return sub;
 }
