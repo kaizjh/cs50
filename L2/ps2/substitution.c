@@ -42,8 +42,8 @@ int main(int argc, string argv[])
 // Substitute the plaintext
 string substitute(string p, string k)
 {
-    for (int j = 0, n = strlen(k); j < n; j++)
+    for (int j = 0, n = strlen(p); j < n; j++)
     {
-        
+        if ()
     }
 }
