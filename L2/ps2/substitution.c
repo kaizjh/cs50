@@ -1,7 +1,8 @@
+// Encrypt the plaintext by using the 26-character key to substitute the plaintext
+#include <ctype.h>
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 
 string substitute(string plain, string key);
 
@@ -15,28 +16,23 @@ int main(int argc, string argv[])
     }
     else if (strlen(argv[1]) != 26)
     {
-        printf("Key must be 26 characters\n");
+        printf("Key must be 26 characters, and each letter exactly once\n");
         return 1;
     }
 
-    int seen[26] = {0}; // Array to keep track of seen characters in the key
-
-    for (int i = 0; i < 26; i++)
+    int sum = 0;
+    for (int i = 0, n = strlen(argv[1]); i < n; i++)
     {
-        char c = toupper(argv[1][i]); // Convert to uppercase for simplicity
-        if (!isalpha(c))
-        {
-            printf("Key must contain only alphabetic characters\n");
-            return 1;
-        }
-        if (seen[c - 'A'])
-        {
-            printf("Key must not contain duplicate characters\n");
-            return 1;
-        }
-        seen[c - 'A'] = 1; // Mark character as seen
+        int t = toupper(argv[1][i]);
+        sum = sum + t;
     }
-
+    printf("%i\n", sum);
+    // If each letter exactly once, sum == 2015
+    if (sum != 2015)
+    {
+        printf("Key must be 26 characters, and each letter exactly once\n");
+        return 1;
+    }
     string key = argv[1];
 
     string plain = get_string("plaintext:  ");
@@ -50,18 +46,21 @@ int main(int argc, string argv[])
 // Substitute the plaintext
 string substitute(string plain, string key)
 {
+    // Allocate memory for the sub string
     string sub = plain;
+    int number = 0;
 
     for (int j = 0, n = strlen(plain); j < n; j++)
     {
-        char c = plain[j];
-        if (islower(c))
+        if (islower(plain[j]))
         {
-            sub[j] = tolower(key[c - 'a']);
+            number = plain[j] - 97;
+            sub[j] = tolower(key[number]);
         }
-        else if (isupper(c))
+        else if (isupper(plain[j]))
         {
-            sub[j] = toupper(key[c - 'A']);
+            number = plain[j] -65;
+            sub[j] = toupper(key[number]);
         }
     }
 
