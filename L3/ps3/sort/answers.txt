@@ -1,11 +1,11 @@
 sort1 uses: Bubble sort
 
-How do you know?: time ./sort1 reversed10000.txt 0.259s  time ./sort1 sorted10000.txt 0.097s
+How do you know?: reversed10000 0.259s sorted10000 0.097s
 
 sort2 uses: Merge sort
 
-How do you know?: time ./sort2 reversed10000.txt 0.076s  time ./sort2 sorted10000.txt 0.104s
+How do you know?: reversed10000 0.076s sorted10000 0.104s
 
 sort3 uses: Selection sort
 
-How do you know?: time ./sort3 reversed10000.txt 0.166s  time ./sort3 sorted10000.txt 0.149s
+How do you know?: reversed10000 0.166s sorted10000 0.149s
