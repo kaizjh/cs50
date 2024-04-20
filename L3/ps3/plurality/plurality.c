@@ -90,13 +90,7 @@ void print_winner(void)
             winner.name = candidates[i].name;
         }
     }
-    for (int i = 0; i < candidate_count; i++)
-    {
-        if (candidates[i].votes == winner.votes)
-        {
-            winner.name = strcat(winner.name, candidates[i].name);
-        }
-    }
+    
 
     if (winner.name)
     {
