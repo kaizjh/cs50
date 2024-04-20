@@ -1,6 +1,6 @@
 sort1 uses: Bubble sort
 
-How do you know?: reversed10000 0.259s sorted10000 0.097s       sorted50000 0.984s
+How do you know?: reversed10000 0.259s sorted10000 0.097s       reversed50000 5.343s  sorted50000 0.984s
 
 sort2 uses: Merge sort
 
