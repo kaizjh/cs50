@@ -88,9 +88,13 @@ void print_winner(void)
             winner.votes = candidates[i].votes;
             winner.name = candidates[i].name;
         }
-        else if (candidates[i].votes == winner.votes)
+    }
+    for (int j = 0; j < candidate_count; i++)
+    {
+        if (candidates[i].votes > winner.votes)
         {
-            win
+            winner.votes = candidates[i].votes;
+            winner.name = candidates[i].name;
         }
     }
 
