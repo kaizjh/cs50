@@ -1,5 +1,5 @@
-#include <SDL.h>
-#include <SDL_image.h>
+#include <SDL2>
+#include <SDL2>
 
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
