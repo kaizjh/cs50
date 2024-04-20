@@ -89,6 +89,10 @@ void print_winner(void)
             winner.votes = candidates[i].votes;
             winner.name = candidates[i].name;
         }
+        if (strcmp(candidates[i].votes, winner.votes) == 0)
+        {
+            winner.name = "winner.name\ncandidates[i].name";
+        }
     }
     if (winner.name)
     {
@@ -101,6 +105,6 @@ void print_winner(void)
             printf("%s\n", candidates[i].name);
         }
     }
-    
+
     return;
 }
