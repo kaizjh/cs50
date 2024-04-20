@@ -1,6 +1,6 @@
-sort1 uses: TODO
+sort1 uses:
 
-How do you know?: TODO
+How do you know?: time reversed10000.txt 0.259s
 
 sort2 uses: TODO
 
