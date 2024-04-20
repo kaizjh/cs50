@@ -4,8 +4,8 @@ How do you know?: time ./sort1 reversed10000.txt 0.259s  time ./sort1 sorted1000
 
 sort2 uses: TODO
 
-How do you know?: time ./sort2 sorted10000.txt 0.104s
+How do you know?: time ./sort2 reversed10000.txt 0.076s  time ./sort2 sorted10000.txt 0.104s
 
 sort3 uses: TODO
 
-How do you know?: TODO
+How do you know?: time ./sort3 reversed10000.txt 0.166s  time ./sort3 sorted10000.txt 0.149s
