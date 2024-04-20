@@ -1,10 +1,10 @@
 sort1 uses:
 
-How do you know?: time reversed10000.txt 0.259s
+How do you know?: time ./sort1 reversed10000.txt 0.259s  time ./sort1 sorted10000.txt 0.097s
 
 sort2 uses: TODO
 
-How do you know?: TODO
+How do you know?: time ./sort2 sorted10000.txt 0.104s
 
 sort3 uses: TODO
 
