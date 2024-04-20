@@ -4,7 +4,7 @@ How do you know?: reversed10000 0.259s sorted10000 0.097s       reversed50000 5.
 
 sort2 uses: Merge sort
 
-How do you know?: reversed10000 0.076s sorted10000 0.104s       reversed50000 1.067s  sorted50000 1.160s
+How do you know?: reversed10000 0.076s sorted10000 0.104s       reversed50000 1.067s  sorted50000 0.991s
 
 sort3 uses: Selection sort
 
