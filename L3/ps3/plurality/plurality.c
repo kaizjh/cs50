@@ -67,8 +67,10 @@ bool vote(string name)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        candidates[i].name = argv[i + 1];
-        candidates[i].votes = 0;
+        if (strcmp(name, candidates[i].name) == 0)
+        {
+            return true;
+        }
     }
     return false;
 }
