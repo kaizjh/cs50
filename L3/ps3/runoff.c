@@ -6,5 +6,6 @@ int main()
 {
     // Get the candidates from the comman-line arguments
     // Get the number of voters
-    // Get votes, every voters has rank1,2,3, if get 
+    // Get votes, every voters has rank1,2,3, if get invalid vote, print the error, return
+    // 
 }
