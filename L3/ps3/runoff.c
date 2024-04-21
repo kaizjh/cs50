@@ -17,8 +17,12 @@ int main(int argc, string argv[])
         printf("Usage: ./runoff [candidate ...]");
         return 1;
     }
-    
-    candidate candidates;
+
+    candidate candidates[];
+    for (int i = 1; i < argc; i++)
+    {
+        candidates[i - 1] = argv[i];
+    }
 
     // Get the number of voters
     // Get votes, every voters has rank 1,2,3, if get invalid vote, print the error, return
