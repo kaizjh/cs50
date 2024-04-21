@@ -17,7 +17,8 @@ int main(int argc, string argv[])
         printf("Usage: ./runoff [candidate ...]");
         return 1;
     }
-
+    
+    candidate candidates;
 
     // Get the number of voters
     // Get votes, every voters has rank 1,2,3, if get invalid vote, print the error, return
