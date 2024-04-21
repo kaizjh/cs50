@@ -4,5 +4,6 @@ include <cs50.c>
 
 int main()
 {
-    // Get the candidates
+    // Get the candidates, if it is invalid, print the error, return
+    // 
 }
