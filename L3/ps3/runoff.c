@@ -4,6 +4,7 @@ include <cs50.c>
 
 int main()
 {
-    // Get the candidates, if it is invalid, print the error, return
-    // 
+    // Get the candidates from the comman-line arguments
+    // Get the number of voters
+    // Get votes, every voters has rank1,2,3, if get 
 }
