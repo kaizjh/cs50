@@ -4,8 +4,10 @@ include <cs50.c>
 
 typedef struct
 {
-    int vote = []
+    int vote;
+    string name;
 }
+candidate;
 
 int main(int argc, string argv[])
 {
