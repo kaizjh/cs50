@@ -14,6 +14,8 @@ candidate;
 candidate candidates[MAX]
 int candidate_cout;
 
+get_votes(int voter_count);
+
 int main(int argc, string argv[])
 {
     // Get the candidates from the comman-line arguments
@@ -32,7 +34,8 @@ int main(int argc, string argv[])
     // Get the number of voters
     int voter_count = get_int("Number of voters: ");
     // Get votes, every voters has rank 1,2,3,..., if get invalid vote, print the error, return
-    get_votes();
+    string votes = get_votes(int voter_count);
+    printf("%s\n", votes);
     // Calculate every candidate's votes in rank 1, if no candidate has more than 50% of the vote, then runoff to the rank 2, and so on
     // Print the winner
 }
@@ -46,10 +49,21 @@ get_votes(int voter_count)
         for (int j = 0; j < candidate_count; j++)
         {
             votes[i][j] = get_string("Rank %i\n", j + 1);
+
+            int invalid = 0;
             for (int k = 0; k < candidate_count; k++)
             {
-                if (strcmp(votes[i][j], 
+                if (strcmp(votes[i][j], candidates[k] == 0)
+                {
+                    invalid = 0;
+                }
+            }
+            if (invalid)
+            {
+                printf("Invalid vote.\n");
+                return 1;
             }
         }
     }
+    return votes[voter_count][candidate_count];
 }
