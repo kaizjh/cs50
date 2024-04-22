@@ -176,7 +176,7 @@ bool print_winner(void)
     int max_num = 0;
     for (int j = 0; j < candidate_count; j++)
     {
-        if (max == candidates[j].votes)
+        if (max > candidates[j].votes)
         {
             max_num++;
         }
