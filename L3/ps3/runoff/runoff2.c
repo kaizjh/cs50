@@ -66,3 +66,16 @@ int max_num = 0;
         }
         return true;
     }
+
+
+    if (candidates[i].eliminated)
+        {
+            continue;
+        }
+        else
+        {
+            if (min > candidates[i].votes)
+            {
+                min = candidates[i].votes;
+            }
+        }
