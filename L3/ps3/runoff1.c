@@ -14,7 +14,7 @@ candidate;
 candidate candidates[MAX];
 int candidate_cout;
 
-get_votes(int voter_count);
+string get_votes(int voter_count);
 
 int main(int argc, string argv[])
 {
@@ -41,7 +41,7 @@ int main(int argc, string argv[])
 }
 
 // Get votes, every voters has rank 1,2,3, if get invalid vote, print the error, return
-get_votes(int voter_count)
+string get_votes(int voter_count)
 {
     string votes[voter_count][candidate_count];
     for (int i = 0; i < voter_count; i++)
