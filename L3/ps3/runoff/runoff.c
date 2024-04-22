@@ -188,7 +188,6 @@ int find_min(void)
     int min = 1;
     for (int i = 0; i < candidate_count; i++)
     {
-        candidates[i].eliminated = true;
         if (candidates[i].eliminated)
         {
             continue;
