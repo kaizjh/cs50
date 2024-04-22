@@ -1,6 +1,7 @@
 // A ranked-choice voting system
 #include <cs50.h>
 #include <stdio.h>
+#include <string.h>
 
 const int MAX = 9;
 
@@ -12,7 +13,7 @@ typedef struct
 candidate;
 
 candidate candidates[MAX];
-int candidate_cout;
+int candidate_count;
 
 string get_votes(int voter_count);
 
@@ -25,7 +26,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    candidate_cout = argc - 1;
+    candidate_count = argc - 1;
 
     for (int i = 1; i < argc; i++)
     {
@@ -34,9 +35,9 @@ int main(int argc, string argv[])
     // Get the number of voters
     int voter_count = get_int("Number of voters: ");
     // Get votes, every voters has rank 1,2,3,..., if get invalid vote, print the error, return
-    string votes = get_votes(int voter_count);
+    string votes = get_votes(voter_count);
     printf("%s\n", votes);
-    
+
 }
 
 // Get votes, every voters has rank 1,2,3, if get invalid vote, print the error, return
