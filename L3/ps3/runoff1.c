@@ -29,7 +29,7 @@ int main(int argc, string argv[])
 
     for (int i = 1; i < argc; i++)
     {
-        candidates[i - 1] = argv[i];
+        candidates[i - 1].name = argv[i];
     }
     // Get the number of voters
     int voter_count = get_int("Number of voters: ");
@@ -53,7 +53,7 @@ string get_votes(int voter_count)
             int invalid = 0;
             for (int k = 0; k < candidate_count; k++)
             {
-                if (strcmp(votes[i][j], candidates[k] == 0)
+                if (strcmp(votes[i][j], candidates[k].name == 0)
                 {
                     invalid = 0;
                 }
