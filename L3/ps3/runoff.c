@@ -12,6 +12,7 @@ typedef struct
 candidate;
 
 candidate candidates[MAX]
+int candidate_cout;
 
 int main(int argc, string argv[])
 {
