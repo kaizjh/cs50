@@ -167,7 +167,7 @@ bool print_winner(void)
         if (max < candidate[i].votes)
         {
             max = candidate[i].votes;
-            
+            max
         }
     }
     return false;
