@@ -148,7 +148,7 @@ void tabulate(void)
             int p = preferences[voter][rank];
             if (candidates[p].eliminated)
             {
-                rank++;
+                continue;
             }
             else
             {
