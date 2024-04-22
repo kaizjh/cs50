@@ -2,12 +2,16 @@
 include <cs50.c>
 #include <stdio.h>
 
+const int MAX = 9;
+
 typedef struct
 {
     int vote;
     string name;
 }
 candidate;
+
+candidate candidates[MAX]
 
 int main(int argc, string argv[])
 {
