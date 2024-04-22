@@ -165,15 +165,18 @@ void tabulate(void)
 bool print_winner(void)
 {
     int max = 0;
+    string max_name;
     for (int i = 0; i < candidate_count; i++)
     {
         if (max < candidates[i].votes)
         {
             max = candidates[i].votes;
+            max_name = candidates[i].name;
         }
     }
     if (max > voter_count / 2)
     {
+        printf("%s\n", max_name);
         return true;
     }
     return false;
