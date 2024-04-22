@@ -160,7 +160,6 @@ void tabulate(void)
     return;
 }
 
-
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
@@ -190,7 +189,7 @@ int find_min(void)
     {
         if (!candidates[i].eliminated)
         {
-            // Use candidates[0].votes as a vessel, then transport the minimum to the min
+            // Use candidates[0].votes as a vessel, only to transport the minimum to the min in a better way
             if (candidates[0].votes > candidates[i].votes)
             {
                 candidates[0].votes = candidates[i].votes;
