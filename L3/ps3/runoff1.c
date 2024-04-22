@@ -32,7 +32,7 @@ int main(int argc, string argv[])
         candidates[i - 1].name = argv[i];
     }
     // Get the number of voters
-    int v = get_int("Number of voters: ");
+    int v = 3;
     // Get votes, every voters has rank 1,2,3,..., if get invalid vote, print the error, return
     string votes = get_votes(int v);
     printf("%s\n", votes);
