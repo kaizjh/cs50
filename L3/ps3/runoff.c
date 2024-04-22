@@ -35,7 +35,7 @@ int main(int argc, string argv[])
 }
 
 // Get votes, every voters has rank 1,2,3, if get invalid vote, print the error, return
-get_votes(int c)
+get_votes(int voter_count, int )
 {
-    string 
+   string votes[][]
 }
