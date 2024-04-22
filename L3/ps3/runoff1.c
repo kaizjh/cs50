@@ -1,5 +1,5 @@
 // A ranked-choice voting system
-include <cs50.c>
+#include <cs50.h>
 #include <stdio.h>
 
 const int MAX = 9;
@@ -11,7 +11,7 @@ typedef struct
 }
 candidate;
 
-candidate candidates[MAX]
+candidate candidates[MAX];
 int candidate_cout;
 
 get_votes(int voter_count);
