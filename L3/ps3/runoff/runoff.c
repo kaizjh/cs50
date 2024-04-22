@@ -155,7 +155,6 @@ void tabulate(void)
             }
         }
     }
-    rank++;
     return;
 }
 
