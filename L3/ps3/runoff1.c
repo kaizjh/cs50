@@ -32,12 +32,11 @@ int main(int argc, string argv[])
         candidates[i - 1].name = argv[i];
     }
     // Get the number of voters
-    int v = 3;
+    int voter_count = get_int("Number of voters: ");
     // Get votes, every voters has rank 1,2,3,..., if get invalid vote, print the error, return
-    string votes = get_votes(int v);
+    string votes = get_votes(int voter_count);
     printf("%s\n", votes);
-    // Calculate every candidate's votes in rank 1, if no candidate has more than 50% of the vote, then runoff to the rank 2, and so on
-    // Print the winner
+    
 }
 
 // Get votes, every voters has rank 1,2,3, if get invalid vote, print the error, return
