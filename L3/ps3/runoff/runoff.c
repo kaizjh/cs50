@@ -129,7 +129,7 @@ bool vote(int voter, int rank, string name)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (strcmp(name, candidate[i].name) == 0)
+        if (strcmp(name, candidates[i].name) == 0)
         {
             preferences[voter][rank] = i;
             return true;
@@ -144,13 +144,13 @@ void tabulate(void)
     int rank = 1;
     for (int i = 0; i < candidate_count; i++)
     {
-        if (!candidate[i].eliminated)
+        if (!candidates[i].eliminated)
         {
             for (int voter = 0; voter < voter_count; voter++)
             {
                 if (preferences[voter][rank] == i)
                 {
-                    candidate[i].votes++;
+                    candidates[i].votes++;
                 }
             }
         }
@@ -165,16 +165,16 @@ bool print_winner(void)
     int max = 0;
     for (int i = 0; i < candidate_count; i++)
     {
-        if (max < candidate[i].votes)
+        if (max < candidates[i].votes)
         {
-            max = candidate[i].votes;
+            max = candidates[i].votes;
         }
     }
 
     int max_num = 0;
     for (int j = 0; j < candidate_count; j++)
     {
-        if (max == candidate[i].votes)
+        if (max == candidates[j].votes)
         {
             max_num++;
         }
@@ -193,11 +193,11 @@ int find_min(void)
     int min = 0;
     for (int i = 0; i < candidate_count; i++)
     {
-        if (!candidate[i].eliminated)
+        if (!candidates[i].eliminated)
         {
-            if (min > candidate[i].votes)
+            if (min > candidates[i].votes)
             {
-                min = candidate[i].votes;
+                min = candidates[i].votes;
             }
         }
     }
@@ -209,9 +209,9 @@ bool is_tie(int min)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (!candidate[i].eliminated)
+        if (!candidates[i].eliminated)
         {
-            if (candidate[i].votes != min)
+            if (candidates[i].votes != min)
             {
                 return false;
             }
@@ -225,11 +225,11 @@ void eliminate(int min)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (!candidate[i].eliminated)
+        if (!candidates[i].eliminated)
         {
-            if (candidate[i].votes == min)
+            if (candidates[i].votes == min)
             {
-                candidate[i].eliminated = true;
+                candidates[i].eliminated = true;
             }
         }
     }
