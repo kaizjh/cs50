@@ -181,6 +181,13 @@ bool print_winner(void)
     }
     if (max_num == 1)
     {
+        for (int k = 0; k < candidate_count; k++)
+        {
+            if (max == candidates[k].votes)
+            {
+                printf("%s\n", candidates[k].name);
+            }
+        }
         return true;
     }
 
