@@ -23,7 +23,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    candidate_cout = 
+    candidate_cout = argc - 1;
 
     for (int i = 1; i < argc; i++)
     {
@@ -31,14 +31,25 @@ int main(int argc, string argv[])
     }
     // Get the number of voters
     int voter_count = get_int("Number of voters: ");
-    // Get votes, every voters has rank 1,2,3, if get invalid vote, print the error, return
+    // Get votes, every voters has rank 1,2,3,..., if get invalid vote, print the error, return
     get_votes();
     // Calculate every candidate's votes in rank 1, if no candidate has more than 50% of the vote, then runoff to the rank 2, and so on
     // Print the winner
 }
 
 // Get votes, every voters has rank 1,2,3, if get invalid vote, print the error, return
-get_votes(int voter_count, int )
+get_votes(int voter_count)
 {
-   string votes[][]
+    string votes[voter_count][candidate_count];
+    for (int i = 0; i < voter_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            votes[i][j] = get_string("Rank %i\n", j + 1);
+            for (int k = 0; k < candidate_count; k++)
+            {
+                if (strcmp(votes[i][j], 
+            }
+        }
+    }
 }
