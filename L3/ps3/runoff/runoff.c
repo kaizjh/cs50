@@ -167,9 +167,22 @@ bool print_winner(void)
         if (max < candidate[i].votes)
         {
             max = candidate[i].votes;
-            max
         }
     }
+
+    int max_num = 0;
+    for (int j = 0; j < candidate_count; j++)
+    {
+        if (max == candidate[i].votes)
+        {
+            max_num++;
+        }
+    }
+    if (max_num == 1)
+    {
+        return true;
+    }
+    
     return false;
 }
 
