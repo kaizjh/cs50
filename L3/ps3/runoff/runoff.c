@@ -172,9 +172,9 @@ bool print_winner(void)
             max = candidates[i].votes;
         }
     }
-    if (max > voter_num / 2)
+    if (max > voter_count / 2)
     {
-        return t
+        return true;
     }
     return false;
 }
