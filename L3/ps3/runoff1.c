@@ -48,7 +48,7 @@ string get_votes(int voter_count)
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            votes[i][j] = get_string("Rank %i\n", j + 1);
+            votes[i][j] = get_string("Rank %i: ", j + 1);
 
             int invalid = 0;
             for (int k = 0; k < candidate_count; k++)
