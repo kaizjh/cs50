@@ -22,7 +22,7 @@ int main(int argc, string argv[])
     // Get the candidates from the comman-line arguments
     if (argc < 2)
     {
-        printf("Usage: ./runoff [candidate ...]");
+        printf("Usage: ./runoff [candidate ...]\n");
         return 1;
     }
 
@@ -53,7 +53,7 @@ string get_votes(int voter_count)
             int invalid = 0;
             for (int k = 0; k < candidate_count; k++)
             {
-                if (strcmp(votes[i][j], candidates[k].name == 0)
+                if (strcmp(votes[i][j], candidates[k].name) == 0)
                 {
                     invalid = 0;
                 }
@@ -61,7 +61,7 @@ string get_votes(int voter_count)
             if (invalid)
             {
                 printf("Invalid vote.\n");
-                return 1;
+                return "shit";
             }
         }
     }
