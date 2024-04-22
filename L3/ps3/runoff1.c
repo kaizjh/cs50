@@ -50,19 +50,16 @@ string get_votes(int voter_count)
         {
             votes[i][j] = get_string("Rank %i: ", j + 1);
 
-            int invalid = 0;
+            int valid = 0;
             for (int k = 0; k < candidate_count; k++)
             {
                 if (strcmp(votes[i][j], candidates[k].name) == 0)
                 {
-                    invalid = 0;
+                    valid = 1;
                 }
             }
-            if (invalid)
-            {
-                printf("Invalid vote.\n");
-                return "shit";
-            }
+            if (!valid)
+                return "Invalid vote.";
         }
     }
     return votes[voter_count][candidate_count];
