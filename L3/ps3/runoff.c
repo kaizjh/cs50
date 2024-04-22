@@ -23,6 +23,8 @@ int main(int argc, string argv[])
         return 1;
     }
 
+    candidate_cout = 
+
     for (int i = 1; i < argc; i++)
     {
         candidates[i - 1] = argv[i];
