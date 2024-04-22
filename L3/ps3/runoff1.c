@@ -36,8 +36,6 @@ int main(int argc, string argv[])
     int voter_count = get_int("Number of voters: ");
     // Get votes, every voters has rank 1,2,3,..., if get invalid vote, print the error, return
     string votes = get_votes(voter_count);
-    printf("%s\n", votes);
-
 }
 
 // Get votes, every voters has rank 1,2,3, if get invalid vote, print the error, return
