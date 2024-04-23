@@ -152,7 +152,7 @@ void add_pairs(void)
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            preferences[i][j]++;
+            
         }
     }
     return;
