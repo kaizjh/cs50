@@ -69,33 +69,3 @@ string substitute(string plain, string key)
 
     return sub;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-int seen[candidate_count];
-    for (int i = 0; i < candidate_count; i++)
-    {
-        // Initialize seen array
-        seen[i] = 0;
-    }
-
-    for (int i = 0; i < candidate_count - 1; i++)
-    {
-        if (!seen[pairs[i].winner])
-        {
-            locked[pairs[i].winner][pairs[i].loser];
-            // Mark pairs[i].winner as seen, so that the "stronger" winner will not be a loser in future
-            seen[pairs[i].winner] = 1;
-        }
-        else if ()
-    }
