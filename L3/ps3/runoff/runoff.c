@@ -1,3 +1,4 @@
+// A ranked-choice voting system
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
