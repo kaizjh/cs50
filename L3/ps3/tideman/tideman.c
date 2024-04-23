@@ -65,6 +65,15 @@ int main(int argc, string argv[])
     pair_count = 0;
     int voter_count = get_int("Number of voters: ");
 
+    // Initializing the preferences[i][j] by Irving
+    for (int i = 0; i < candidate_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            preferences[i][j] = 0;
+        }
+    }
+
     // Query for votes
     for (int i = 0; i < voter_count; i++)
     {
