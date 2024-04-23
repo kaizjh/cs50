@@ -236,10 +236,10 @@ void lock_pairs(void)
 void print_winner(void)
 {
     bool changed = false;
+    int win = 0;
     while (changed)
     {
-        int win = 0;
-        for (int i = 0; i < pair_count, i != win; i++)
+        for (int i = 0; i < pair_count; i++)
         {
             if (pairs[win].winner == pairs[i].loser)
             {
