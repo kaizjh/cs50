@@ -196,9 +196,14 @@ bool is_cycle(int current);
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
+    int seen[pair_count];
     for (int i = 0; i < pair_count; i++)
     {
-        if (!is_cycle(i))
+        seen[i] = -1;
+    }
+    for (int i = 0; i < pair_count; i++)
+    {
+        if (!is_cycle(i), seen[])
         {
             locked[pairs[i].winner][pairs[i].loser] = true;
         }
