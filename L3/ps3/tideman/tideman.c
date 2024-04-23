@@ -235,6 +235,19 @@ void lock_pairs(void)
 // Print the winner of the election
 void print_winner(void)
 {
-    for (int i = 0; i < )
+    bool changed = false;
+    while (changed)
+    {
+        int win = 0;
+        for (int i = 0; i < pair_count, i != win; i++)
+        {
+            if (pairs[win].winner == pairs[i].loser)
+            {
+                win = i;
+                changed = true;
+            }
+        }
+    }
+    printf("%s\n", candidates[pairs[win].winner]);
     return;
 }
