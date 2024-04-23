@@ -203,7 +203,8 @@ void lock_pairs(void)
 
     for (int i = 0; i < pair_count - 1; i++)
     {
-        if (!seen[pairs[i].winner])
+        
+        if ()
         {
             locked[pairs[i].winner][pairs[i].loser] = true;
             // Mark pairs[i].winner as seen, so that the "stronger" winner will not be a loser in future
