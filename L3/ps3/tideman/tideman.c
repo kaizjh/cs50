@@ -203,7 +203,7 @@ void lock_pairs(void)
     }
     for (int i = 0; i < pair_count; i++)
     {
-        if (!is_cycle(i, seen[]))
+        if (!is_cycle(i, seen))
         {
             locked[pairs[i].winner][pairs[i].loser] = true;
             seen[i] = i;
@@ -224,7 +224,7 @@ bool is_cycle(int current, int seen[])
         bool current_changed = false;
         for (int i = 0; i < pair_count; i++)
         {
-            if (seen[i].loser == pairs[current].winner)
+            if (pairs[seen[i]].loser == pairs[current].winner)
             {
                 current = i;
                 current_changed = true;
@@ -239,5 +239,6 @@ bool is_cycle(int current, int seen[])
         {
             return true;
         }
+        printf("2");
     }
 }
