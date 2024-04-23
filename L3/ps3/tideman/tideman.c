@@ -216,20 +216,25 @@ void lock_pairs(void)
 
 bool is_cycle(int current)
 {
-    int former = -1;
+    bool current_changed = false;
     bool top_winner = false;
-    for (int i = 0; i < pair_count; i++)
+
+    while (!top_winner || current_loser == former_winner)
     {
-        if (pairs[i].loser == pairs[current].winner)
+        for (int i = 0; i < pair_count; i++)
         {
-            former = i;
+            if (pairs[i].loser == pairs[current].winner)
+            {
+                current = i;
+                current_changed = true;
+            }
+        }
+        if (!current_changed)
+        {
+            top_winner = true;
         }
     }
-    if (former < 0)
-    {
-        top_winner = true;
-    }
-    
+
     if (current_loser == former_winner)
     {
         return true;
