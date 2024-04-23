@@ -225,6 +225,7 @@ bool is_cycle(int current)
         if (!current_changed)
         {
             top_winner = true;
+            printf("%s\n)
         }
     }
 
@@ -246,7 +247,6 @@ bool is_cycle(int current)
 // Print the winner of the election
 void print_winner(void)
 {
-    int winner;
-    for
+
     return;
 }
