@@ -200,7 +200,10 @@ void lock_pairs(void)
 
     for (int i = 0; i < candidate_count - 1; i++)
     {
-        if ()
+        if (!seen[i])
+        {
+            
+        }
     }
     return;
 }
