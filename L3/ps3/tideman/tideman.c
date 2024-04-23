@@ -210,7 +210,7 @@ bool is_cycle(int current)
 {
     bool top_winner = false;
     int begin_winner = pairs[current].winner;
-    while (!top_winner && current_loser != begin_winner)
+    while (!top_winner && pairs[current].loser != begin_winner)
     {
         bool current_changed = false;
         for (int i = 0; i < pair_count; i++)
@@ -224,11 +224,11 @@ bool is_cycle(int current)
         if (!current_changed)
         {
             top_winner = true;
-            printf("%s\n", candidate[pairs[current].winner]);
+            printf("%s\n", candidates[pairs[current].winner]);
         }
     }
 
-    if (current_loser == begin_winner)
+    if (pairs[current].loser == begin_winner)
     {
         return true;
     }
