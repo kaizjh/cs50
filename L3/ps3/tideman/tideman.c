@@ -152,7 +152,11 @@ void add_pairs(void)
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            
+            for (int k = 0; k < candidate_count; k++)
+            {
+                pairs[k].winner = preferences[i][j];
+                pairs[k].loser = preferences[j][i];
+            }
         }
     }
     return;
