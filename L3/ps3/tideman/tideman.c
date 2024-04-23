@@ -119,7 +119,7 @@ bool vote(int rank, string name, int ranks[])
 }
 
 // Update preferences given one voter's ranks
-// I think this function is perfect for now --by Irving
+// I think this function is perfect for now --Irving
 void record_preferences(int ranks[])
 {
     int seen[candidate_count];
