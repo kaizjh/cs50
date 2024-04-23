@@ -233,11 +233,10 @@ bool is_cycle(int current)
         {
             top_winner = true;
         }
-    }
-
-    if (current_loser == former_winner)
-    {
-        return true;
+        if (current_loser == former_winner)
+        {
+            return true;
+        }
     }
     else if(top_winner)
     {
