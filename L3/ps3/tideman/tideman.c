@@ -198,9 +198,9 @@ void lock_pairs(void)
         seen[i] = 0; // Initialize seen array
     }
 
-    for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count - 1; i++)
     {
-        
+        if ()
     }
     return;
 }
