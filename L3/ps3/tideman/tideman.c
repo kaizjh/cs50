@@ -218,8 +218,8 @@ bool is_cycle(int current)
 {
     bool current_changed = false;
     bool top_winner = false;
-
-    while (!top_winner || current_loser == former_winner)
+    int begin_winner = pairs[current].winner;
+    while (!top_winner && current_loser != begin_winner)
     {
         for (int i = 0; i < pair_count; i++)
         {
