@@ -209,12 +209,15 @@ void lock_pairs(void)
         {
             if (visited[current])
             {
-                locked[pairs[i].winner][pairs[i].loser] = false;
                 break;
+            }
+            else
+            {
+                locked[pairs[i].winner][pairs[i].loser] = true;
             }
             visited[current] = true;
 
-            // Find the next candidate to check for a cycle
+            // Find the next candidate
             int next = -1;
             for (int j = 0; j < candidate_count; j++)
             {
@@ -226,10 +229,6 @@ void lock_pairs(void)
             }
             current = next;
         }
-        locked[pairs[i].winner][pairs[i].loser] = true;
-
-        // Check if locking the current pair creates a cycle
-
     }
 }
 
