@@ -203,7 +203,8 @@ void lock_pairs(void)
         bool visited[candidate_count];
         for (int j = 0; j < candidate_count; j++)
         {
-            visited[j] = false; // Initializing
+            // Initializing
+            visited[j] = false;
         }
 
         int current = pairs[i].loser;
