@@ -203,7 +203,7 @@ void lock_pairs(void)
         if (!seen[i])
         {
             locked[pairs[i].winner][pairs[i].loser];
-            seen[i] = 1;
+            seen[i] = 1; // Mark i as seen, make sure lock will not be a cycle
         }
     }
     return;
