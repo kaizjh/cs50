@@ -208,9 +208,8 @@ void lock_pairs(void)
 
 bool is_cycle(int current)
 {
-    bool top_winner = false;
     int begin_winner = pairs[current].winner;
-    while (!top_winner && pairs[current].loser != begin_winner)
+    while (true)
     {
         bool current_changed = false;
         for (int i = 0; i < pair_count; i++)
@@ -223,22 +222,12 @@ bool is_cycle(int current)
         }
         if (!current_changed)
         {
-            top_winner = true;
             printf("%s\n", candidates[pairs[current].winner]);
+            return false;
         }
-    }
-
-    if (pairs[current].loser == begin_winner)
-    {
-        return true;
-    }
-    else if (top_winner)
-    {
-        return false;
-    }
-    else
-    {
-        printf("is_cycle has something wrong!");
-        return false;
+        else if(pairs[current].loser == begin_winner)
+        {
+            return true;
+        }
     }
 }
