@@ -213,6 +213,6 @@ void lock_pairs(void)
 void print_winner(void)
 {
     int winner;
-    for 
+    for
     return;
 }
