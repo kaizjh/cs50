@@ -134,9 +134,8 @@ void record_preferences(int ranks[])
                 }
 
             }
-        }
-
     }
+    
     return;
 }
 
