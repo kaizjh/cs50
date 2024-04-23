@@ -174,8 +174,8 @@ void sort_pairs(void)
     for (int i = 0; i < candidate_count; i++)
     {
         pair tmp;
-        int imargin = preferences[pairs[i].winner][pairs[i].loser];
-        int jmargin = pairs[j].winner - pairs[j].loser;
+        int imargin = preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner];
+        int imargin = preferences[pairs[i + 1].winner][pairs[i + 1].loser] - preferences[pairs[i + 1].loser][pairs[i + 1].winner];
         if (imargin < j margin)
         {
             pair tmp = pair pairs[i];
