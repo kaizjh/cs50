@@ -173,7 +173,7 @@ void sort_pairs(void)
         for (int j = 1; j < candidate_count; j++)
         {
             int tmp;
-            
+            if (pairs[i])
         }
     }
     return;
