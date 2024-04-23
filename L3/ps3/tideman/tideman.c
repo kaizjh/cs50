@@ -124,21 +124,25 @@ void record_preferences(int ranks[])
     int seen[candidate_count];
     for (int i = 0; i < candidate_count; i++)
     {
-        seen[i] = -1; // Initialize seen array
+        seen[i] = 1; // Initialize seen array
     }
 
     for (int rank = 0; rank < candidate_count; rank++)
     {
-        for (int i = 0; i < candidate_count && i != seen[candidate_count]; i++)
+        for (int i = 0; i < candidate_count; i++)
             {
-                if (ranks[rank] == i)
+                if (seen[i])
                 {
-                    seen[rank] = i;
-                    for (int j = 0; j < candidate_count && j != i; j++)
+                    if (ranks[rank] == i)
                     {
-                        preferences[i][j]++;
+                        seen[rank] = i;
+                        for (int j = 0; j < candidate_count && j != i; j++)
+                        {
+                            preferences[i][j]++;
+                        }
                     }
                 }
+
                 break;
             }
     }
