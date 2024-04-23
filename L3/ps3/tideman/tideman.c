@@ -180,7 +180,7 @@ void sort_pairs(void)
             pair tmp;
             int imargin = preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner];
             int jmargin = preferences[pairs[j].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[j].winner];
-            if (imargin < j margin)
+            if (imargin < jmargin)
             {
                 pair tmp = pair pairs[i];
                 pair pairs[i] = pair pairs[j];
@@ -194,7 +194,7 @@ void sort_pairs(void)
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
-    
+
     return;
 }
 
