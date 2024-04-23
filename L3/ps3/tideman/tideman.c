@@ -181,9 +181,9 @@ void sort_pairs(void)
             int jmargin = preferences[pairs[j].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[j].winner];
             if (imargin < jmargin)
             {
-                pair tmp = pair pairs[i];
-                pair pairs[i] = pair pairs[j];
-                pair pairs[j] = pair tmp;
+                tmp = pairs[i];
+                pairs[i] = pairs[j];
+                pairs[j] = tmp;
             }
         }
     }
