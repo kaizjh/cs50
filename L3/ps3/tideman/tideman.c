@@ -192,12 +192,15 @@ void sort_pairs(void)
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
+    int seen[candidate_count];
     for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = i + 1; j < candidate_count; j++)
-        {
-            
-        }
+        seen[i] = 0; // Initialize seen array
+    }
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        
     }
     return;
 }
