@@ -1,4 +1,5 @@
-// A ranked-choice voting system
+// A ranked-choice voting system, "runoff" until some has a majority (the winner)
+// It is pretty hard, even with half the code is completed, almost cost me 5-7 hour, but it worth
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
