@@ -203,6 +203,7 @@ void lock_pairs(void)
         if (!seen[i])
         {
             locked[pairs[i].winner][pairs[i].loser];
+            seen[i] = 1;
         }
     }
     return;
@@ -212,6 +213,6 @@ void lock_pairs(void)
 void print_winner(void)
 {
     int winner;
-    for 
+    for
     return;
 }
