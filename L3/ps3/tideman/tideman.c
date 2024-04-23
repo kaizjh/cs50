@@ -134,7 +134,7 @@ void record_preferences(int ranks[])
             {
                 if (ranks[rank] == i)
                 {
-                    seen[i] = 1; // Mark i(candidate[i]) as seen, make sure this candidate never! appear in j
+                    seen[i] = 1; // Mark i(candidate[i]) as seen, make sure this candidate never!!! appear in j
                     for (int j = 0; j < candidate_count; j++)
                     {
                         if (!seen[j])
