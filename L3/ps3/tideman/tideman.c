@@ -125,24 +125,24 @@ void record_preferences(int ranks[])
     int seen[candidate_count];
     for (int i = 0; i < candidate_count; i++)
     {
-        seen[i] = 1; // Initialize seen array
+        seen[i] = 0; // Initialize seen array
     }
 
     for (int rank = 0; rank < candidate_count; rank++)
     {
         for (int i = 0; i < candidate_count; i++)
             {
-                if (seen[i])
+                if (ranks[rank] == i)
                 {
-                    if (ranks[rank] == i)
+                    seen[i] = 1; // Mark i(candidate[i]) as seen, make sure this candidate do not appear in j
+                    for (int j = 0; j < candidate_count && j != i; j++)
                     {
-                        seen[i] = 0; // Mark i(candidate[i]) as seen
-                        for (int j = 0; j < candidate_count && j != i; j++)
+                        if (!seen[j])
                         {
                             preferences[i][j]++;
                         }
-                        break;
                     }
+                    break;
                 }
             }
     }
