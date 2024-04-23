@@ -191,7 +191,7 @@ void sort_pairs(void)
 }
 
 // A function in lock_pairs by Irving, to judge the graph is cycle or not
-bool is_cycle(int current, int seen[])
+bool is_cycle(int current, int seen[]);
 
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
@@ -224,7 +224,7 @@ bool is_cycle(int current, int seen[])
         bool current_changed = false;
         for (int i = 0; i < pair_count; i++)
         {
-            if (pairs[i].loser == pairs[current].winner)
+            if (seen[i].loser == pairs[current].winner)
             {
                 current = i;
                 current_changed = true;
