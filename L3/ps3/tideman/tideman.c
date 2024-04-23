@@ -155,7 +155,7 @@ void add_pairs(void)
     int k = 0;
     for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = 1; j < candidate_count; j++, k++)
+        for (int j = i + 1; j < candidate_count; j++, k++)
         {
             pairs[k].winner = preferences[i][j];
             pairs[k].loser = preferences[j][i];
@@ -172,7 +172,7 @@ void sort_pairs(void)
     {
         for (int j = 1; j < candidate_count; j++)
         {
-            
+
         }
     }
     return;
