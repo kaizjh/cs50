@@ -1,12 +1,5 @@
 
-void print_winner(void);
 
 
-    print_winner();
 
-// Print the winner of the election
-void print_winner(void)
-{
 
-    return;
-}
