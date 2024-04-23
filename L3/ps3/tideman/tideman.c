@@ -225,7 +225,7 @@ bool is_cycle(int current)
         if (!current_changed)
         {
             top_winner = true;
-            printf("%s\n)
+            printf("%s\n", candidate[pairs[current].winner]);
         }
     }
 
@@ -242,11 +242,4 @@ bool is_cycle(int current)
         printf("is_cycle has something wrong!");
         return false;
     }
-}
-
-// Print the winner of the election
-void print_winner(void)
-{
-
-    return;
 }
