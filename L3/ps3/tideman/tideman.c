@@ -220,7 +220,7 @@ bool is_cycle(int current,)
     {
         if (pairs[i].loser == pairs[current].winner)
         {
-            pairs[current].winner = pairs[i].winner;
+            former_winner = pairs[i].winner;
         }
     }
     if (current_loser == former_winner)
