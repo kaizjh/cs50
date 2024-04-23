@@ -125,7 +125,8 @@ void record_preferences(int ranks[])
     int seen[candidate_count];
     for (int i = 0; i < candidate_count; i++)
     {
-        seen[i] = 0; // Initialize seen array
+        // Initialize seen array
+        seen[i] = 0;
     }
 
     for (int rank = 0; rank < candidate_count; rank++)
@@ -134,7 +135,8 @@ void record_preferences(int ranks[])
             {
                 if (ranks[rank] == i)
                 {
-                    seen[i] = 1; // Mark i(candidate[i]) as seen, make sure this candidate never!!! appear in j
+                    // Mark i(candidate[i]) as seen, make sure this candidate never!!! appear in j
+                    seen[i] = 1;
                     for (int j = 0; j < candidate_count; j++)
                     {
                         if (!seen[j])
@@ -195,15 +197,17 @@ void lock_pairs(void)
     int seen[candidate_count];
     for (int i = 0; i < candidate_count; i++)
     {
-        seen[i] = 0; // Initialize seen array
+        // Initialize seen array
+        seen[i] = 0;
     }
 
     for (int i = 0; i < candidate_count - 1; i++)
     {
-        if (!seen[i])
+        if (!seen[pairs[i].winner])
         {
             locked[pairs[i].winner][pairs[i].loser];
-            seen[i] = 1; // Mark i as seen, make sure lock will not be a cycle
+            // Mark pairs[i].winner as seen, so that the "stronger" winner will not be a loser in future
+            seen[pairs[i].winner] = 1;
         }
     }
     return;
