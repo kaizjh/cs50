@@ -119,6 +119,7 @@ bool vote(int rank, string name, int ranks[])
 }
 
 // Update preferences given one voter's ranks
+// I think this function is perfect for now --by Irving
 void record_preferences(int ranks[])
 {
     int seen[candidate_count];
@@ -135,7 +136,7 @@ void record_preferences(int ranks[])
                 {
                     if (ranks[rank] == i)
                     {
-                        seen[i] = 0;
+                        seen[i] = 0; // Mark i(candidate[i]) as seen
                         for (int j = 0; j < candidate_count && j != i; j++)
                         {
                             preferences[i][j]++;
