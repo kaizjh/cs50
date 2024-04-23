@@ -226,7 +226,6 @@ bool is_cycle(int current)
             top_winner = true;
             printf("%s\n", candidates[pairs[current].winner]);
         }
-        printf("2");
     }
 
     if (pairs[current].loser == begin_winner)
