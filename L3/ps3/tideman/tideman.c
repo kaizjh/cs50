@@ -140,9 +140,9 @@ void record_preferences(int ranks[])
                         {
                             preferences[i][j]++;
                         }
+                        break;
                     }
                 }
-                break;
             }
     }
     return;
