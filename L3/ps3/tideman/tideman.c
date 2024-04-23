@@ -214,8 +214,9 @@ void lock_pairs(void)
     return;
 }
 
-bool is_cycle(int current,)
+bool is_cycle(int current)
 {
+    int former;
     for (int i = 0; i < pair_count; i++)
     {
         if (pairs[i].loser == pairs[current].winner)
@@ -231,8 +232,10 @@ bool is_cycle(int current,)
     {
         return false;
     }
-
-
+    else
+    {
+        is_cycle(former);
+    }
 }
 
 // Print the winner of the election
