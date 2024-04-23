@@ -224,6 +224,7 @@ bool is_cycle(int current)
             former = i;
         }
     }
+    
     if (current_loser == former_winner)
     {
         return true;
