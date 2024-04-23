@@ -203,9 +203,14 @@ void lock_pairs(void)
 
     for (int i = 0; i < pair_count - 1; i++)
     {
-        for (int j = i; j > -1; j--)
+        current.winner
+        current.loser
+        for (int j = 0; j < i; j++)
         {
-            top_winner = 
+            if (seen[pairs[i].winner])
+            {
+                
+            }
         }
         if ()
         {
