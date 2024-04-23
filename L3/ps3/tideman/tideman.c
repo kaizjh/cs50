@@ -123,8 +123,10 @@ void record_preferences(int ranks[])
                         if (ranks[rank + 1] = j)
                         {
                             preferences[i][j]++;
+                            break;
                         }
                     }
+                    break;
                 }
 
             }
