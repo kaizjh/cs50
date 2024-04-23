@@ -202,7 +202,7 @@ void lock_pairs(void)
     {
         if (!seen[i])
         {
-            
+            locked[pairs[i].winner][pairs[i].loser];
         }
     }
     return;
