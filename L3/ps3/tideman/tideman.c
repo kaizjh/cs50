@@ -134,8 +134,8 @@ void record_preferences(int ranks[])
             {
                 if (ranks[rank] == i)
                 {
-                    seen[i] = 1; // Mark i(candidate[i]) as seen, make sure this candidate do not appear in j
-                    for (int j = 0; j < candidate_count && j != i; j++)
+                    seen[i] = 1; // Mark i(candidate[i]) as seen, make sure this candidate never! appear in j
+                    for (int j = 0; j < candidate_count; j++)
                     {
                         if (!seen[j])
                         {
@@ -168,7 +168,7 @@ void add_pairs(void)
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    
+
     return;
 }
 
