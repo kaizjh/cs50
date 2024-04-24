@@ -1,9 +1,14 @@
 #include <cs50.h>
 #include <stdio.h>
 
+merge_sort(int start, int final, int arr[]);
+
+int sorted[];
+
 int main(void)
 {
-    merge_sort();
+    
+    merge_sort(0,);
     return 0;
 }
 
