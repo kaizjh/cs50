@@ -197,10 +197,12 @@ void lock_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
+        locked[pairs[i].winner][pairs[i].loser] = true;
+
+        // Check if locking the current pair creates a cycle
         bool visited[candidate_count];
         for (int j = 0; j < candidate_count; j++)
         {
-            // Initializing
             visited[j] = false;
         }
 
@@ -209,15 +211,12 @@ void lock_pairs(void)
         {
             if (visited[current])
             {
+                locked[pairs[i].winner][pairs[i].loser] = false;
                 break;
-            }
-            else
-            {
-                locked[pairs[i].winner][pairs[i].loser] = true;
             }
             visited[current] = true;
 
-            // Find the next candidate
+            // Find the next candidate to check for a cycle
             int next = -1;
             for (int j = 0; j < candidate_count; j++)
             {
@@ -231,6 +230,7 @@ void lock_pairs(void)
         }
     }
 }
+
 
 // Print the winner of the election
 void print_winner(void)
