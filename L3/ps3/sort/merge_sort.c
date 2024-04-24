@@ -13,7 +13,7 @@ int main(void)
     {
         arr[i] = get_int("Number %i\n", i + 1);
     }
-    merge_sort(0, num, arr[num]);
+    merge_sort(0, num, arr);
 
     printf("Sorted:\n");
     for (int i = 0; i < num; i++)
