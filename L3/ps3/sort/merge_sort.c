@@ -21,6 +21,6 @@ merge_sort(int start, int final, int arr[])
     merge_sort(start, mid);
     // Merge_sort the right half (more than the mid half)
     merge_sort(mid + 1, final);
-
+    // After saparate all the half into the last one, time to merge them
     for ()
 }
