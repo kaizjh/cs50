@@ -235,9 +235,7 @@ bool is_cycle(int winner, int loser)
     {
         return true;
     }
-    else
-    {
-        for (int i = 0; i < pair_count; i++)
+    for (int i = 0; i < pair_count; i++)
         {
             if (locked[i][winner])
             {
@@ -247,6 +245,5 @@ bool is_cycle(int winner, int loser)
                 }
             }
         }
-        return false;
-    }
+    return false;
 }
