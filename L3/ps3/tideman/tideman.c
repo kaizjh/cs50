@@ -33,6 +33,8 @@ void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
 
+bool is_cycle(int winner, int loser);
+
 int main(int argc, string argv[])
 {
     // Check for invalid usage
@@ -192,8 +194,6 @@ void sort_pairs(void)
     return;
 }
 
-bool is_cycle(int winner, int loser);
-
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
@@ -228,7 +228,7 @@ void print_winner(void)
     }
 }
 
-// Using recursive to check is there a cycle
+// Using recursive to check is there a cycle, amazing code! sexy recursive,hhhha
 bool is_cycle(int winner, int loser)
 {
     if (winner == loser)

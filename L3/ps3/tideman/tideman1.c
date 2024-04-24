@@ -1,4 +1,4 @@
-// From https://github.com/ThomasCorbin22/cs50-2020-week3-tideman/tree/master/tideman, a wonderful program
+// From https://github.com/ThomasCorbin22/cs50-2020-week3-tideman/tree/master/tideman, wonderful code!!!
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
