@@ -228,7 +228,8 @@ void lock_pairs(void)
             }
             current = next;
         }
-if (can_be_locked)
+        // Locked the l
+        if (can_be_locked)
         {
             locked[pairs[i].winner][pairs[i].loser] = true;
         }
