@@ -197,42 +197,10 @@ void lock_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
-         bool can_be_locked = true;
-
-        // Check if locking the current pair creates a cycle
-        bool visited[candidate_count];
-        for (int j = 0; j < candidate_count; j++)
-        {
-            visited[j] = false;
-        }
-
-        int current = pairs[i].loser;
-        while (current != -1)
-        {
-            if (visited[current])
-            {
-                can_be_locked = false;
-                break;
-            }
-            visited[current] = true;
-
-            // Find the next candidate to check for a cycle
-            int next = -1;
-            for (int j = 0; j < candidate_count; j++)
-            {
-                if (locked[current][j])
-                {
-                    next = j;
-                    break;
-                }
-            }
-            current = next;
-        }
-        // Locked the pairs which can be locked
-        if (can_be_locked)
-        {
+         if (!is_cycle(pairs[i].winner, pairs[i].loser))
+         {
             locked[pairs[i].winner][pairs[i].loser] = true;
-        }
+         }
     }
 }
 
@@ -255,5 +223,28 @@ void print_winner(void)
             printf("%s\n", candidates[i]);
             return;
         }
+    }
+}
+
+// Using recursive to check is there a cycle
+bool is_cycle(int winner, int loser)
+{
+    if (winner == loser)
+    {
+        return true;
+    }
+    else
+    {
+        for (int i = 0; i < pair_count; i++)
+        {
+            if (i == winner)
+            {
+                if (is_cycle(loser, i))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
