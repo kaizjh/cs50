@@ -19,7 +19,8 @@ merge_sort(int start, int final, int arr[])
     int mid = (final + start) / 2;
     // Merge_sort the left half (less than the mid half)
     merge_sort(start, mid);
-    // Merge_sort the right half (more than the mid one)
+    // Merge_sort the right half (more than the mid half)
     merge_sort(mid + 1, final);
 
+    for ()
 }
