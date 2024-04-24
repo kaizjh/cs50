@@ -239,7 +239,7 @@ bool is_cycle(int winner, int loser)
     {
         for (int i = 0; i < pair_count; i++)
         {
-            if (locked(i, winner))
+            if (locked[i][winner])
             {
                 if (is_cycle(loser, i))
                 {
