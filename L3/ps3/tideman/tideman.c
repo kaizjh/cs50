@@ -195,6 +195,16 @@ void sort_pairs(void)
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
+    // Create a temporary copy of the locked array
+    bool temp_locked[MAX][MAX];
+    for (int i = 0; i < candidate_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            temp_locked[i][j] = locked[i][j];
+        }
+    }
+
     // Iterate over sorted pairs and add them to locked if no cycle is detected
     for (int i = 0; i < pair_count; i++)
     {
@@ -215,8 +225,14 @@ void lock_pairs(void)
             // If the current candidate is already visited, a cycle is detected
             if (visited[current])
             {
-                // Unlock the last locked pair
-                locked[pairs[i].winner][pairs[i].loser] = false;
+                // Revert to the temporary copy of the locked array
+                for (int x = 0; x < candidate_count; x++)
+                {
+                    for (int y = 0; y < candidate_count; y++)
+                    {
+                        locked[x][y] = temp_locked[x][y];
+                    }
+                }
                 break;
             }
 
