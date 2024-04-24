@@ -210,15 +210,15 @@ void print_winner(void)
 void merge_sort(int i, int j, pair a[], pair aux[])
 {
     //note function from https://hackr.io/blog/merge-sort-in-c
-    if (j <= i)
+    if (j <= i) // When it "across", return
     {
         return;
     }
 
     int mid = (i + j) / 2;
 
-    merge_sort(i, mid, a, aux);
-    merge_sort(mid + 1, j, a, aux);
+    merge_sort(i, mid, a, aux); // Merge_sort the left half (less than mid one)
+    merge_sort(mid + 1, j, a, aux); // Merge_sort the right half
 
     int pointer_left = i;
     int pointer_right = mid + 1;
