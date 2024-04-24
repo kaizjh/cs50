@@ -228,7 +228,7 @@ void print_winner(void)
     }
 }
 
-// Using recursive to check is there a cycle, amazing code! sexy recursive,hhhha
+// Using recursion to check is there a cycle, amazing code! sexy recursion,hhhha
 bool is_cycle(int winner, int loser)
 {
     if (winner == loser)
