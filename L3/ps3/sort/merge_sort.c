@@ -33,10 +33,10 @@ void merge_sort(int start, int final, int arr[])
 
     // Recursive case
     int mid = (final + start) / 2;
-    // Merge_sort the left half (less than the mid half)
-    merge_sort(start, mid);
-    // Merge_sort the right half (more than the mid half)
-    merge_sort(mid + 1, final);
+    // Saparate the left half (less than the mid half)
+    merge_sort(start, mid, arr);
+    // Saparate the right half (more than the mid half)
+    merge_sort(mid + 1, final, arr);
     // After saparate all the half into the last one, time to merge them
     int left = start;
     int right = mid + 1;
