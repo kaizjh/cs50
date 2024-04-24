@@ -26,6 +26,6 @@ merge_sort(int start, int final, int arr[])
     int sorted[];
     for (int i = 0; i < len / 2; i++)
     {
-
+        if (start + i)
     }
 }
