@@ -3,7 +3,7 @@
 
 void merge_sort(int start, int final, int arr[]);
 
-int sorted[];
+int sorted[99];
 
 int main(void)
 {
@@ -11,7 +11,7 @@ int main(void)
     int arr[num];
     for (int i = 0; i < num; i++)
     {
-        arr[i] = get_int("Number %i\n", i + 1);
+        arr[i] = get_int("Number %i: ", i + 1);
     }
     merge_sort(0, num, arr);
 
@@ -20,6 +20,7 @@ int main(void)
     {
         printf("%i ", sorted[i]);
     }
+    printf("\n");
     return 0;
 }
 
