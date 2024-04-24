@@ -26,11 +26,6 @@ merge_sort(int start, int final, int arr[])
     int tmp;
     for (int i = 0; i < len; i++)
     {
-        if (start + i > mid + i)
-        {
-            tmp = arr[start + i];
-            arr[start + i] = arr[mid + i];
-            arr[mid + i] = tmp;
-        }
+        
     }
 }
