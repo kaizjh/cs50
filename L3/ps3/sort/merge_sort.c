@@ -26,6 +26,16 @@ merge_sort(int start, int final, int arr[])
     int sorted[];
     for (int i = 0; i < len / 2; i++)
     {
-        if (arr[start + i] >  )
+        if (start = )
+        if (arr[start + i] <= arr[mid + i + 1])
+        {
+            sorted[start + i] = arr[start + i];
+            mid--;
+        }
+        else
+        {
+            sorted[start + i] = arr[mid + i + 1];
+            start--;
+        }
     }
 }
