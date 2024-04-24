@@ -239,10 +239,14 @@ bool is_cycle(int winner, int loser)
         {
             if (i == winner)
             {
-                if (is_cycle(loser, i))
+                for (int j = 0; j < pair_count; j++)
                 {
-                    return true;
+                    if (is_cycle(j, pairs[i].loser))
+                    {
+                        return true;
+                    }
                 }
+
             }
         }
         return false;
