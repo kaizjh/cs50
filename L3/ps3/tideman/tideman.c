@@ -195,32 +195,39 @@ void sort_pairs(void)
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
+    // Iterate over sorted pairs and add them to locked if no cycle is detected
     for (int i = 0; i < pair_count; i++)
     {
-         bool can_be_locked = true;
+        // Assume the pair is locked
+        locked[pairs[i].winner][pairs[i].loser] = true;
 
-        // Check if locking the current pair creates a cycle
+        // Check if adding the pair creates a cycle
         bool visited[candidate_count];
         for (int j = 0; j < candidate_count; j++)
         {
             visited[j] = false;
         }
 
-        int current = pairs[i].loser;
+        // Start from the winner of the current pair
+        int current = pairs[i].winner;
         while (current != -1)
         {
+            // If the current candidate is already visited, a cycle is detected
             if (visited[current])
             {
-                can_be_locked = false;
+                // Unlock the last locked pair
+                locked[pairs[i].winner][pairs[i].loser] = false;
                 break;
             }
+
+            // Mark the current candidate as visited
             visited[current] = true;
 
-            // Find the next candidate to check for a cycle
+            // Move to the next candidate who is defeated by the current one
             int next = -1;
             for (int j = 0; j < candidate_count; j++)
             {
-                if (locked[current][j])
+                if (locked[j][current])
                 {
                     next = j;
                     break;
@@ -228,13 +235,9 @@ void lock_pairs(void)
             }
             current = next;
         }
-        // Locked the pairs which can be locked
-        if (can_be_locked)
-        {
-            locked[pairs[i].winner][pairs[i].loser] = true;
-        }
     }
 }
+
 
 
 // Print the winner of the election
