@@ -34,7 +34,11 @@ merge_sort(int start, int final, int arr[])
         else
         {
             sorted[left] = arr[right];
-            right++;
+            // Avoiding right goes far away
+            if (right < final + 1)
+            {
+                right++;
+            }
         }
     }
 }
