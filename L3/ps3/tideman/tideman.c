@@ -241,7 +241,7 @@ bool is_cycle(int winner, int loser)
         {
             if (locked(i, winner))
             {
-                if (is_cycle(, pairs[i].loser))
+                if (is_cycle(loser, i))
                 {
                     return true;
                 }
