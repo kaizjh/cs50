@@ -7,7 +7,13 @@ int main(void)
     return 0;
 }
 
-merge_sort()
+merge_sort(int start, int final, int arr[])
 {
+    if (start <= final)
+    {
+        return;
+    }
+
+    int mid = (final + start) / 2;
     
 }
