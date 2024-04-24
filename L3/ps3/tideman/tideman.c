@@ -192,64 +192,58 @@ void sort_pairs(void)
     return;
 }
 
-// Lock pairs into the candidate graph in order, without creating cycles
-void lock_pairs(void)
-{
-    // Create a temporary copy of the locked array
-    bool temp_locked[MAX][MAX];
-    for (int i = 0; i < candidate_count; i++)
-    {
-        for (int j = 0; j < candidate_count; j++)
-        {
-            temp_locked[i][j] = locked[i][j];
+// Helper function to perform depth-first search (DFS) to detect cycles
+bool detect_cycle(int start, bool visited[], bool temp_locked[][MAX]) {
+    visited[start] = true;
+
+    for (int i = 0; i < candidate_count; i++) {
+        if (temp_locked[start][i]) {
+            if (!visited[i]) {
+                if (detect_cycle(i, visited, temp_locked)) {
+                    return true;
+                }
+            } else {
+                return true;
+            }
         }
     }
 
+    visited[start] = false;
+    return false;
+}
+
+// Lock pairs into the candidate graph in order, without creating cycles
+void lock_pairs(void)
+{
     // Iterate over sorted pairs and add them to locked if no cycle is detected
     for (int i = 0; i < pair_count; i++)
     {
+        // Create a temporary copy of the locked array
+        bool temp_locked[MAX][MAX];
+        for (int j = 0; j < candidate_count; j++) {
+            for (int k = 0; k < candidate_count; k++) {
+                temp_locked[j][k] = locked[j][k];
+            }
+        }
+
         // Assume the pair is locked
         locked[pairs[i].winner][pairs[i].loser] = true;
 
         // Check if adding the pair creates a cycle
         bool visited[candidate_count];
-        for (int j = 0; j < candidate_count; j++)
-        {
+        for (int j = 0; j < candidate_count; j++) {
             visited[j] = false;
         }
 
-        // Start from the winner of the current pair
-        int current = pairs[i].winner;
-        while (current != -1)
+        // Perform depth-first search (DFS) to detect cycles
+        if (detect_cycle(pairs[i].loser, visited, temp_locked))
         {
-            // If the current candidate is already visited, a cycle is detected
-            if (visited[current])
-            {
-                // Revert to the temporary copy of the locked array
-                for (int x = 0; x < candidate_count; x++)
-                {
-                    for (int y = 0; y < candidate_count; y++)
-                    {
-                        locked[x][y] = temp_locked[x][y];
-                    }
-                }
-                break;
-            }
-
-            // Mark the current candidate as visited
-            visited[current] = true;
-
-            // Move to the next candidate who is defeated by the current one
-            int next = -1;
-            for (int j = 0; j < candidate_count; j++)
-            {
-                if (locked[j][current])
-                {
-                    next = j;
-                    break;
+            // If a cycle is detected, revert to the previous state of locked
+            for (int j = 0; j < candidate_count; j++) {
+                for (int k = 0; k < candidate_count; k++) {
+                    locked[j][k] = temp_locked[j][k];
                 }
             }
-            current = next;
         }
     }
 }
