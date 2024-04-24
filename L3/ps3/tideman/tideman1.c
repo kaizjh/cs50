@@ -220,6 +220,7 @@ void merge_sort(int i, int j, pair a[], pair aux[])
     merge_sort(i, mid, a, aux); // Merge_sort the left half (less than mid one)
     merge_sort(mid + 1, j, a, aux); // Merge_sort the right half
 
+    // When all parts is sperated to only 1 in their half, time to merge them
     int pointer_left = i;
     int pointer_right = mid + 1;
     int k;
