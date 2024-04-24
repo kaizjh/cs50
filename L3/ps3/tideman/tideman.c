@@ -235,15 +235,15 @@ bool is_cycle(int winner, int loser)
     {
         return true;
     }
-    for (int i = 0; i < pair_count; i++)
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (locked[i][winner])
         {
-            if (locked[i][winner])
+            if (is_cycle(loser, i))
             {
-                if (is_cycle(loser, i))
-                {
-                    return true;
-                }
+                return true;
             }
         }
+    }
     return false;
 }
