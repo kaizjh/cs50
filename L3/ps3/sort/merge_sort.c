@@ -1,18 +1,29 @@
 #include <cs50.h>
 #include <stdio.h>
 
-merge_sort(int start, int final, int arr[]);
+void merge_sort(int start, int final, int arr[]);
 
 int sorted[];
 
 int main(void)
 {
-    
-    merge_sort(0,);
+    int num = get_int("Numbers of the array: ");
+    int arr[num];
+    for (int i = 0; i < num; i++)
+    {
+        arr[i] = get_int("Number %i\n", i + 1);
+    }
+    merge_sort(0, num, arr[num]);
+
+    printf("Sorted:\n");
+    for (int i = 0; i < num; i++)
+    {
+        printf("%i ", sorted[i]);
+    }
     return 0;
 }
 
-merge_sort(int start, int final, int arr[])
+void merge_sort(int start, int final, int arr[])
 {
     // Base case
     if (start >= final)
