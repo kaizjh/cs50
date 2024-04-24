@@ -16,7 +16,7 @@ merge_sort(int start, int final, int arr[])
 
     int mid = (final + start) / 2;
     merge_sort(start, mid);
-    merge_sort(mid, final);
+    merge_sort(mid + 1, final);
 
 
 }
