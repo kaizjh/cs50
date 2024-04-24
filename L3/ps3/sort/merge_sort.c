@@ -22,19 +22,18 @@ merge_sort(int start, int final, int arr[])
     // Merge_sort the right half (more than the mid half)
     merge_sort(mid + 1, final);
     // After saparate all the half into the last one, time to merge them
-    int len = final - start;
     int sorted[];
-    for (int i = 0; i < len / 2; i++)
+    for (int i = start; i < final / 2; i++)
     {
         if (start < final - len)
-        if (arr[start + i] <= arr[mid + i + 1])
+        if (arr[left] <= arr[right])
         {
-            sorted[start + i] = arr[start + i];
+            sorted[left] = arr[left];
             mid--;
         }
         else
         {
-            sorted[start + i] = arr[mid + i + 1];
+            sorted[left] = arr[right];
             start--;
         }
     }
