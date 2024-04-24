@@ -1,3 +1,4 @@
+// From https://github.com/ThomasCorbin22/cs50-2020-week3-tideman/tree/master/tideman, a wonderful program
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
@@ -16,7 +17,8 @@ typedef struct
 {
     int winner;
     int loser;
-} pair;
+}
+pair;
 
 // Array of candidates
 string candidates[MAX];
@@ -32,6 +34,9 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
+
+void merge_sort(int i, int j, pair a[], pair aux[]);
+bool recursive_lock(int a, int b);
 
 int main(int argc, string argv[])
 {
@@ -66,15 +71,6 @@ int main(int argc, string argv[])
     pair_count = 0;
     int voter_count = get_int("Number of voters: ");
 
-    // Initializing the preferences[i][j] by Irving
-    for (int i = 0; i < candidate_count; i++)
-    {
-        for (int j = 0; j < candidate_count; j++)
-        {
-            preferences[i][j] = 0;
-        }
-    }
-
     // Query for votes
     for (int i = 0; i < voter_count; i++)
     {
@@ -108,6 +104,7 @@ int main(int argc, string argv[])
 // Update ranks given a new vote
 bool vote(int rank, string name, int ranks[])
 {
+    // TODO
     for (int i = 0; i < candidate_count; i++)
     {
         if (strcmp(name, candidates[i]) == 0)
@@ -120,34 +117,15 @@ bool vote(int rank, string name, int ranks[])
 }
 
 // Update preferences given one voter's ranks
-// I think this function is perfect for now --Irving
 void record_preferences(int ranks[])
 {
-    int seen[candidate_count];
+    // TODO
     for (int i = 0; i < candidate_count; i++)
     {
-        // Initialize seen array
-        seen[i] = 0;
-    }
-
-    for (int rank = 0; rank < candidate_count; rank++)
-    {
-        for (int i = 0; i < candidate_count; i++)
-            {
-                if (ranks[rank] == i)
-                {
-                    // Mark i(candidate[i]) as seen, make sure this candidate never!!! appear in j
-                    seen[i] = 1;
-                    for (int j = 0; j < candidate_count; j++)
-                    {
-                        if (!seen[j])
-                        {
-                            preferences[i][j]++;
-                        }
-                    }
-                    break;
-                }
-            }
+        for (int j = i + 1; j < candidate_count; j++)
+        {
+            preferences[ranks[i]][ranks[j]] += 1;
+        }
     }
     return;
 }
@@ -155,6 +133,7 @@ void record_preferences(int ranks[])
 // Record pairs of candidates where one is preferred over the other
 void add_pairs(void)
 {
+    // TODO
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
@@ -165,71 +144,33 @@ void add_pairs(void)
                 pairs[pair_count].loser = j;
                 pair_count++;
             }
+            else if (preferences[i][j] > preferences[j][i])
+            {
+                pairs[pair_count].winner = j;
+                pairs[pair_count].loser = i;
+                pair_count++;
+            }
         }
     }
-
     return;
 }
 
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    for (int i = 0; i < pair_count; i++)
-    {
-        for (int j = i + 1; j < pair_count; j++)
-        {
-            pair tmp;
-            int imargin = preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner];
-            int jmargin = preferences[pairs[j].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[j].winner];
-            if (imargin < jmargin)
-            {
-                tmp = pairs[i];
-                pairs[i] = pairs[j];
-                pairs[j] = tmp;
-            }
-        }
-    }
-    return;
+    // TODO
+    pair pairs_final[MAX * (MAX - 1) / 2];
+
+    merge_sort(0, candidate_count, pairs, pairs_final);
 }
 
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
+    // TODO
     for (int i = 0; i < pair_count; i++)
     {
-         bool can_be_locked = true;
-
-        // Check if locking the current pair creates a cycle
-        bool visited[candidate_count];
-        for (int j = 0; j < candidate_count; j++)
-        {
-            visited[j] = false;
-        }
-
-        int current = pairs[i].loser;
-        while (current != -1)
-        {
-            if (visited[current])
-            {
-                can_be_locked = false;
-                break;
-            }
-            visited[current] = true;
-
-            // Find the next candidate to check for a cycle
-            int next = -1;
-            for (int j = 0; j < candidate_count; j++)
-            {
-                if (locked[current][j])
-                {
-                    next = j;
-                    break;
-                }
-            }
-            current = next;
-        }
-        // Locked the pairs which can be locked
-        if (can_be_locked)
+        if (recursive_lock(pairs[i].winner, pairs[i].loser) == true)
         {
             locked[pairs[i].winner][pairs[i].loser] = true;
         }
@@ -239,21 +180,98 @@ void lock_pairs(void)
 // Print the winner of the election
 void print_winner(void)
 {
+    // TODO
+    bool won_vote;
+    int index;
+
     for (int i = 0; i < candidate_count; i++)
     {
-        bool winner_found = true;
+        won_vote = true;
+
         for (int j = 0; j < candidate_count; j++)
         {
-            if (locked[j][i])
+            if (locked[j][i] == true)
             {
-                winner_found = false;
-                break;
+                won_vote = false;
             }
         }
-        if (winner_found)
+
+        if (won_vote == true)
         {
-            printf("%s\n", candidates[i]);
-            return;
+            index = i;
         }
     }
+
+    printf("%s\n", candidates[index]);
+
+    return;
+}
+
+void merge_sort(int i, int j, pair a[], pair aux[])
+{
+    //note function from https://hackr.io/blog/merge-sort-in-c
+    if (j <= i)
+    {
+        return;
+    }
+
+    int mid = (i + j) / 2;
+
+    merge_sort(i, mid, a, aux);
+    merge_sort(mid + 1, j, a, aux);
+
+    int pointer_left = i;
+    int pointer_right = mid + 1;
+    int k;
+
+    for (k = i; k <= j; k++)
+    {
+        if (pointer_left == mid + 1)
+        {
+            aux[k] = a[pointer_right];
+            pointer_right++;
+        }
+        else if (pointer_right == j + 1)
+        {
+            aux[k] = a[pointer_left];
+            pointer_left++;
+        }
+        else if ((preferences[a[pointer_left].winner][a[pointer_left].loser]) >
+                 (preferences[a[pointer_right].winner][a[pointer_right].loser]))
+        {
+            aux[k] = a[pointer_left];
+            pointer_left++;
+        }
+        else
+        {
+            aux[k] = a[pointer_right];
+            pointer_right++;
+        }
+    }
+
+    for (k = i; k <= j; k++)
+    {
+        a[k] = aux[k];
+    }
+}
+
+bool recursive_lock(int a, int b)
+{
+    if (a == b)
+    {
+        return false;
+    }
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (locked[i][a] == true)
+        {
+            if (recursive_lock(i, b) == false)
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
 }
