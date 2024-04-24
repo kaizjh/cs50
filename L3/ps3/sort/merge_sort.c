@@ -23,9 +23,9 @@ merge_sort(int start, int final, int arr[])
     merge_sort(mid + 1, final);
     // After saparate all the half into the last one, time to merge them
     int len = final - start;
-    int tmp;
-    for (int i = 0; i < len; i++)
+    int sorted[];
+    for (int i = 0; i < len / 2; i++)
     {
-        
+
     }
 }
