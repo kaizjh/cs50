@@ -40,7 +40,7 @@ void merge_sort(int start, int final, int arr[])
     int left = start;
     int right = mid + 1;
     int temp[final - start];
-    for (int i = start; i < final + 1; i++)
+    for (int i = start; i < final; i++)
     {
         if (left > mid)
         {
@@ -66,7 +66,7 @@ void merge_sort(int start, int final, int arr[])
         }
     }
 
-    for (int i = start; i < final + 1; i++)
+    for (int i = start; i < final; i++)
     {
         arr[i] = temp[i];
     }
