@@ -34,13 +34,17 @@ int main(int argc, char *argv[])
 
     // TODO: Copy header from input file to output file
     char ch;
+    for (int i = 0; i < HEADER_SIZE; i++)
+    {
+        
+    }
     while ((ch = fgetc(input)) != EOF)
     {
         fputc(ch, output);
     }
 
     // TODO: Read samples from input file and write updated data to output file
-    
+
     // Close files
     fclose(input);
     fclose(output);
