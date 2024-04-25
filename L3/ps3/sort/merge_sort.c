@@ -68,7 +68,7 @@ void merge_sort(int start, int final, int arr[])
 
     for (int i = start; i < final + 1; i++)
     {
-        arr[i] = temp[i];
+        arr[start + i] = temp[i];
     }
 }
 
