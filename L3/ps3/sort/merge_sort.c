@@ -2,7 +2,6 @@
 #include <stdio.h>
 
 void merge_sort(int start, int final, int arr[]);
-void swap(int a, int b);
 
 int main(void)
 {
@@ -48,18 +47,11 @@ void merge_sort(int start, int final, int arr[])
         }
         else
         {
-            swap(arr[left], arr[right]);
+            int tmp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tmp;
             right++;
         }
     }
 }
 
-void swap(int a, int b)
-{
-    int tmp;
-    tmp = a;
-    a = b;
-    b = tmp;
-
-    return;
-}
