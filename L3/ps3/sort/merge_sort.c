@@ -45,12 +45,14 @@ void merge_sort(int start, int final, int arr[])
     {
         if ((arr[left] < arr[right] || right > final) && left < mid + 1)
         {
-            sorted[left] = arr[left];
             left++;
         }
         else
         {
-            sorted[left] = arr[right];
+            int tmp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tmp;
+
             right++;
         }
     }
