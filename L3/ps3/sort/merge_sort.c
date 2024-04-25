@@ -3,6 +3,8 @@
 
 void merge_sort(int start, int final, int arr[]);
 
+int sorted[9];
+
 int main(void)
 {
     int num = get_int("Numbers of the array: ");
@@ -45,11 +47,13 @@ void merge_sort(int start, int final, int arr[])
         {
             sorted[i] = arr[right];
             right++;
+            break;
         }
         if (right > final)
         {
             sorted[i] = arr[left];
             left++;
+            break;
         }
         if (arr[left] < arr[right])
         {
