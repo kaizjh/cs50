@@ -52,7 +52,7 @@ void merge_sort(int start, int final, int arr[])
         {
             sorted[left] = arr[right];
             // Avoiding right goes far away
-            if (right < final + 1)
+            if (right < final)
             {
                 right++;
             }
