@@ -7,7 +7,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            printf("%i, %i, %i", image[i][j].rgbtBlue, image[i][j].rgbtGreen, image[i][j].rgbtRed);
+            printf("%d", image[i][j].rgbtBlue);
         }
     }
     return;
