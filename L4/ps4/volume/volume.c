@@ -44,6 +44,7 @@ int main(int argc, char *argv[])
     for (int i = HEADER_SIZE; ch != EOF; i++)
     {
         ch = fgetc(input);
+        ch = 
         fputc(ch, output);
     }
     // Close files
