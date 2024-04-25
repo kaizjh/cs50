@@ -36,7 +36,7 @@ void merge_sort(int start, int final, int arr[])
     merge_sort(start, mid, arr);
     // Saparate the right half (more than the mid half)
     merge_sort(mid + 1, final, arr);
-    // After saparate all the half into the last one, time to merge them
+
     int left = start;
     int right = mid + 1;
     int temp[final - start];
