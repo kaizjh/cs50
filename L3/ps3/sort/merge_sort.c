@@ -46,13 +46,13 @@ void merge_sort(int start, int final, int arr[])
         {
             temp[i] = arr[right];
             right++;
-            break;
+            continue;
         }
         if (right > final)
         {
             temp[i] = arr[left];
             left++;
-            break;
+            continue;
         }
         if (arr[left] < arr[right])
         {
