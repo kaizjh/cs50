@@ -18,7 +18,7 @@ int main(void)
     printf("Sorted:\n");
     for (int i = 0; i < num; i++)
     {
-        printf("%i ", arr[i]);
+        printf("%i ", sorted[i]);
     }
     printf("\n");
     return 0;
