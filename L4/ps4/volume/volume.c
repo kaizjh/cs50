@@ -36,15 +36,16 @@ int main(int argc, char *argv[])
     char ch;
     for (int i = 0; i < HEADER_SIZE; i++)
     {
-        
-    }
-    while ((ch = fgetc(input)) != EOF)
-    {
+        ch = fgetc(input);
         fputc(ch, output);
     }
 
     // TODO: Read samples from input file and write updated data to output file
-
+    for (int i = HEADER_SIZE; ch != EOF; i++)
+    {
+        ch = fgetc(input);
+        fputc(ch, output);
+    }
     // Close files
     fclose(input);
     fclose(output);
