@@ -3,8 +3,6 @@
 
 void merge_sort(int start, int final, int arr[]);
 
-int sorted[9];
-
 int main(void)
 {
     int num = get_int("Numbers of the array: ");
@@ -18,7 +16,7 @@ int main(void)
     printf("Sorted:\n");
     for (int i = 0; i < num; i++)
     {
-        printf("%i ", sorted[i]);
+        printf("%i ", arr[i]);
     }
     printf("\n");
     return 0;
@@ -41,30 +39,36 @@ void merge_sort(int start, int final, int arr[])
     // After saparate all the half into the last one, time to merge them
     int left = start;
     int right = mid + 1;
+    int temp[final - start];
     for (int i = start; i < final + 1; i++)
     {
         if (left > mid)
         {
-            sorted[i] = arr[right];
+            temp[i] = arr[right];
             right++;
             break;
         }
         if (right > final)
         {
-            sorted[i] = arr[left];
+            temp[i] = arr[left];
             left++;
             break;
         }
         if (arr[left] < arr[right])
         {
-            sorted[i] = arr[left];
+            temp[i] = arr[left];
             left++;
         }
         else
         {
-            sorted[i] = arr[right];
+            temp[i] = arr[right];
             right++;
         }
+    }
+
+    for (int i = start; i < final + 1; i++)
+    {
+        arr[i] = temp[i];
     }
 }
 
