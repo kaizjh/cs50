@@ -41,15 +41,24 @@ void merge_sort(int start, int final, int arr[])
     int right = mid + 1;
     for (int i = start; i < final; i++)
     {
-        if ((arr[left] < arr[right] || right > final) && left < mid + 1)
+        if (left > mid)
         {
+            sorted[i] = arr[right];
+            right++;
+        }
+        if (right > final)
+        {
+            sorted[i] = arr[left];
+            left++;
+        }
+        if (arr[left] < arr[right])
+        {
+            sorted[i] = arr[left];
             left++;
         }
         else
         {
-            int tmp = arr[left];
-            arr[left] = arr[right];
-            arr[right] = tmp;
+            sorted[i] = arr[right];
             right++;
         }
     }
