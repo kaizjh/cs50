@@ -43,7 +43,7 @@ void merge_sort(int start, int final, int arr[])
     int right = mid + 1;
     for (int i = start; i < final; i++)
     {
-        if (arr[left] < arr[right])
+        if (arr[left] < arr[right] || right > final)
         {
             sorted[left] = arr[left];
             left++;
@@ -51,11 +51,7 @@ void merge_sort(int start, int final, int arr[])
         else
         {
             sorted[left] = arr[right];
-            // Avoiding right goes far away
-            if (right < final)
-            {
-                right++;
-            }
+            right++;
         }
     }
 }
