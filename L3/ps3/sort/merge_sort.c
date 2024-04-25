@@ -1,4 +1,4 @@
-// Merge sort is very efficient, but is hard to code, to comprehand
+// Merge sort is very efficient, but is hard to code, to comprehend, is a trade off
 #include <cs50.h>
 #include <stdio.h>
 
