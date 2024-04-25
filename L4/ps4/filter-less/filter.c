@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     BITMAPFILEHEADER bf;
     fread(&bf, sizeof(BITMAPFILEHEADER), 1, inptr);
 
-    // Read infile's BITMAPINFOHEADER
+    // Read infile's BITMAPINFOHEADER (BMP Info Header, 40 bytes long)
     BITMAPINFOHEADER bi;
     fread(&bi, sizeof(BITMAPINFOHEADER), 1, inptr);
 
