@@ -3,7 +3,7 @@
 
 void merge_sort(int start, int final, int arr[]);
 
-int sorted[99];
+int sorted[9];
 
 int main(void)
 {
