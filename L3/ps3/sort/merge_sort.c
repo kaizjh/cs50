@@ -2,8 +2,7 @@
 #include <stdio.h>
 
 void merge_sort(int start, int final, int arr[]);
-
-int sorted[9];
+void swap(int a, int b);
 
 int main(void)
 {
@@ -18,7 +17,7 @@ int main(void)
     printf("Sorted:\n");
     for (int i = 0; i < num; i++)
     {
-        printf("%i ", sorted[i]);
+        printf("%i ", arr[i]);
     }
     printf("\n");
     return 0;
@@ -49,11 +48,18 @@ void merge_sort(int start, int final, int arr[])
         }
         else
         {
-            int tmp = arr[left];
-            arr[left] = arr[right];
-            arr[right] = tmp;
-
+            swap(arr[left], arr[right]);
             right++;
         }
     }
+}
+
+void swap(int a, int b)
+{
+    int tmp;
+    tmp = a;
+    a = b;
+    b = tmp;
+
+    return;
 }
