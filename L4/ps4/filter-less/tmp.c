@@ -3,5 +3,5 @@
 
 int main(void)
 {
-    printf("This is CS%i\n", round(49.5));
+    printf("This is CS%i\n", (int)round((28+28+28)/3));
 }
