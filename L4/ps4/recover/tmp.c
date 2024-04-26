@@ -11,4 +11,5 @@ int main(void)
     float f = 50.0;
     sprintf(buffer, "This is CS%.0f", f);
     printf("%s\n", buffer);
+    printf("This is CS%i", (int)f);
 }
