@@ -15,5 +15,12 @@ int main(int argc, char *argv[])
         printf("Can not open the input file!");
         return 1;
     }
-    FILE *output = fopen(")
+    FILE *output = fopen("1.jpeg","w");
+    if (input = NULL)
+    {
+        printf("Can not open the output file!");
+        return 1;
+    }
+
+    fread()
 }
