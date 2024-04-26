@@ -92,8 +92,22 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            for (int )
+            box_blur();
         }
     }
     return;
+}
+
+box_blur()
+{
+    for (int i = h - 1; i < h + 2; i++)
+    {
+        for (int j = w - 1; j < w + 2; j++)
+        {
+            if (i > 0 && i < height && j > 0 && j < width)
+            {
+                
+            }
+        }
+    }
 }
