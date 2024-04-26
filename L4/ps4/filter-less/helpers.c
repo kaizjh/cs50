@@ -1,4 +1,5 @@
 #include "helpers.h"
+#include <math.h>
 #include <stdio.h>
 
 // Convert image to grayscale
@@ -124,8 +125,8 @@ RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[height][w
             }
         }
     }
-    new_pixel.rgbtRed = (int)(sum[0] / num);
-    new_pixel.rgbtGreen = (int)(sum[1] / num);
-    new_pixel.rgbtBlue = (int)(sum[2] / num);
+    new_pixel.rgbtRed = (int)round(sum[0] / num);
+    new_pixel.rgbtGreen = (int)round(sum[1] / num);
+    new_pixel.rgbtBlue = (int)round(sum[2] / num);
     return new_pixel;
 }
