@@ -101,7 +101,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-// Taking each pixel and, for each color value, giving it a new value by averaging the color values of neighboring pixels.
+// Forming a 3 * 3 box, taking each pixel and, for each color value,
+// Giving it a new value by averaging the color values of neighboring(in the box) pixels.
 RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[height][width])
 {
     int num = 0;
