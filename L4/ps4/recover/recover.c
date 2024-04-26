@@ -24,8 +24,9 @@ int main(int argc, char *argv[])
 
     typedef uint8_t BYTE;
     typedef BYTE512_t BLOCK;
-    fread(buffer, sizeof(BLOCK), 1, input)
+    do
     {
-        f
+        fread(buffer, sizeof(BLOCK), 1, input)
     }
+    while()
 }
