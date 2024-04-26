@@ -77,7 +77,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 }
 
 // A functino for blur
-RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[][]);
+RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[height][width]);
 
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
@@ -95,16 +95,16 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            image[i][j] = box_blur(i, j, height, width, copy[height][width]);
+            image[i][j] = box_blur(i, j, height, width, copy);
         }
     }
     return;
 }
 
 // Taking each pixel and, for each color value, giving it a new value by averaging the color values of neighboring pixels.
-RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[][])
+RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[height][width])
 {
-    int num;
+    int num = 0;
     RGBTRIPLE new;
     new.rgbtRed = 0;
     new.rgbtGreen = 0;
