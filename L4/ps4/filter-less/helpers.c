@@ -9,11 +9,11 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            int average = (image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3;
+            float average = (image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3;
 
-            image[i][j].rgbtBlue = average;
-            image[i][j].rgbtGreen = average;
-            image[i][j].rgbtRed = average;
+            image[i][j].rgbtBlue = (int)round(average);
+            image[i][j].rgbtGreen = (int)round(average);
+            image[i][j].rgbtRed = (int)round(average);
         }
     }
     return;
@@ -97,10 +97,12 @@ RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[height][w
 {
     int num = 0;
     float sum[3] = {0, 0, 0};
+
     RGBTRIPLE new_pixel;
     new_pixel.rgbtRed = 0;
     new_pixel.rgbtGreen = 0;
     new_pixel.rgbtBlue = 0;
+
     for (int i = h - 1; i < h + 2; i++)
     {
         for (int j = w - 1; j < w + 2; j++)
@@ -114,6 +116,7 @@ RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[height][w
             }
         }
     }
+
     new_pixel.rgbtRed = (int)round(sum[0] / num);
     new_pixel.rgbtGreen = (int)round(sum[1] / num);
     new_pixel.rgbtBlue = (int)round(sum[2] / num);
