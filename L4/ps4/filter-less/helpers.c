@@ -106,15 +106,15 @@ RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[height][w
 {
     int num = 0;
     int sum[3] = {0, 0, 0};
-    RGBTRIPLE new;
-    new.rgbtRed = 0;
-    new.rgbtGreen = 0;
-    new.rgbtBlue = 0;
+    RGBTRIPLE new_pixel;
+    new_pixel.rgbtRed = 0;
+    new_pixel.rgbtGreen = 0;
+    new_pixel.rgbtBlue = 0;
     for (int i = h - 1; i < h + 2; i++)
     {
         for (int j = w - 1; j < w + 2; j++)
         {
-            if (i > 0 && i < height && j > 0 && j < width)
+            if (i >= 0 && i < height && j >= 0 && j < width)
             {
                 sum[0] += copy[i][j].rgbtRed;
                 sum[1] += copy[i][j].rgbtGreen;
@@ -123,8 +123,8 @@ RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[height][w
             }
         }
     }
-    new.rgbtRed = sum[0] / num;
-    new.rgbtGreen = sum[1] / num;
-    new.rgbtBlue = sum[2] / num;
-    return new;
+    new_pixel.rgbtRed = sum[0] / num;
+    new_pixel.rgbtGreen = sum[1] / num;
+    new_pixel.rgbtBlue = sum[2] / num;
+    return new_pixel;
 }
