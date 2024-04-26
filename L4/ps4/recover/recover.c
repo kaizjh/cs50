@@ -32,5 +32,5 @@ int main(int argc, char *argv[])
         }
 
     }
-    while()
+    while(fread(buffer, sizeof(uint8_t), 512, input) == 512)
 }
