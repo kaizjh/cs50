@@ -22,11 +22,10 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    typedef uint8_t BYTE;
-    typedef BYTE512_t BLOCK;
     do
     {
-        fread(buffer, sizeof(BLOCK), 1, input)
+        fread(buffer, sizeof(512 * byte), 1, input)
+        
     }
     while()
 }
