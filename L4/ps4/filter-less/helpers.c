@@ -76,7 +76,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-// A functino for blur
+// A function for blur
 RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[height][width]);
 
 // Blur image
