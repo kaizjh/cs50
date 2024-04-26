@@ -8,5 +8,11 @@ int main(int argc, char *argv[])
         printf("Usage: ./recover filename.raw\n");
         return 1;
     }
-    FILE *input = fopen(")
+
+    FILE *input = fopen(argc[1],"r");
+    if (input = NULL)
+    {
+        printf("Can not open the file!");
+        return 1;
+    }
 }
