@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] >= 0xe0 && buffer[3] <= 0xef)
         {
-            string s = "001"
+            char *s = "001";
             FILE *output = fopen("%s.jpeg",s,"w");
             if (input == NULL)
             {
