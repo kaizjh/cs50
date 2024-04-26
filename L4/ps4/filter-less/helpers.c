@@ -33,7 +33,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             }
             else
             {
-                image[i][j].rgbtBlue = (int)tmpB;
+                image[i][j].rgbtBlue = (int)round(tmpB);
             }
 
             float tmpG = 0.349 * image[i][j].rgbtRed + 0.686 * image[i][j].rgbtGreen + 0.168 * image[i][j].rgbtBlue;
@@ -43,17 +43,19 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             }
             else
             {
-                image[i][j].rgbtGreen = (int)tmpG;
+                image[i][j].rgbtGreen = (int)round(tmpG);
             }
 
             float tmpR = 0.393 * image[i][j].rgbtRed + 0.769 * image[i][j].rgbtGreen + 0.189 * image[i][j].rgbtBlue;
+            printf("%f\n", tmpR);
             if (tmpR > 255)
             {
                 image[i][j].rgbtRed = 255;
             }
             else
             {
-                image[i][j].rgbtRed = (int)tmpR;
+                image[i][j].rgbtRed = (int)round(tmpR);
+                printf("%i\n", image[i][j].rgbtRed);
             }
         }
     }
