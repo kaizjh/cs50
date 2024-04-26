@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     FILE *input = fopen(argv[1],"r");
     if (input == NULL)
     {
-        printf("Can not open the input file!\n");
+        printf("Can not open the input file!");
         return 1;
     }
 
@@ -42,12 +42,11 @@ int main(int argc, char *argv[])
             FILE *output = fopen(s,"w");
             if (output == NULL)
             {
-                printf("Can not open the output file!\n");
+                printf("Can not open the output file!");
                 return 1;
             }
             fwrite(buffer, sizeof(uint8_t), 512, output);
-
-            i++;
+            break;
         }
 
     }
