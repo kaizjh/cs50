@@ -26,7 +26,10 @@ int main(int argc, char *argv[])
     do
     {
         fread(buffer, sizeof(uint8_t), 512, input);
-        for (int i = 0; i < )
+        for (int i = 0; i < 4; i++)
+        {
+            
+        }
 
     }
     while()
