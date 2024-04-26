@@ -124,8 +124,8 @@ RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[height][w
             }
         }
     }
-    new_pixel.rgbtRed = (int)sum[0] / num;
-    new_pixel.rgbtGreen = (int)sum[1] / num;
-    new_pixel.rgbtBlue = (int)sum[2] / num;
+    new_pixel.rgbtRed = (int)(sum[0] / num);
+    new_pixel.rgbtGreen = (int)(sum[1] / num);
+    new_pixel.rgbtBlue = (int)(sum[2] / num);
     return new_pixel;
 }
