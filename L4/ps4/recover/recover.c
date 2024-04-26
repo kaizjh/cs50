@@ -23,8 +23,8 @@ int main(int argc, char *argv[])
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] >= 0xe0 && buffer[3] <= 0xef)
         {
-            char *s = "001";
-            FILE *output = fopen("s.jpeg","w");
+            char *s = "001.jpg";
+            FILE *output = fopen(s,"w");
             if (input == NULL)
             {
                 printf("Can not open the output file!");
