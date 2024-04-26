@@ -20,11 +20,12 @@ int main(int argc, char *argv[])
 
     uint8_t buffer[512];
     int i = 0;
+    char *s = NULL;
+
     while(fread(buffer, sizeof(uint8_t), 512, input) == 512)
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] >= 0xe0 && buffer[3] <= 0xef)
         {
-            char *s;
             if (i < 10)
             {
                 sprintf(s, "00%i.jpg", i);
@@ -39,7 +40,7 @@ int main(int argc, char *argv[])
             }
 
             FILE *output = fopen(s,"w");
-            if (input == NULL)
+            if (output == NULL)
             {
                 printf("Can not open the output file!");
                 return 1;
