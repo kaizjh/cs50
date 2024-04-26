@@ -12,7 +12,8 @@ int main(int argc, char *argv[])
     FILE *input = fopen(argc[1],"r");
     if (input = NULL)
     {
-        printf("Can not open the file!");
+        printf("Can not open the input file!");
         return 1;
     }
+    FILE *output = fopen()
 }
