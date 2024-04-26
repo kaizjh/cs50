@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 {
     if (argc != 2)
     {
-        printf("Usage: ./recover filename.raw\n");
+        printf("Usage: ./recover file\n");
         return 1;
     }
 
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     do
     {
         fread(buffer, sizeof(512 * byte), 1, input)
-        
+
     }
     while()
 }
