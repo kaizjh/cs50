@@ -19,13 +19,23 @@ int main(int argc, char *argv[])
 
 
     uint8_t buffer[512];
+    int i = 0;
     while(fread(buffer, sizeof(uint8_t), 512, input) == 512)
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] >= 0xe0 && buffer[3] <= 0xef)
         {
+            char *s;
             if (i < 10)
             {
-                char *s = sprintf"00%i.jpg";
+                sprintf(s, "00%i.jpg", i);
+            }
+            else if (i < 100)
+            {
+                sprintf(s, "0%i.jpg", i);
+            }
+            else
+            {
+                sprintf(s, "%i.jpg", i);
             }
 
             FILE *output = fopen(s,"w");
