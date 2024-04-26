@@ -15,5 +15,5 @@ int main(int argc, char *argv[])
         printf("Can not open the input file!");
         return 1;
     }
-    FILE *output = fopen()
+    FILE *output = fopen(")
 }
