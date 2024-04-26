@@ -10,11 +10,10 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             float average = (image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3;
-            printf("%f\n", average);
+
             image[i][j].rgbtBlue = round(average);
-            printf("%i\n", image[i][j].rgbtBlue);
-            image[i][j].rgbtGreen = (int)round(average);
-            image[i][j].rgbtRed = (int)round(average);
+            image[i][j].rgbtGreen = round(average);
+            image[i][j].rgbtRed = round(average);
         }
     }
     return;
@@ -34,17 +33,17 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             if (tmpB > 255)
                 image[i][j].rgbtBlue = 255;
             else
-                image[i][j].rgbtBlue = (int)round(tmpB);
+                image[i][j].rgbtBlue = round(tmpB);
 
             if (tmpG > 255)
                 image[i][j].rgbtGreen = 255;
             else
-                image[i][j].rgbtGreen = (int)round(tmpG);
+                image[i][j].rgbtGreen = round(tmpG);
 
             if (tmpR > 255)
                 image[i][j].rgbtRed = 255;
             else
-                image[i][j].rgbtRed = (int)round(tmpR);
+                image[i][j].rgbtRed = round(tmpR);
         }
     }
     return;
@@ -118,8 +117,8 @@ RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[height][w
         }
     }
 
-    new_pixel.rgbtRed = (int)round(sum[0] / num);
-    new_pixel.rgbtGreen = (int)round(sum[1] / num);
-    new_pixel.rgbtBlue = (int)round(sum[2] / num);
+    new_pixel.rgbtRed = round(sum[0] / num);
+    new_pixel.rgbtGreen = round(sum[1] / num);
+    new_pixel.rgbtBlue = round(sum[2] / num);
     return new_pixel;
 }
