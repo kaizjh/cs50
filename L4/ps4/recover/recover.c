@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    typedef int
+    typedef uint8_t BYTE;
+    typedef BYTE512_t BLOCK;
     fread(buffer, )
 }
