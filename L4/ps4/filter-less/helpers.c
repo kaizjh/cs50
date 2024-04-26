@@ -105,7 +105,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 RGBTRIPLE box_blur(int h, int w, int height, int width, RGBTRIPLE copy[height][width])
 {
     int num = 0;
-    int sum[2] = {0, 0, 0};
+    int sum[3] = {0, 0, 0};
     RGBTRIPLE new;
     new.rgbtRed = 0;
     new.rgbtGreen = 0;
