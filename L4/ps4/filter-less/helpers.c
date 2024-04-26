@@ -63,11 +63,14 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     int mid = width / 2;
+    RGBTRIPLE tmp;
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            
+            if (j < mid)
+            tmp = image[i][j];
+            image[i][j] = image[i]
         }
     }
     return;
