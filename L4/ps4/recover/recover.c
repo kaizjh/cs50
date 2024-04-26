@@ -22,9 +22,11 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    uint8_t buffer[512];
     do
     {
-        fread(buffer, sizeof(512 * byte), 1, input)
+        fread(buffer, sizeof(uint8_t), 512, input);
+        for (int i = 0; i < )
 
     }
     while()
