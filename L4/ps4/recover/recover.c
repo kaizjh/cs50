@@ -47,9 +47,11 @@ int main(int argc, char *argv[])
             }
 
             fwrite(buffer, sizeof(uint8_t), 512, output);
+            
             i++;
+            fclose(output);
         }
-
     }
 
+    fclose(input);
 }
