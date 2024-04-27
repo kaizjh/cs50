@@ -29,33 +29,32 @@ int main(int argc, char *argv[])
         {
             if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] >= 0xe0 && buffer[3] <= 0xef)
             {
-            if (i < 10)
-            {
-                sprintf(s, "00%i.jpg", i);
-            }
-            else if (i < 100)
-            {
-                sprintf(s, "0%i.jpg", i);
-            }
-            else
-            {
-                sprintf(s, "%i.jpg", i);
-            }
+                if (i < 10)
+                {
+                    sprintf(s, "00%i.jpg", i);
+                }
+                else if (i < 100)
+                {
+                    sprintf(s, "0%i.jpg", i);
+                }
+                else
+                {
+                    sprintf(s, "%i.jpg", i);
+                }
 
-            FILE *output = fopen(s,"w");
-            if (output == NULL)
-            {
-                printf("Can not open the output file!");
-                return 1;
+                FILE *output = fopen(s,"w");
+                if (output == NULL)
+                {
+                    printf("Can not open the output file!");
+                    return 1;
+                }
+
+                fwrite(buffer, sizeof(uint8_t), 512, output);
+
+                i++;
             }
-
-            fwrite(buffer, sizeof(uint8_t), 512, output);
-
-            i++;
-            fclose(output);
         }
-
-        }
+        while ()
     }
 
     fclose(input);
