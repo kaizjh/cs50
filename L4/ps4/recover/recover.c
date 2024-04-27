@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     uint8_t buffer[512];
     int i = 0;
     char s[9];
-    FILE *output;
+    FILE *output = NULL;
 
     while (fread(buffer, sizeof(uint8_t), 512, input) == 512)
     {
@@ -56,8 +56,12 @@ int main(int argc, char *argv[])
         }
 
         // Write things into the file, if next file is opened, then write in the new file
-        fwrite(buffer, sizeof(uint8_t), 512, output);
+        if (output != NULL)
+        {
+            fwrite(buffer, sizeof(uint8_t), 512, output);
+        }
     }
 
     fclose(input);
+    fclose(output);
 }
