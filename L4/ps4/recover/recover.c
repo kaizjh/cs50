@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     int i = 0;
     char s[9];
 
-    do
+    while (fread(buffer, sizeof(uint8_t), 512, input) == 512)
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] >= 0xe0 && buffer[3] <= 0xef)
         {
@@ -51,7 +51,6 @@ int main(int argc, char *argv[])
             i++;
         }
     }
-    while (fread(buffer, sizeof(uint8_t), 512, input) == 512);
 
 
     fclose(input);
