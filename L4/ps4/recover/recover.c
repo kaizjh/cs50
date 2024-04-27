@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     uint8_t buffer[512];
     int i = 0;
-    char *s;
+    char *s = "001.jpg";
 
     while(fread(buffer, sizeof(uint8_t), 512, input) == 512)
     {
