@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
     uint8_t buffer[512];
     int i = 0;
     char s[9];
+    FILE *output;
 
     while (fread(buffer, sizeof(uint8_t), 512, input) == 512)
     {
@@ -46,7 +47,7 @@ int main(int argc, char *argv[])
             i++;
 
             // Open a new output file
-            FILE *output = fopen(s,"w");
+            output = fopen(s,"w");
             if (output == NULL)
             {
                 printf("Can not open the output file!");
