@@ -26,6 +26,11 @@ int main(int argc, char *argv[])
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] >= 0xe0 && buffer[3] <= 0xef)
         {
+            // Close the former output file, if there is one
+            if (i > 0)
+                fclose(output);
+
+            // Check the number of jpg file, make a name for it
             if (i < 10)
             {
                 sprintf(s, "00%i.jpg", i);
@@ -38,32 +43,20 @@ int main(int argc, char *argv[])
             {
                 sprintf(s, "%i.jpg", i);
             }
+            i++;
 
+            // Open a new output file
             FILE *output = fopen(s,"w");
             if (output == NULL)
             {
                 printf("Can not open the output file!");
                 return 1;
             }
-
-            fwrite(buffer, sizeof(uint8_t), 512, output);
-
-            i++;
         }
-    }
 
+        // Write things into the file, if next file is opened, then write in the new file
+        fwrite(buffer, sizeof(uint8_t), 512, output);
+    }
 
     fclose(input);
-}
-
-write-in-output()
-{
-    if (fread(buffer, sizeof(uint8_t), 512, input) != 512)
-        return;
-    else
-    {
-        open
-        write-in-output();
-    }
-
 }
