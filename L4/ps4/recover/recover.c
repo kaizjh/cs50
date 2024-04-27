@@ -59,5 +59,33 @@ int main(int argc, char *argv[])
 
 write-in-output()
 {
+    if (fread(buffer, sizeof(uint8_t), 512, input) != 512)
+        return;
+    else
+    {
+        if (i < 10)
+            {
+                sprintf(s, "00%i.jpg", i);
+            }
+            else if (i < 100)
+            {
+                sprintf(s, "0%i.jpg", i);
+            }
+            else
+            {
+                sprintf(s, "%i.jpg", i);
+            }
+
+            FILE *output = fopen(s,"w");
+            if (output == NULL)
+            {
+                printf("Can not open the output file!");
+                return 1;
+            }
+
+            fwrite(buffer, sizeof(uint8_t), 512, output);
+i++;
+        write-in-output();
+    }
 
 }
