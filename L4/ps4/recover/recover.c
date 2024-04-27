@@ -22,40 +22,37 @@ int main(int argc, char *argv[])
     int i = 0;
     char s[9];
 
-    while(fread(buffer, sizeof(uint8_t), 512, input) == 512)
+    do
     {
-        write-in-output()
-        do
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] >= 0xe0 && buffer[3] <= 0xef)
         {
-            if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] >= 0xe0 && buffer[3] <= 0xef)
+            if (i < 10)
             {
-                if (i < 10)
-                {
-                    sprintf(s, "00%i.jpg", i);
-                }
-                else if (i < 100)
-                {
-                    sprintf(s, "0%i.jpg", i);
-                }
-                else
-                {
-                    sprintf(s, "%i.jpg", i);
-                }
-
-                FILE *output = fopen(s,"w");
-                if (output == NULL)
-                {
-                    printf("Can not open the output file!");
-                    return 1;
-                }
-
-                fwrite(buffer, sizeof(uint8_t), 512, output);
-
-                i++;
+                sprintf(s, "00%i.jpg", i);
             }
+            else if (i < 100)
+            {
+                sprintf(s, "0%i.jpg", i);
+            }
+            else
+            {
+                sprintf(s, "%i.jpg", i);
+            }
+
+            FILE *output = fopen(s,"w");
+            if (output == NULL)
+            {
+                printf("Can not open the output file!");
+                return 1;
+            }
+
+            fwrite(buffer, sizeof(uint8_t), 512, output);
+
+            i++;
         }
-        while ()
     }
+    while (fread(buffer, sizeof(uint8_t), 512, input) == 512);
+
 
     fclose(input);
 }
