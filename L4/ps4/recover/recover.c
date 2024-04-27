@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
                 return 1;
             }
             fwrite(buffer, sizeof(uint8_t), 512, output);
-            break;
+            i++;
         }
 
     }
