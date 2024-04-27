@@ -1,7 +1,7 @@
 // A program to recover some deleted JEPG in card.raw file (or in the memory, maybe)
 
-// This code implementation is actually by myself, besides getting a little direction from cs50 and chatgpt.
-// And when it actually works, the 50 pictures fixed and get into my eyes, I feel proud and amazing!
+// This code implementation is actually by myself, with a little direction from cs50 and chatgpt.
+// And when it actually runned, the 50 pictures fixed and get into my eyes, I feel proud and amazing!
 // I am proud of myself, I am amazing at the computer science.
 // I know the pictures' principle underneath the hood; I see the pictures from far away, after my own efforts, ofc, and cs50's efforts.
 // There is 50 pictures, I have seen all of them, although, they are a little indistinct, I have to say:they are beautiful!
