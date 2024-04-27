@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
             }
         }
 
-        // Write things into the file, if next file is opened, then write in the new file
+        // Write things into the output file, if there is one
         if (output != NULL)
         {
             fwrite(buffer, sizeof(uint8_t), 512, output);
