@@ -25,17 +25,10 @@ int main(int argc, char *argv[])
     while(fread(buffer, sizeof(uint8_t), 512, input) == 512)
     {
         write-in-output()
-
-        }
-    }
-
-    fclose(input);
-}
-
-write-in-output()
-{
-    if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] >= 0xe0 && buffer[3] <= 0xef)
+        do
         {
+            if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] >= 0xe0 && buffer[3] <= 0xef)
+            {
             if (i < 10)
             {
                 sprintf(s, "00%i.jpg", i);
@@ -60,4 +53,15 @@ write-in-output()
 
             i++;
             fclose(output);
+        }
+
+        }
+    }
+
+    fclose(input);
+}
+
+write-in-output()
+{
+
 }
