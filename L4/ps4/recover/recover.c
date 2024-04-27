@@ -24,7 +24,17 @@ int main(int argc, char *argv[])
 
     while(fread(buffer, sizeof(uint8_t), 512, input) == 512)
     {
-        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] >= 0xe0 && buffer[3] <= 0xef)
+        write-in-output()
+
+        }
+    }
+
+    fclose(input);
+}
+
+write-in-output()
+{
+    if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] >= 0xe0 && buffer[3] <= 0xef)
         {
             if (i < 10)
             {
@@ -47,11 +57,7 @@ int main(int argc, char *argv[])
             }
 
             fwrite(buffer, sizeof(uint8_t), 512, output);
-            
+
             i++;
             fclose(output);
-        }
-    }
-
-    fclose(input);
 }
