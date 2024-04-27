@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     uint8_t buffer[512];
     int i = 0;
-    char *s = NULL;
+    char *s;
 
     while(fread(buffer, sizeof(uint8_t), 512, input) == 512)
     {
