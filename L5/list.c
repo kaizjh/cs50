@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
         list = n;
     }
 
-    // while loop and for loop, always can be substituted each other
+    // While loops and for loops can always substitute each other
     for (node *ptr = list; ptr != NULL; ptr = ptr->next)
         printf("%i\n", ptr -> number);
 
