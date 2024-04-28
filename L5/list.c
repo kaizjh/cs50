@@ -22,16 +22,21 @@ int main(int argc, char *argv[])
         int num = atoi(argv[i]);
 
         node *n = malloc(sizeof(node));
-        n -> number = num;
-        n -> next = list;
+        n->number = num;
+        n->next = list;
 
         list = n;
     }
 
-    node *ptr = list;
+    // while loop and for loop, always can be substituted each other
+    for (node *ptr = list; ptr != NULL; ptr = ptr->next)
+        printf("%i\n", ptr -> number);
+
+    ptr = list;
     while (ptr != NULL)
     {
-        printf("%i\n", ptr -> number);
-        ptr = ptr -> next;
+        node *next = ptr->next;
+        free(ptr);
+        ptr = next;
     }
 }
