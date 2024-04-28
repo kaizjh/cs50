@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     while (ptr != NULL)
     {
         node *next = ptr->next;
-        // 
+        // Every block of memory that you malloc( ) must subsequently be free( )d. And if no malloc( ), no free( ), like node *next above
         free(ptr);
         ptr = next;
     }
