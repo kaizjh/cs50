@@ -1,9 +1,21 @@
 #include <stdio.h>
 #include<stdlib.h>
 
+typedef struct node
+{
+    int number;
+    struct node *next;
+}
+node;
+
 int main(void)
 {
     int *list = malloc(3*sizeof(int));
+    if (list == NULL)
+    {
+        return 1;
+    }
+    
     list[0] = 0;
     list[1] = 1;
     list[2] = 2;
