@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
     while (ptr != NULL)
     {
         node *next = ptr->next;
+        // 
         free(ptr);
         ptr = next;
     }
