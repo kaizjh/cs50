@@ -75,12 +75,12 @@ person *create_family(int generations)
             char r = random_allele();
             if (r == new_person->parents[1]->alleles[0])
             {
-                new_person->alleles[1] = new_person->parents[0]->alleles[0];
+                new_person->alleles[1] = new_person->parents[1]->alleles[0];
                 break;
             }
             else if (r == new_person->parents[1]->alleles[1])
             {
-                new_person->alleles[1] = new_person->parents[0]->alleles[1];
+                new_person->alleles[1] = new_person->parents[1]->alleles[1];
                 break;
             }
         }
