@@ -61,7 +61,6 @@ bool unload(node *list)
         free(list);
         list = ptr;
     }
-    return false;
 }
 
 void visualizer(node *list)
