@@ -53,23 +53,45 @@ person *create_family(int generations)
         new_person->parents[1] = parent1;
 
         // TODO: Randomly assign current person's alleles based on the alleles of their parents
-        while ()
-        char r = random_allele();
-        if (r == new_person->parents[0]->alleles[0])
-            new_person->alleles[0] = new_person->parents[0]->alleles[0];
-        else if (r == new_person->parents[0]->alleles[1])
-            new_person->alleles[0] = new_person->parents[0]->alleles[1];
 
-        if (r == new_person->parents[0]->alleles[0])
-            new_person->alleles[0] = new_person->parents[0]->alleles[0];
-        else if (r == new_person->parents[0]->alleles[1])
-            new_person->alleles[0] = new_person->parents[0]->alleles[1];
+        // A random gene from one parent
+        while (true)
+        {
+            char r = random_allele();
+            if (r == new_person->parents[0]->alleles[0])
+            {
+                new_person->alleles[0] = new_person->parents[0]->alleles[0];
+                break;
+            }
+            else if (r == new_person->parents[0]->alleles[1])
+            {
+                new_person->alleles[0] = new_person->parents[0]->alleles[1];
+                break;
+            }
+        }
+
+        // A random gene from another parent
+        while (true)
+        {
+            char r = random_allele();
+            if (r == new_person->parents[1]->alleles[0])
+            {
+                new_person->alleles[1] = new_person->parents[0]->alleles[0];
+                break;
+            }
+            else if (r == new_person->parents[1]->alleles[1])
+            {
+                new_person->alleles[1] = new_person->parents[0]->alleles[1];
+                break;
+            }
+        }
     }
 
     // If there are no generations left to create
     else
     {
         // TODO: Set parent pointers to NULL
+        new_person->
 
         // TODO: Randomly assign alleles
     }
