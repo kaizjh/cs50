@@ -54,13 +54,15 @@ int main(void)
 bool unload(node *list)
 {
     // TODO: Free all allocated nodes
-    node *ptr = NULL;
-    for (int i = 0; i < LIST_SIZE; i++)
+    node *ptr = list;
+    while(ptr != NULL)
     {
         ptr = list->next;
         free(list);
         list = ptr;
     }
+
+    return true;
 }
 
 void visualizer(node *list)
