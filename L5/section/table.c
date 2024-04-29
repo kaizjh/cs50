@@ -1,4 +1,5 @@
 #include <cs50.h>
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -31,6 +32,7 @@ int main(void)
 // TODO: return the correct bucket for a given phrase
 int hash(string phrase)
 {
-    
-    return 0;
+    char p = toupper(phrase[0]);
+    int h = p - 'A';
+    return h;
 }
