@@ -44,7 +44,7 @@ person *create_family(int generations)
     if (new_person == NULL)
     {
         printf("Malloc error!\n");
-        return 1;
+        return NULL;
     }
 
     // If there are still generations left to create
