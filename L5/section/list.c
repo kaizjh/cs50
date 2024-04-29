@@ -25,6 +25,12 @@ int main(void)
 
         // TODO: add phrase to new node in list
         node *n = malloc(sizeof(node));
+        if (n == NULL)
+        {
+            printf("Can not get memory!\n");
+            return 1;
+        }
+
         n->phrase = phrase;
         n->next = list;
 
