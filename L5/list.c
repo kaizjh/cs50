@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
 
         node *n = malloc(sizeof(node));
         n->number = num;
-        n->next = NULL;
 
         n->next = list;
 
