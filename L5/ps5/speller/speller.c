@@ -135,7 +135,7 @@ int main(int argc, char *argv[])
         fclose(file);
         printf("Error reading %s.\n", text);
         unload();
-        return 1;
+        return 1;`
     }
 
     // Close text
