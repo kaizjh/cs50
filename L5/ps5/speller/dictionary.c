@@ -22,7 +22,10 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    
+    for (int i = 0; i < N; i++)
+    {
+        if (word == table[i]->word)
+    }
     return false;
 }
 
