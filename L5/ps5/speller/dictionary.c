@@ -25,6 +25,7 @@ bool check(const char *word)
     for (int i = 0; i < N; i++)
     {
         if (word == table[i]->word)
+            return true;
     }
     return false;
 }
@@ -33,6 +34,7 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
+    
     return toupper(word[0]) - 'A';
 }
 
