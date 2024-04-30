@@ -42,8 +42,6 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    char &c;
-    while (fread(&c, sizeof(char), 1, file))
     return false;
 }
 
