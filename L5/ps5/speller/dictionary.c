@@ -2,6 +2,8 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "dictionary.h"
 
 // Represents a node in a hash table
@@ -16,11 +18,6 @@ const unsigned int N = 26;
 
 // Hash table
 node *table[N];
-// Initialize hash table
-for (int i = 0; i < N; i++)
-{
-    table[i] = NULL;
-}
 
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
@@ -52,6 +49,11 @@ bool load(const char *dictionary)
         printf("Can not open the dictionary\n");
         return 1;
     }
+    // Initialize hash table
+    for (int i = 0; i < N; i++)
+    {
+        table[i] = NULL;
+    }
 
     // Read each word in the input file
     char c, word[LENGTH + 1];
@@ -77,16 +79,15 @@ bool load(const char *dictionary)
             }
             else
             {
-                node *p = table[n];
-                while (p->next != NULL)
+                node *ptr = table[n];
+                while (ptr != NULL)
                 {
-                    new_node = new_node->next;
+                    ptr = ptr->next;
                 }
-                new_node->word = word;
+                ptr = new_node;
             }
 
             words++;
-            index = 0;
         }
         else
         {
@@ -94,7 +95,6 @@ bool load(const char *dictionary)
             index++;
         }
     }
-
     return true;
 }
 
