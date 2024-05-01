@@ -70,7 +70,7 @@ bool load(const char *dictionary)
         return false;
     }
 
-    //wordlist is a character array of the words.
+    //wordlist is a character array of the words. 
     char wordlist[LENGTH + 1];
     //while fscanf != EOF print the words into the character array word
     while (fscanf(file, "%s", wordlist) != EOF)
