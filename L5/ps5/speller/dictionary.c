@@ -51,13 +51,20 @@ bool load(const char *dictionary)
     // Read each word in the input file
     char c, word[LENGTH + 1];
     int index = 0, words = 0;
-    while(fread(&c, sizeof(char), 1, input))
+    while (fread(&c, sizeof(char), 1, input))
     {
         if (c == '\n')
         {
             // Add each word to the hash table
             int n = word[0] - 'a';
-            table[n]->word = word;
+            if (table[n]->word != "\n")
+            {
+                table[n]->word = word;
+            }
+            else
+            {
+                while ()
+            }
 
             words++;
             index = 0;
