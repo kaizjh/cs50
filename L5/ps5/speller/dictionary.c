@@ -25,9 +25,11 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
-    for (int i = 0; i < N; i++)
+    int i = hash(word);
+    node *ptr = table[i];
+    while (strcmp(word, ptr->word))
     {
-        return true;
+
     }
     return false;
 }
