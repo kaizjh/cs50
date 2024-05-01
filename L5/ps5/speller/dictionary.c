@@ -28,16 +28,13 @@ bool check(const char *word)
 {
     // TODO
     int hashvalue = hash(word);
-    node *ptr = table[hashvalue];
-    // Function strcasecmp() is case-insensitive, if word == ptr->word, jump out of the while loop and reture true
-    while (strcasecmp(word, ptr->word) != 0)
+    // Function strcasecmp() is case-insensitive
+    for (node *ptr = table[hashvalue]; ptr != NULL; ptr = ptr->next)
     {
-        // If we get the end of this hashvalue's link list, this word is not in dictionary
-        if (ptr->next == NULL)
-            return false;
-        ptr = ptr->next;
+        if (strcasecmp(word, ptr->word) == 0)
+            return true;
     }
-    return true;
+    return false;
 }
 
 // Hashes word to a number
