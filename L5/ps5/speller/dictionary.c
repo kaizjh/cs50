@@ -77,9 +77,8 @@ bool load(const char *dictionary)
             }
             else
             {
-
-                table[n]->next;
-                while (new_node->word != '\0')
+                node *p = table[n];
+                while (p->next != NULL)
                 {
                     new_node = new_node->next;
                 }
