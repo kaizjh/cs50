@@ -47,7 +47,7 @@ bool load(const char *dictionary)
     if (input == NULL)
     {
         printf("Can not open the dictionary\n");
-        return 1;
+        return false;
     }
     // Initialize hash table
     for (int i = 0; i < N; i++)
