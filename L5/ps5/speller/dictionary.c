@@ -50,13 +50,14 @@ bool load(const char *dictionary)
     }
 
     // Read each word in the input file
-    char c, word[LENGTH];
+    char c, word[LENGTH + 1];
     int index = 0, words = 0;
     while(fread(&c, sizeof(char), 1, input))
     {
         if (c == '\n')
         {
-
+            printf("good\n");
+            
             words++;
             index = 0;
         }
