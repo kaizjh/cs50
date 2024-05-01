@@ -85,7 +85,35 @@ bool load(const char *dictionary)
     int index = 0;
     while(fscanf(input, "%s", word) != EOF)
     {
-        hash(word)
+        // Add each word to the hash table
+        node *new_node = malloc(sizeof(node));
+        if (new_node == NULL)
+        {
+            printf("Memory allocation failed\n");
+            return false;
+        }
+        strcpy(new_node->word, word);
+        new_node->next = NULL;
+
+        int n = word[0] - 'a';
+        if (table[n] == NULL)
+        {
+            table[n] = new_node;
+        }
+        else
+        {
+            node *ptr = table[n];
+            while (ptr->next != NULL)
+            {
+                ptr = ptr->next;
+            }
+            ptr->next = new_node;
+        }
+
+        for (int i = 0; i < index; i++)
+        {
+            word[i] = '\0';
+        }
     }
 
     fclose(input);
