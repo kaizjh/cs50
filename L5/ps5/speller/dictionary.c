@@ -27,7 +27,9 @@ bool check(const char *word)
 {
     // TODO
     int hashvalue = hash(word);
-    while (strcmp(tolower))
+    node *ptr = table[hashvalue];
+    // Strcasecmp() is case-insensitive
+    while (strcasecmp(word, ptr) != 0)
 
 
 
