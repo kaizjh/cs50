@@ -58,6 +58,15 @@ bool load(const char *dictionary)
     int index = 0, words = 0;
     while (fread(&c, sizeof(char), 1, input))
     {
+        node *new_node = malloc(sizeof(node));
+        if (new_node == NULL)
+        {
+            printf("Memory allocatino failed\n");
+            return false;
+        }
+        strcpy(new_node->word, word);
+        new_node->next = NULL;
+
         if (c == '\n')
         {
             // Add each word to the hash table
@@ -68,13 +77,13 @@ bool load(const char *dictionary)
             }
             else
             {
-                
+
                 table[n]->next;
-                while (ptr->word != '\0')
+                while (new_node->word != '\0')
                 {
-                    ptr = ptr->next;
+                    new_node = new_node->next;
                 }
-                ptr->word = word;
+                new_node->word = word;
             }
 
             words++;
