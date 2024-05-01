@@ -56,47 +56,38 @@ bool load(const char *dictionary)
     }
 
     // Read each word in the input file
-    char c, word[LENGTH + 1];
-    int index = 0;
-    while (fread(&c, sizeof(char), 1, input))
+    char *word = NULL;
+    while (fgets(word, LENGTH + 1, input) != NULL)
     {
-        if (c == '\n')
+        // Add each word to the hash table
+        printf("%s\n", word);
+        node *new_node = malloc(sizeof(node));
+        if (new_node == NULL)
         {
-            // Add each word to the hash table
-            node *new_node = malloc(sizeof(node));
-            if (new_node == NULL)
-            {
-                printf("Memory allocation failed\n");
-                return false;
-            }
-            strcpy(new_node->word, word);
-            new_node->next = NULL;
+            printf("Memory allocation failed\n");
+            return false;
+        }
+        strcpy(new_node->word, word);
+        new_node->next = NULL;
 
-            int n = word[0] - 'a';
-            if (table[n] == NULL)
-            {
-                table[n] = new_node;
-            }
-            else
-            {
-                node *ptr = table[n];
-                while (ptr->next != NULL)
-                {
-                    ptr = ptr->next;
-                }
-                ptr->next = new_node;
-            }
-
-            for (int i = 0; i < index; i++)
-            {
-                word[i] = '\0';
-            }
-            index = 0;
+        int n = word[0] - 'a';
+        if (table[n] == NULL)
+        {
+            table[n] = new_node;
         }
         else
         {
-            word[index] = c;
-            index++;
+            node *ptr = table[n];
+            while (ptr->next != NULL)
+            {
+                ptr = ptr->next;
+            }
+            ptr->next = new_node;
+        }
+
+        for (int i = 0, s = strlen(word); i < s; i++)
+        {
+            word[i] = '\0';
         }
     }
 
