@@ -1,8 +1,10 @@
 // Implements a dictionary's functionality
+
 // Get some help from https://github.com/DrewStanger/pset5-speller/blob/master/dictionary.c (only in function "unsigned int hash(const char *word)")
-// And, with one day, 7-10 hours' efforts, finally, I made it. And I think "hash" should be the first function to implement, then "load" ...
+// And, with one day, about 7-10 hours' efforts, finally, I made it. And I think "hash" should be the first function to implement, then "load" ...
 // And I learned that hash-function is a powerful tool, if we can make a good hash function:
 // "A good hash function reduces 'collisions' and has a (mostly!) even distribution across hash table 'buckets'".
+
 #include <ctype.h>
 #include "dictionary.h"
 #include <stdbool.h>
