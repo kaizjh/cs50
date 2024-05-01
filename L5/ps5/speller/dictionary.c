@@ -112,8 +112,11 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
-    if (load(const char *dictionary))
+    if (table[0] != NULL)
+    {
         printf("There are %i words in the dictionary.\n", words);
+        return 1;
+    }
     else
         return 0;
 }
