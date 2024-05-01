@@ -66,7 +66,7 @@ bool load(const char *dictionary)
             node *new_node = malloc(sizeof(node));
             if (new_node == NULL)
             {
-                printf("Memory allocatino failed\n");
+                printf("Memory allocation failed\n");
                 return false;
             }
             strcpy(new_node->word, word);
