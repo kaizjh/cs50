@@ -61,7 +61,6 @@ bool load(const char *dictionary)
         if (c == '\n')
         {
             // Add each word to the hash table
-            int n = word[0] - 'a';
             node *new_node = malloc(sizeof(node));
             if (new_node == NULL)
             {
@@ -71,9 +70,10 @@ bool load(const char *dictionary)
             strcpy(new_node->word, word);
             new_node->next = NULL;
 
+            int n = word[0] - 'a';
             if (table[n] == NULL)
             {
-                table[n]->word = word;
+                table[n] = new_node;
             }
             else
             {
