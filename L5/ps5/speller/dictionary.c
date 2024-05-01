@@ -2,6 +2,7 @@
 
 // Get some help from https://github.com/DrewStanger/pset5-speller/blob/master/dictionary.c (only in function "unsigned int hash(const char *word)")
 // And, with one day, about 7-10 hours' efforts, finally, I made it. And I think "hash" should be the first function to implement, then "load" ...
+// But it still not so perfect
 // And I learned that hash-function is a powerful tool, if we can make a good hash function:
 // "A good hash function reduces 'collisions' and has a (mostly!) even distribution across hash table 'buckets'".
 
@@ -22,9 +23,6 @@ typedef struct node
 
 // TODO: Choose number of buckets in hash table
 const unsigned int TABLE_SIZE = 10000;
-
-// Count the words in dictionary during loading
-int words = 0;
 
 // Hash table
 node *table[TABLE_SIZE];
@@ -60,6 +58,7 @@ unsigned int hash(const char *word)
 }
 
 // Loads dictionary into memory, returning true if successful, else false
+int words = 0;
 bool load(const char *dictionary)
 {
     // TODO
@@ -106,7 +105,7 @@ bool load(const char *dictionary)
             }
             ptr->next = new_node;
         }
-
+        // Counting the words in the memory
         words++;
     }
 
