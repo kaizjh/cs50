@@ -47,10 +47,15 @@ bool check(const char *word)
 }
 
 // Hashes word to a number
+// I think this function should be the first one to implement, then load( ) --Irving
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    
+    for (int i = 0, n = strlen(word); i < n; i++)
+    {
+        hashvalue += tolower(word[i]);
+    }
+    hashvalue = 
     return hashvalue;
 }
 
