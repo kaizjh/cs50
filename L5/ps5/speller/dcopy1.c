@@ -14,9 +14,10 @@ typedef struct node
 } node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 26;
+const unsigned int N = 5000;
 
 int words = 0;
+bool loaded = true;
 
 // Hash table
 node *table[N];
@@ -25,9 +26,17 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
+    // Turn word into all-lowercase
+    int n = strlen(word);
+    char s[n];
+    for (int i = 0; i < n; i++)
+    {
+        s[i] = tolower(word[i]);
+    }
+
     int i = hash(word);
     node *ptr = table[i];
-    while (strcmp(word, ptr->word) != 0)
+    while (strcmp(s, ptr->word) != 0)
     {
         if (ptr->next == NULL)
             return false;
@@ -38,18 +47,31 @@ bool check(const char *word)
 }
 
 // Hashes word to a number
+// I think this function should be the first one to implement, then load( ) --Irving
+int max = 0;
+
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-
-    return toupper(word[0]) - 'A';
+    int hashvalue = 0;
+    int n = strlen(word);
+    for (int i = 0; i < n; i++)
+    {
+        hashvalue += tolower(word[i]);
+    }
+    if (hashvalue > max)
+    {
+        max = hashvalue;
+        printf("max:%i\n", max);
+    }
+    return max;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
     // TODO
-    // Open the input file, which is dictionary
+    // Open the input file
     FILE *input = fopen(dictionary, "r");
     if (input == NULL)
     {
@@ -110,14 +132,14 @@ bool load(const char *dictionary)
     }
 
     fclose(input);
-    return true;
+    return loaded;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
     // TODO
-    if (table[0] != NULL)
+    if (loaded)
         return words;
     else
         return 0;
