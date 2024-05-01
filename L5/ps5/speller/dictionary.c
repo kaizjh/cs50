@@ -42,7 +42,7 @@ bool load(const char *dictionary)
 {
     // TODO
     FILE *input = fopen(dictionary, "r");
-    // By fastest, I think trie is the fastest!
+    // By fastest, I think tire is the fastest! --Irving
     
     return false;
 }
