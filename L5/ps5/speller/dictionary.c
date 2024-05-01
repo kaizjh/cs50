@@ -41,14 +41,24 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
+    // Open the input file, which is dictionary
     FILE *input = fopen(dictionary, "r");
     if (input == NULL)
     {
         printf("Can not open the dictionary\n");
         return 1;
     }
+
+    // Read each word in the input file
+    char c;
+    while(fread(&c, sizeof(char), 1, input))
+    {
+        // Add each word to the hash table
+        
+    }
+
     // By fastest, I think tire is the fastest! --Irving
-    
+
     return false;
 }
 
