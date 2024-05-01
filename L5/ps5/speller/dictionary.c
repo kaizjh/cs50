@@ -17,6 +17,7 @@ typedef struct node
 const unsigned int N = 26;
 
 int words = 0;
+bool loaded = true;
 
 // Hash table
 node *table[N];
@@ -108,16 +109,16 @@ bool load(const char *dictionary)
             index++;
         }
     }
-    
+
     fclose(input);
-    return true;
+    return loaded;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
     // TODO
-    if (table[0] != NULL)
+    if (loaded)
         return words;
     else
         return 0;
