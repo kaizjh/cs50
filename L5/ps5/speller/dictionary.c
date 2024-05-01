@@ -127,8 +127,10 @@ bool unload(void)
         node *ptr = table[i];
         while (ptr != NULL)
         {
-            
+            table[i] = table[i]->next;
+            free(ptr);
+            ptr = table[i];
         }
     }
-    return false;
+    return true;
 }
