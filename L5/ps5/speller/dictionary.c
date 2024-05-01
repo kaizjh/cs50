@@ -17,8 +17,8 @@ typedef struct node
 // TODO: Choose number of buckets in hash table
 const unsigned int TABLE_SIZE = 10000;
 
+// Count the words in dictionary during loading
 int words = 0;
-bool loaded = true;
 
 // Hash table
 node *table[TABLE_SIZE];
