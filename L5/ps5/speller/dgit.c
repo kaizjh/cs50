@@ -46,7 +46,7 @@ unsigned int hash(const char *word)
 {
     //for  this hash get the lengh of the string then we will sum the value of the characters.
     unsigned int hashvalue = 0;
-    for (int i = 0; i < strlen(word); i++)
+    for (int i = 0; i < strlen(word); i++) 
     {
         hashvalue += tolower(word[i]);
         hashvalue = (hashvalue * tolower(word[i])) % TABLE_SIZE;
