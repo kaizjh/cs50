@@ -34,7 +34,7 @@ bool check(const char *word)
         else
             ptr = ptr->next;
     }
-    return false;
+    return true;
 }
 
 // Hashes word to a number
@@ -108,7 +108,7 @@ bool load(const char *dictionary)
             index++;
         }
     }
-    printf("%i\n", words);
+    
     fclose(input);
     return true;
 }
