@@ -99,6 +99,8 @@ bool load(const char *dictionary)
             index++;
         }
     }
+
+    fclose(input);
     return true;
 }
 
