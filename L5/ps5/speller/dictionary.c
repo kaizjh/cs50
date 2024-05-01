@@ -50,10 +50,21 @@ bool load(const char *dictionary)
     }
 
     // Read each word in the input file
-    char c;
+    char c, word[LENGTH];
+    int index = 0, words = 0;
     while(fread(&c, sizeof(char), 1, input))
     {
+        if (c == '\n')
+        {
 
+            words++;
+            index = 0;
+        }
+        else
+        {
+            word[index] = c;
+            index++;
+        }
     }
 
     // By fastest, I think tire is the fastest! --Irving
