@@ -111,20 +111,19 @@ bool load(const char *dictionary)
             }
             ptr->next = new_node;
         }
+
+        words++;
     }
 
     fclose(input);
-    return loaded;
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
     // TODO
-    if (loaded)
-        return words;
-    else
-        return 0;
+    return words;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
