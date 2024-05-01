@@ -26,7 +26,12 @@ node *table[TABLE_SIZE];
 bool check(const char *word)
 {
     // TODO
-    // Turn word into all-lowercase
+    int hashvalue = hash(word);
+    
+
+
+
+
     int n = strlen(word);
     char s[n];
     for (int i = 0; i < n; i++)
