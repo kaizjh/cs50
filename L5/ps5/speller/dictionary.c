@@ -27,15 +27,15 @@ bool check(const char *word)
 {
     // TODO
     // Turn word into all-lowercase
-    char *
+    char *s = word;
     for (int i = 0, n = strlen(word); i < n; i++)
     {
-        word[i] = tolower(word[i]);
+        s[i] = tolower(word[i]);
     }
 
-    int i = hash(word);
+    int i = hash(s);
     node *ptr = table[i];
-    while (strcmp(word, ptr->word) != 0)
+    while (strcmp(s, ptr->word) != 0)
     {
         if (ptr->next == NULL)
             return false;
