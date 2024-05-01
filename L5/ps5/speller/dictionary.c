@@ -24,8 +24,7 @@ bool check(const char *word)
     // TODO
     for (int i = 0; i < N; i++)
     {
-        if (word == table[i]->word)
-            return true;
+        return true;
     }
     return false;
 }
@@ -42,6 +41,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
+    FILE *input = fopen(dictionary, "r");
     
     return false;
 }
