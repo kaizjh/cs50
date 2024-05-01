@@ -1,148 +1,136 @@
-// Implements a dictionary's functionality
-#include <ctype.h>
+ // Implements a dictionary's functionality
+
 #include <stdbool.h>
-#include <stdio.h>
-#include <string.h>
+#include <ctype.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "dictionary.h"
+#include <string.h>
+#include <strings.h>
 
 // Represents a node in a hash table
 typedef struct node
 {
     char word[LENGTH + 1];
     struct node *next;
-} node;
+}
+node;
 
-// TODO: Choose number of buckets in hash table
-const unsigned int N = 26;
+// Number of buckets in hash table
+const unsigned int TABLE_SIZE = 50000;
 
-int words = 0;
-bool loaded = true;
+// Hash table //set N to a higher number to capture data.
+node *table[TABLE_SIZE];
 
-// Hash table
-node *table[N];
-
-// Returns true if word is in dictionary, else false
+// Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-    // TODO
-    // Turn word into all-lowercase
-    int n = strlen(word);
-    char s[n];
-    for (int i = 0; i < n; i++)
+    //returns true if found else return false.
+    int index = hash(word);
+    //make a cursor node which points to the head of the hash table
+    node *cursor = table[index];
+    //for loop to go through the list until the final node is reached.
+    for (node *temp = cursor; temp != NULL; temp = temp->next)
     {
-        s[i] = tolower(word[i]);
+      if (strcasecmp(temp->word,word) == 0)
+        {
+            return true;
+        }
     }
-
-    int i = hash(word);
-    node *ptr = table[i];
-    while (strcmp(s, ptr->word) != 0)
-    {
-        if (ptr->next == NULL)
-            return false;
-        else
-            ptr = ptr->next;
-    }
-    return true;
+    return false;
 }
+
 
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // TODO: Improve this hash function
-    return toupper(word[0]) - 'A';
+    //for  this hash get the lengh of the string then we will sum the value of the characters.
+    unsigned int hashvalue = 0;
+    for (int i = 0; i < strlen(word); i++)
+    {
+        hashvalue += tolower(word[i]);
+        hashvalue = (hashvalue * tolower(word[i])) % TABLE_SIZE;
+    }
+    return hashvalue;
 }
 
-// Loads dictionary into memory, returning true if successful, else false
+int counter = 0;
+// Loads dictionary into memory, returning true if successful else false
 bool load(const char *dictionary)
 {
-    // TODO
-    // Open the input file, which is dictionary
-    FILE *input = fopen(dictionary, "r");
-    if (input == NULL)
+    // this function returns true if all data loaded into hash table, - false if there is an error.
+    // Stores all data in a hash table, the hash function assigns an index to each word.
+    // First, to add new data to hash table, allocate memory for nodes then add data to the node. this format copies words into the character array strcpy(n->word, "hello"); to set next pointer n->next = NULL;
+
+    // OPEN DICTIONARY FILE and read the contents.
+    FILE *file = fopen(dictionary, "r");
+    if (file == NULL)
     {
-        printf("Can not open the dictionary\n");
+        fprintf(stderr, "There has been an error");
         return false;
     }
-    // Initialize hash table
-    for (int i = 0; i < N; i++)
-    {
-        table[i] = NULL;
-    }
 
-    // Read each word in the input file
-    char c, word[LENGTH + 1];
-    int index = 0;
-    while (fread(&c, sizeof(char), 1, input))
+    //wordlist is a character array of the words.
+    char wordlist[LENGTH + 1];
+    //while fscanf != EOF print the words into the character array word
+    while (fscanf(file, "%s", wordlist) != EOF)
     {
-        if (c == '\n')
+        //Keep track of how many nodes are being made
+        counter++;
+        //for each new node allocate memory.
+        node *newNode = malloc(sizeof(node));
+        //check for null
+        if (newNode == NULL)
         {
-            // Add each word to the hash table
-            node *new_node = malloc(sizeof(node));
-            if (new_node == NULL)
-            {
-                printf("Memory allocation failed\n");
-                return false;
-            }
-            strcpy(new_node->word, word);
-            new_node->next = NULL;
-
-            int n = word[0] - 'a';
-            if (table[n] == NULL)
-            {
-                table[n] = new_node;
-            }
-            else
-            {
-                node *ptr = table[n];
-                while (ptr->next != NULL)
-                {
-                    ptr = ptr->next;
-                }
-                ptr->next = new_node;
-            }
-
-            for (int i = 0; i < index; i++)
-            {
-                word[i] = '\0';
-            }
-
-            words++;
-            index = 0;
+            return 1;
         }
+        //initialize the new node by copying the word to the next node.
+        strcpy(newNode->word, wordlist);
+        newNode->next = NULL;
+        //add to hash table each element of the hashtable is a linked list!
+        //if index != NULL newNode->word points to the old head of the list
+        int index = hash(wordlist);
+        //if the index is not yet assigned, put the newest node at the head of this index.
+        if (table[index] == NULL)
+        {
+            table[index] = newNode;
+        }
+        //if the index is assigned point the existing head node at the table[index] and then make the new node the head.
         else
         {
-            word[index] = c;
-            index++;
+            //makes the next the new head
+            newNode->next = table[index];
+            //head points to the new node.
+            table[index] = newNode;
         }
     }
-
-    fclose(input);
-    return loaded;
+    fclose(file);
+    return true;
 }
 
-// Returns number of words in dictionary if loaded, else 0 if not yet loaded
+
+// Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
-    // TODO
-    if (loaded)
-        return words;
-    else
-        return 0;
+    // keep track of how many nodes have been added.
+    return counter;
 }
 
-// Unloads dictionary from memory, returning true if successful, else false
+// Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    // TODO
-    for (int i = 0; i < N; i++)
+    // for each of hash table 'buckets' the memory must be free'd.
+    //make a cursor which points to the head node. this cursor will work through the linked lists making each = NULL, freeing the memory.
+    node *tmp = NULL;
+    node *cursor = NULL;
+    for (int i = 0; i < TABLE_SIZE; i++)
     {
-        node *ptr = table[i];
-        while (ptr != NULL)
+        cursor = table[i];
+        while (cursor != NULL)
         {
-            table[i] = table[i]->next;
-            free(ptr);
-            ptr = table[i];
+           tmp = cursor;
+            cursor = cursor->next;
+           free(tmp);
         }
     }
     return true;
