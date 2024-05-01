@@ -85,7 +85,7 @@ bool load(const char *dictionary)
     int index = 0;
     while(fscanf(input, "%s", word) != EOF)
     {
-        // Add each word to the hash table
+        // Creat a new node to store the word
         node *new_node = malloc(sizeof(node));
         if (new_node == NULL)
         {
@@ -94,15 +94,16 @@ bool load(const char *dictionary)
         }
         strcpy(new_node->word, word);
         new_node->next = NULL;
-
-        int n = word[0] - 'a';
-        if (table[n] == NULL)
+        // Add new word to the hashtable
+        int hashvalue = hash(word);
+        if (table[hashvalue] == NULL)
         {
-            table[n] = new_node;
+            table[hashvalue] = new_node;
         }
         else
         {
-            node *ptr = table[n];
+            // Using link list if there is a "collision"
+            node *ptr = table[hashvalue];
             while (ptr->next != NULL)
             {
                 ptr = ptr->next;
