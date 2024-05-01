@@ -56,7 +56,7 @@ unsigned int hash(const char *word)
     {
         hashvalue += tolower(word[i]);
     }
-    hashvalue = hashvalue *
+    hashvalue = hashvalue % n * N;
     return hashvalue;
 }
 
