@@ -62,13 +62,13 @@ bool load(const char *dictionary)
         {
             // Add each word to the hash table
             int n = word[0] - 'a';
-            if (table[n]->word == "\0")
+            if (table[n] == NULL)
             {
                 table[n]->word = word;
             }
             else
             {
-                node *ptr = malloc(sizeof(node));
+                
                 table[n]->next;
                 while (ptr->word != '\0')
                 {
