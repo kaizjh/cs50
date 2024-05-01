@@ -55,7 +55,10 @@ bool load(const char *dictionary)
     {
         if (c == '\n')
         {
-            
+            // Add each word to the hash table
+            int n = word[0] - ;
+
+            table[words]->word = word;
             words++;
             index = 0;
         }
