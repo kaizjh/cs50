@@ -56,8 +56,8 @@ bool load(const char *dictionary)
     }
 
     // Read each word in the input file
-    char *word = NULL;
-    while (fgets(word, LENGTH + 1, input) != NULL)
+    char word[LENGTH + 1]
+    while (fgets(word, sizeof(word), input) != NULL)
     {
         // Add each word to the hash table
         printf("%s\n", word);
