@@ -55,7 +55,7 @@ bool load(const char *dictionary)
     {
         if (c == '\n')
         {
-
+            
             words++;
             index = 0;
         }
