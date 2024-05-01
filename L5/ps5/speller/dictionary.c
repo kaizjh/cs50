@@ -52,7 +52,7 @@ unsigned int hash(const char *word)
     {
         hashvalue += tolower(word[i]);
     }
-    hashvalue = hashvalue * sqrt(n);
+    hashvalue = hashvalue * n % ;
 
     if (hashvalue > max)
     {
