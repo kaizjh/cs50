@@ -42,6 +42,7 @@ bool load(const char *dictionary)
 {
     // TODO
     FILE *input = fopen(dictionary, "r");
+    // By fastest, I think trie is the fastest!
     
     return false;
 }
