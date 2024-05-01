@@ -58,7 +58,7 @@ bool load(const char *dictionary)
             // Add each word to the hash table
             int n = word[0] - 'a';
             table[n]->word = word;
-            
+
             words++;
             index = 0;
         }
@@ -68,8 +68,6 @@ bool load(const char *dictionary)
             index++;
         }
     }
-
-    // By fastest, I think tire is the fastest! --Irving
 
     return false;
 }
