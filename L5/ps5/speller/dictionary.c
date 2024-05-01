@@ -57,7 +57,7 @@ bool load(const char *dictionary)
         {
             // Add each word to the hash table
             int n = word[0] - 'a';
-            if (table[n]->word != "\n")
+            if (table[n]->word == "\0")
             {
                 table[n]->word = word;
             }
@@ -65,7 +65,7 @@ bool load(const char *dictionary)
             {
                 while (table[n]->next != '\0')
                 {
-                    node *ptr = 
+                    node *ptr =
                 }
             }
 
