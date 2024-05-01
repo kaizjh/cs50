@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <string.h>
+#include <strings.h>
 #include <stdlib.h>
 #include "dictionary.h"
 
@@ -28,27 +28,13 @@ bool check(const char *word)
     // TODO
     int hashvalue = hash(word);
     node *ptr = table[hashvalue];
-    // Strcasecmp() is case-insensitive
-    while (strcasecmp(word, ptr) != 0)
-
-
-
-
-    int n = strlen(word);
-    char s[n];
-    for (int i = 0; i < n; i++)
+    // Function strcasecmp() is case-insensitive, if word == ptr->word, jump out of the while loop and reture true
+    while (strcasecmp(word, ptr->word) != 0)
     {
-        s[i] = tolower(word[i]);
-    }
-
-    int i = hash(word);
-    node *ptr = table[i];
-    while (strcmp(s, ptr->word) != 0)
-    {
+        // If we get the end of this hashvalue's link list, this word is not in dictionary
         if (ptr->next == NULL)
             return false;
-        else
-            ptr = ptr->next;
+        ptr = ptr->next;
     }
     return true;
 }
