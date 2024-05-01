@@ -48,16 +48,22 @@ bool check(const char *word)
 
 // Hashes word to a number
 // I think this function should be the first one to implement, then load( ) --Irving
+int max = 0;
+
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
+    int hashvalue = 0;
     int n = strlen(word)
     for (int i = 0; i < n; i++)
     {
         hashvalue += tolower(word[i]);
     }
-    hashvalue = hashvalue
-    return hashvalue;
+    if (hashvalue > max)
+    {
+        max = hashvalue;
+    }
+    return max;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
