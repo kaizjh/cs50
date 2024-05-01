@@ -28,6 +28,7 @@ bool check(const char *word)
     // TODO
     int i = hash(word);
     node *ptr = table[i];
+    word = tolower(word);
     while (strcmp(word, ptr->word) != 0)
     {
         if (ptr->next == NULL)
