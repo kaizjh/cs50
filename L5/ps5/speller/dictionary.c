@@ -113,7 +113,7 @@ unsigned int size(void)
 {
     // TODO
     if (load(dictionary))
-        printf("There are %i words in the dictionary.\n");
+        printf("There are %i words in the dictionary.\n", words);
     else
         return 0;
 }
