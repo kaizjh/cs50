@@ -27,6 +27,7 @@ bool check(const char *word)
 {
     // TODO
     // Turn word into all-lowercase
+    char *
     for (int i = 0, n = strlen(word); i < n; i++)
     {
         word[i] = tolower(word[i]);
