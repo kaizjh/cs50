@@ -1,6 +1,6 @@
 // Implements a dictionary's functionality
 
-// Get some help from https://github.com/DrewStanger/pset5-speller/blob/master/dictionary.c (only in function "unsigned int hash(const char *word)")
+// Get some help from https://github.com/DrewStanger/pset5-speller/blob/master/dictionary.c
 // And, with one day, about 7-10 hours' efforts, finally, I made it. And I think "hash" should be the first function to implement, then "load" ...
 // But it still not so perfect
 // And I learned that hash-function is a powerful tool, if we can make a good hash function:
@@ -98,12 +98,9 @@ bool load(const char *dictionary)
         else
         {
             // Using link list if there is a "collision"
-            node *ptr = table[hashvalue];
-            while (ptr->next != NULL)
-            {
-                ptr = ptr->next;
-            }
-            ptr->next = new_node;
+            // Add new_node to the head, which makes load( ) faster (learn from github, pretty cool)
+            new_node->next = table[hashvalue];
+            table[hashvalue] = new_node;
         }
         // Counting the words in the memory
         words++;
