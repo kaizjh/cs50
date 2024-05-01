@@ -84,11 +84,6 @@ bool load(const char *dictionary)
             }
             ptr->next = new_node;
         }
-
-        for (int i = 0, s = strlen(word); i < s; i++)
-        {
-            word[i] = '\0';
-        }
     }
 
     fclose(input);
