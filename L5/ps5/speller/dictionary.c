@@ -55,7 +55,7 @@ unsigned int hash(const char *word)
     {
         hashvalue += tolower(word[i]);
     }
-    
+
     return hashvalue * n % TABLE_SIZE;
 }
 
@@ -78,7 +78,6 @@ bool load(const char *dictionary)
 
     // Read each word in the input file
     char word[LENGTH + 1];
-    int index = 0;
     while(fscanf(input, "%s", word) != EOF)
     {
         // Creat a new node to store the word
