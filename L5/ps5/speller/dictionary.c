@@ -63,7 +63,7 @@ bool load(const char *dictionary)
             }
             else
             {
-                while ()
+                while (table[n]->next = )
             }
 
             words++;
