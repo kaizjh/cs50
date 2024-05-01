@@ -51,11 +51,12 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    for (int i = 0, n = strlen(word); i < n; i++)
+    int n = strlen(word)
+    for (int i = 0; i < n; i++)
     {
         hashvalue += tolower(word[i]);
     }
-    hashvalue = 
+    hashvalue = hashvalue *
     return hashvalue;
 }
 
