@@ -53,8 +53,7 @@ bool load(const char *dictionary)
     char c;
     while(fread(&c, sizeof(char), 1, input))
     {
-        // Add each word to the hash table
-        
+
     }
 
     // By fastest, I think tire is the fastest! --Irving
