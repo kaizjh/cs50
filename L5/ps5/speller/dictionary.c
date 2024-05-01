@@ -85,7 +85,7 @@ bool load(const char *dictionary)
     int index = 0;
     while(fscanf(input, "%s", word) != EOF)
     {
-        
+        hash(word)
     }
 
     fclose(input);
