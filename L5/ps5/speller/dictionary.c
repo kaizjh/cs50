@@ -112,7 +112,7 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
-    if (load(dictionary))
+    if (load(const char *dictionary))
         printf("There are %i words in the dictionary.\n", words);
     else
         return 0;
