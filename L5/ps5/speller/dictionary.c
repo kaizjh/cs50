@@ -113,10 +113,7 @@ unsigned int size(void)
 {
     // TODO
     if (table[0] != NULL)
-    {
-        printf("There are %i words in the dictionary.\n", words);
-        return 1;
-    }
+        return words;
     else
         return 0;
 }
@@ -125,5 +122,6 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
+    
     return false;
 }
