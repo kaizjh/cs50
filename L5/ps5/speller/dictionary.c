@@ -103,7 +103,7 @@ bool load(const char *dictionary)
             index++;
         }
     }
-
+    printf("%i\n", words);
     fclose(input);
     return true;
 }
