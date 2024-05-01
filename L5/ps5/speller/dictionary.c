@@ -2,6 +2,7 @@
 
 #include <stdbool.h>
 #include <ctype.h>
+#include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "dictionary.h"
@@ -51,7 +52,7 @@ unsigned int hash(const char *word)
     {
         hashvalue += tolower(word[i]);
     }
-    hashvalue *= n;
+    hashvalue = hashvalue * sqrt(n);
 
     if (hashvalue > max)
     {
