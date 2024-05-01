@@ -63,10 +63,12 @@ bool load(const char *dictionary)
             }
             else
             {
-                while (table[n]->next != '\0')
+                node *ptr = table[n]->next;
+                while (ptr->word != '\0')
                 {
-                    node *ptr =
+                    ptr = ptr->next;
                 }
+                ptr->word = word;
             }
 
             words++;
