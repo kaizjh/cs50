@@ -26,9 +26,14 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
+    // Turn word into all-lowercase
+    for (int i = 0, n = strlen(word); i < n; i++)
+    {
+        word[i] = tolower(word[i]);
+    }
+
     int i = hash(word);
     node *ptr = table[i];
-    word = tolower(word);
     while (strcmp(word, ptr->word) != 0)
     {
         if (ptr->next == NULL)
