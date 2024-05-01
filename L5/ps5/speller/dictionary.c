@@ -94,7 +94,8 @@ bool load(const char *dictionary)
         }
         strcpy(new_node->word, word);
         new_node->next = NULL;
-        // Add new word to the hashtable
+
+        // Add new node(word) to the hashtable
         int hashvalue = hash(word);
         if (table[hashvalue] == NULL)
         {
@@ -109,11 +110,6 @@ bool load(const char *dictionary)
                 ptr = ptr->next;
             }
             ptr->next = new_node;
-        }
-
-        for (int i = 0; i < index; i++)
-        {
-            word[i] = '\0';
         }
     }
 
