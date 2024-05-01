@@ -42,6 +42,11 @@ bool load(const char *dictionary)
 {
     // TODO
     FILE *input = fopen(dictionary, "r");
+    if (input == NULL)
+    {
+        printf("Can not open the dictionary\n");
+        return 1;
+    }
     // By fastest, I think tire is the fastest! --Irving
     
     return false;
