@@ -55,9 +55,8 @@ unsigned int hash(const char *word)
     {
         hashvalue += tolower(word[i]);
     }
-    hashvalue = hashvalue * n % TABLE_SIZE;
-
-    return hashvalue;
+    
+    return hashvalue * n % TABLE_SIZE;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
