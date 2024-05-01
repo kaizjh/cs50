@@ -16,6 +16,11 @@ const unsigned int N = 26;
 
 // Hash table
 node *table[N];
+// Initialize hash table
+for (int i = 0; i < N; i++)
+{
+    table[i] = NULL;
+}
 
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
@@ -63,7 +68,8 @@ bool load(const char *dictionary)
             }
             else
             {
-                node *ptr = table[n]->next;
+                node *ptr = malloc(sizeof(node));
+                table[n]->next;
                 while (ptr->word != '\0')
                 {
                     ptr = ptr->next;
