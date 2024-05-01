@@ -1,10 +1,11 @@
 // Implements a dictionary's functionality
 #include <ctype.h>
+#include "dictionary.h"
 #include <stdbool.h>
 #include <stdio.h>
-#include <strings.h>
 #include <stdlib.h>
-#include "dictionary.h"
+#include <string.h>
+#include <strings.h>
 
 // Represents a node in a hash table
 typedef struct node
@@ -128,10 +129,9 @@ bool unload(void)
         node *ptr = table[i];
         while (ptr != NULL)
         {
-            ptr = ptr->next;
-            free(table[i]);
-
-            table[i] = ptr;
+            table[i] = table[i]->next;
+            free(ptr);
+            ptr = table[i];
         }
     }
     return true;
