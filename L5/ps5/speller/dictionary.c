@@ -34,7 +34,7 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    
+
     return toupper(word[0]) - 'A';
 }
 
@@ -108,6 +108,7 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
+    if (load())
     return 0;
 }
 
