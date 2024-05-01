@@ -33,7 +33,7 @@ bool check(const char *word)
         s[i] = tolower(word[i]);
     }
 
-    int i = hash(s);
+    int i = hash(word);
     node *ptr = table[i];
     while (strcmp(s, ptr->word) != 0)
     {
