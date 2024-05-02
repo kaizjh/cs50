@@ -8,5 +8,11 @@ if name in names:
     print("Founded")
     sys.exit(0)
 
+for n in names:
+    if name == n:
+        print("Founded")
+        sys.exit(0)
+
+
 print("Not found")
 sys.exit(1)
