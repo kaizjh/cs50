@@ -1,9 +1,9 @@
-from cs50 import get_string
-
 print("hello, world")
+
+from cs50 import get_string
 
 answer = get_string("What's your name? ")
 print("hello, answer")
 print("hello, {answer}")
 print(f"hello, {answer}")
-print("hello", answer)
+print("hello,", answer)
