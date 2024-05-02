@@ -103,6 +103,7 @@ bool load(const char *dictionary)
             new_node->next = table[hashvalue];
             table[hashvalue] = new_node;
         }
+        
         // Counting the words loaded in the memory
         words++;
     }
