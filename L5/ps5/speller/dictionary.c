@@ -69,7 +69,7 @@ bool load(const char *dictionary)
         printf("Can not open the dictionary\n");
         return false;
     }
-    
+
     // Initialize hash table
     for (int i = 0; i < TABLE_SIZE; i++)
     {
@@ -99,7 +99,7 @@ bool load(const char *dictionary)
         else
         {
             // Using link list if there is a "collision"
-            // Add new_node to the head, which makes load( ) faster (learn from github, pretty cool)
+            // Add new_node to the head (not the end), like a stack, which makes load( ) faster (learn from github, awesome)
             new_node->next = table[hashvalue];
             table[hashvalue] = new_node;
         }
