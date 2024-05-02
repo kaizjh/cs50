@@ -126,7 +126,7 @@ bool unload(void)
     // TODO
     for (int i = 0; i < TABLE_SIZE; i++)
     {
-        for (node *ptr = table[i]; ptr != NULL; table[i] = ptr;)
+        for (node *ptr = table[i]; ptr != NULL; table[i] = ptr)
         {
             ptr = ptr->next;
             free(table[i]);
