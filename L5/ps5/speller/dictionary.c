@@ -58,7 +58,7 @@ unsigned int hash(const char *word)
 }
 
 // Loads dictionary into memory, returning true if successful, else false
-int words = 0;
+unsigned int words = 0;
 bool load(const char *dictionary)
 {
     // TODO
@@ -103,7 +103,7 @@ bool load(const char *dictionary)
             new_node->next = table[hashvalue];
             table[hashvalue] = new_node;
         }
-        
+
         // Counting the words loaded in the memory
         words++;
     }
@@ -116,6 +116,7 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
+    // Actually, if not loaded, size( ) will not be runned, so, no return 0
     return words;
 }
 
