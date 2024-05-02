@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
             if (index > LENGTH)
             {
                 // Consume remainder of alphabetical string
-                // That is to say: Consume the remaining alphabetical characters in the string, because fread is self-moving forward --Irving
+                // That is to say: Consume the remaining alphabetical characters in the string, because fread is self-moving forward (can not skip) --Irving
                 while (fread(&c, sizeof(char), 1, file) && isalpha(c));
 
                 // Prepare for new word
