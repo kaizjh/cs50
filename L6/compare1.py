@@ -1,3 +1,5 @@
+# In python, a variable is unchangable, technically, immutable,
+# even if we do "s = s.lower()", we just get the copy of s
 s = input("s: ")
 
 # capitalize() only capitalize the first letter in a word, is different from upper()
