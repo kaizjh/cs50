@@ -1,4 +1,5 @@
 from sys import argv
 
-for arg in argv:
+# Using slices of lists, I can skip the first argument
+for arg in argv[1:]:
     print(arg)
