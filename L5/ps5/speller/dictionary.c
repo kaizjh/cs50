@@ -128,7 +128,8 @@ bool unload(void)
     {
         for (node *ptr = table[i]->next; ptr != NULL; ptr = ptr->next)
         {
-            
+            free(table[i]);
+            table[i] = ptr;
         }
     }
     return true;
