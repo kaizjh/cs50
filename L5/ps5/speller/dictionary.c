@@ -32,6 +32,7 @@ bool check(const char *word)
     // TODO
     int hashvalue = hash(word);
     // Function strcasecmp() is case-insensitive
+    // I think for loop is more easy to understand and code than while loop(because I made a mistake here with while loop)
     for (node *ptr = table[hashvalue]; ptr != NULL; ptr = ptr->next)
     {
         if (strcasecmp(word, ptr->word) == 0)
