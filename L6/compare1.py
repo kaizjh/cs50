@@ -7,3 +7,13 @@ t = s.capitalize()
 
 print(f"s: {s}")
 print(f"t: {t}")
+
+print()
+
+s1 = input("s1: ")
+t1 = input("t1: ")
+
+if s1 == t1:
+    print("Same")
+else:
+    print("Different")
