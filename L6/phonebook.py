@@ -5,7 +5,8 @@ people = {
     "David": "+1-845-436-3422"
 }
 
-# Dictionary is just so wonderfully
+# Dictionary is just so wonderfully convenient, because now (in python)  you can associate anything with anything else,
+# but not using numbers, but entire keywords instead.
 name = input("Name: ")
 if name in people:
     print(f"Number: {people[name]}")
