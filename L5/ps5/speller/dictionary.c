@@ -69,6 +69,7 @@ bool load(const char *dictionary)
         printf("Can not open the dictionary\n");
         return false;
     }
+    
     // Initialize hash table
     for (int i = 0; i < TABLE_SIZE; i++)
     {
@@ -102,7 +103,7 @@ bool load(const char *dictionary)
             new_node->next = table[hashvalue];
             table[hashvalue] = new_node;
         }
-        // Counting the words in the memory
+        // Counting the words loaded in the memory
         words++;
     }
 
