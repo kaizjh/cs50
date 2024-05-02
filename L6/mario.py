@@ -1,3 +1,4 @@
+# Noticed that, there are double blank lines between functions, is just a conventional style
 def main():
     height = get_height()
     for i in range(height):
