@@ -1,7 +1,10 @@
 # Print a pyramid like mario
 while True:
-    height = input("Height: ")
-    if height.isalphet()
+    try:
+        height = input("Height: ")
+    except ValueError:
+        print("Not an integer")
+        continue
 
     if height <= 8 and height >= 1:
         break
