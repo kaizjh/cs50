@@ -5,4 +5,10 @@ while True:
     if height <= 8 and height >= 1:
         break
 
-print()
+for i in height:
+    print(" " * (height - i), end="")
+    print("#" * i, end="  ")
+
+for i in height:
+    print("#" * i, end="")
+    print(" " * (height - i))
