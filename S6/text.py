@@ -8,3 +8,7 @@ print("-----------------------------")
 for word in text.split()[2:]:
     print(word)
 
+print("-----------------------------")
+
+words = text.split()
+print(words[1:])
