@@ -8,7 +8,7 @@ class Student():
         self.id = id
 
     def print(self):
-        print(f"{name} - {id}", self.name, self.id)
+        print(f"{self.name} - {self.id}")
 
 
 jane = Student("Jane", 19)
