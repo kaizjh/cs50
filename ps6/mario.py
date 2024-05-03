@@ -5,7 +5,7 @@ while True:
     if height <= 8 and height >= 1:
         break
 
-for i in height:
+for i in [0height:
     print(" " * (height - i), end="")
     print("#" * i, end="  ")
 
