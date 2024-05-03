@@ -99,7 +99,8 @@ bool load(const char *dictionary)
         else
         {
             // Using link list if there is a "collision"
-            // Add new_node to the head (not the end), like a stack, which makes load( ) faster (learn from github, awesome)
+            // Add new_node to the head (not the end), like a stack, which makes load( ) faster
+            // Learn from github(actual Lectures have taught me, but I forgot to use it in this case), awesome
             new_node->next = table[hashvalue];
             table[hashvalue] = new_node;
         }
