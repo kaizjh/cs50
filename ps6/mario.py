@@ -15,4 +15,4 @@ for i in range(height):
     print("#" * (i + 1), end="  ")
     print("#" * (i + 1), end="")
     print(" " * (height - i - 1))
-
+    print()
