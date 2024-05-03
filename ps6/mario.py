@@ -6,8 +6,8 @@ while True:
         break
 
 for i in range(height):
-    print(" " * (height - i), end="")
-    print("#" * i, end="  ")
-    print("#" * i, end="")
-    print(" " * (height - i))
+    print(" " * (height - i -1), end="")
+    print("#" * (i + 1), end="  ")
+    print("#" * (i + 1), end="")
+    print(" " * (height - i - 1))
 
