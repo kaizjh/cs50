@@ -4,18 +4,19 @@ import re
 def main():
     # Get the number and make sure it's entirely numeric
     number = cs50.get_int("Number: ")
-    print(number[1])
+    # Convert number from int to str for checking
+    str_number = str(number)
 
-    if is_desired_length(number, 15):
-        if is_VISA(number):
+    if is_desired_length(str_number, 15):
+        if is_VISA(str_number):
             print("VISA")
             return 0
-    elif is_desired_length(number, 13):
-        if is_AMEX(number):
+    elif is_desired_length(str_number, 13):
+        if is_AMEX(str_number):
             print("AMEX")
             return 0
-    elif is_desired_length(number, 16):
-        if is_VISA(number):
+    elif is_desired_length(str_number, 16):
+        if is_VISA(str_number):
             print("VISA")
             return 0
         elif is_MASTERCARD:
@@ -27,26 +28,26 @@ def main():
 
 
 # Use regular expression opreation to check number's length
-def is_desired_length(number, desired_length):
+def is_desired_length(str_number, desired_length):
     # Define the regular expression pattern
     pattern = r'^\d{' + str(desired_length) + r'}$'
 
     # Check if input matches the pattern
-    if re.match(pattern, str(number)):
+    if re.match(pattern, str_number):
         return True
     else:
         return False
 
 
-def is_VISA(number):
+def is_VISA(str_number):
 
 
 
-def is_AMEX(number):
+def is_AMEX(str_number):
     .
 
 
-def is_MASTERCARD(number):
+def is_MASTERCARD(str_number):
     .
 
 
