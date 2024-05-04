@@ -4,7 +4,7 @@ def main():
     # Get the number and make sure it's entirely numeric
     while(True):
         str_number = input("Number: ")
-        if str_number.isnumeric()
+        if str_number.isnumeric():
             break
 
 
