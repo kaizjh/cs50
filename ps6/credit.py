@@ -7,25 +7,23 @@ def main():
     print(number)
 
     if is_desired_length(number, 15):
-        if is_VISA:
+        if is_VISA(number):
             print("VISA")
+            return 0
     elif is_desired_length(number, 13):
-        if is_AMEX:
+        if is_AMEX(number):
             print("AMEX")
-        else:
-            print("INVALID")
-            return
+            return 0
     elif is_desired_length(number, 16):
-        if is_VISA:
-            ...
+        if is_VISA(number):
+            print("VISA")
+            return 0
         elif is_MASTERCARD:
-            ...
-        else:
-            print("INVALID\n")
-            return
-    else:
-        print("INVALID\n")
-        return
+            print("MASTERCARD")
+            return 0
+
+    print("INVALID\n")
+    return 0
 
 
 # Use regular expression opreation to check number's length
@@ -40,15 +38,15 @@ def is_desired_length(number, desired_length):
         return False
 
 
-def is_VISA():
+def is_VISA(number):
+    
+
+
+def is_AMEX(number):
     .
 
 
-def is_AMEX():
-    .
-
-
-def is_MASTERCARD():
+def is_MASTERCARD(number):
     .
 
 
