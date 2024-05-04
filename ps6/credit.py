@@ -53,7 +53,10 @@ def is_MASTERCARD(str_number):
 
 # Use Luhn's Algorithm to check the credit's validation
 def algorithm(str_number):
-    for i in
+    for i in range(len(str_number) - 2, -1, -2):
+        
+        if int(str_number[i]) > 9:
+
 
 
 main()
