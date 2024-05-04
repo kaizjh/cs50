@@ -7,12 +7,11 @@ def main():
     # Convert number from int to str for checking
     str_number = str(number)
 
-    if is_desired_length(str_number, 15):
+    if is_desired_length(str_number, 13):
         if is_VISA(str_number):
             print("VISA")
             return 0
-    elif is_desired_length(str_number, 13):
-        print(1)
+    elif is_desired_length(str_number, 15):
         if is_AMEX(str_number):
             print("AMEX")
             return 0
