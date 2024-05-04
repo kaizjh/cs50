@@ -1,16 +1,16 @@
 def main():
     text = []
     text = input("Text: ")
-    text.lower()
-    print(text)
+    
+    texts = text.lower()
+    print(texts)
 
     words = 1
-    for c in text:
+    for c in texts:
         # Count the words
         if c == ' ':
             words += 1
         # Count the letters
-        c.lower()
-        print(c)
+
 
 main()
