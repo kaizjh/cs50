@@ -29,6 +29,7 @@ def main():
 
     # TODO: Check database for matching profiles
     for row in rows:
+        print(row.get('AGATC'), row.get('AATG'), row.get('TATC'))
         if row.get('AGATC') == AGATCs and row.get('AATG') == AATGs and row.get('TATC') == TATCs:
             print(row.get('name'))
             return
