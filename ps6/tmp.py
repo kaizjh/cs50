@@ -1,43 +1,65 @@
+# TODO
 from cs50 import get_int
 
-# Input do número do cartão
-number = get_int("Number:")
 
-contador = verifica = resultado = segundo = primeiro = 0
+def main():
+    card_number = card_detail()
+    validate = check_valid(card_number)
+    card_type(card_number, validate)
 
-while number > 0:
-    # Os pares soma
-    if contador % 2 == 0:
-        resultado = int(resultado + (number % 10))
-    else:
-        # Impares multiplica
-        verifica = (number % 10) * 2
+# prompt user for input and valid
 
-        # Se a multiplicação der mais que 10 soma um ao outro
-        if verifica % 10 != 0 or verifica % 10 == 0:
-            verifica = (verifica % 10) + (verifica / 10)
 
-        # Soma as multiplicações
-        resultado = int(resultado + verifica)
+def card_detail():
+    while True:
+        card_number = input("Card Number: ")
+        if card_number.isnumeric():
+            break
 
-    # Salvando os primeiros numeros para verificação da bandeira
-    segundo = primeiro
-    primeiro = number
-    contador += 1
-    number = int(number / 10)
+    return card_number
 
-if resultado % 10 == 0 and (primeiro == 4 or primeiro == 3 or primeiro == 5):
-    # All American Express numbers start with 34 or 37
-    if (segundo == 34 or segundo == 37) and contador == 15:
-        print("AMEX")
-    # MasterCard numbers start with 51, 52, 53, 54, or 55
-    elif (segundo == 51 or segundo == 52 or segundo == 53 or segundo == 54 or segundo == 55) and contador == 16:
-        print("MASTERCARD")
-    # Visa numbers start with 4
-    elif primeiro == 4 and (contador == 13 or contador == 16):
-        print("VISA")
+# check if entry is valid and divisible
+# verify odd multiples if more than 10 add together
+
+
+def check_valid(card_number):
+    even_num = 0
+    odd_num = 0
+    card_number = reversed([int(digit) for digit in card_number])
+    for i, digit in enumerate(card_number):
+        if (i + 1) % 2 == 0:
+            odd_digit = digit * 2
+            if odd_digit > 9:
+                odd_num += int(odd_digit / 10) + odd_digit % 10
+            else:
+                odd_num += odd_digit
+        else:
+            even_num += digit
+    validate = even_num + odd_num
+    return validate
+
+# check card type by numbers entered and number length
+# amex starting with 34 or 37
+# mastercard starting 51- 55
+# visa starting with 4 length 13 or 16
+
+
+def card_type(card_number, validate):
+    first_number = int(card_number[0:2])
+    card_length = len(card_number)
+    validate_last_digit = validate % 10
+
+    if validate_last_digit == 0:
+        if first_number in [34, 37] and card_length == 15:
+            print("AMEX")
+        elif (int(card_number[0]) == 4) and card_length in [13, 16]:
+            print("VISA")
+        elif (first_number in range(51, 55)) and card_length == 16:
+            print("MASTERCARD")
+        else:
+            print("INVALID")
     else:
         print("INVALID")
-else:
-    # Cartões inválidos
-    print("INVALID")
+
+
+main()
