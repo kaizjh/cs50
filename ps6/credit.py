@@ -73,10 +73,10 @@ def algorithm(str_number):
             digits[i] -= 9
 
     # Sum all the digits
-    sum = sum(digits)
+    total_sum = sum(digits)
 
     # Final check
-    if sum % 10 == 0:
+    if total_sum % 10 == 0:
         return True
     else:
         return False
