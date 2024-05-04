@@ -5,7 +5,6 @@ words = 1
 letters = 0
 sentences = 0
 for c in texts:
-    print(c)
     # Count the words
     if c == ' ':
         words += 1
