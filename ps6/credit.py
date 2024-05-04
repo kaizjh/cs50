@@ -57,7 +57,6 @@ def is_MASTERCARD(str_number):
 def card_is_valid(str_number):
     # Convert the card number string to a list of integers
     digits = [int(x) for x in str_number]
-
     # Double every other digit starting from the second-to-last digit
     for i in range(len(digits) - 2, -1, -2):
         digits[i] *= 2
@@ -66,12 +65,11 @@ def card_is_valid(str_number):
 
     # Sum all the digits
     total_sum = sum(digits)
-
     # Final check
     if total_sum % 10 == 0:
         return True
     else:
         return False
-
+    
 
 main()
