@@ -25,9 +25,12 @@ def main():
         text = file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
-    #AGATC = longest_match(text, )
+    AGATC = longest_match(text, "AGATC")
+    AATG = longest_match(text, "AATG")
+    TATC = longest_match(text, "TATC")
 
     # TODO: Check database for matching profiles
+    
 
     return
 
