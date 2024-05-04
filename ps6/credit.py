@@ -40,7 +40,7 @@ def is_desired_length(str_number, desired_length):
 
 
 def is_VISA(str_number):
-
+    
 
 
 def is_AMEX(str_number):
