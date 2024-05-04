@@ -39,8 +39,13 @@ def is_desired_length(str_number, desired_length):
         return False
 
 
-def is_VISA(str_number):
+# Use Luhn's Algorithm to check the
+def algorithm(str_number):
     
+
+
+def is_VISA(str_number):
+
 
 
 def is_AMEX(str_number):
@@ -51,7 +56,5 @@ def is_MASTERCARD(str_number):
     .
 
 
-# Use Luhn's Algorithm to check the
-def algorithm()
 
 main()
