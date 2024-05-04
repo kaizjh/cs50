@@ -12,11 +12,10 @@ for c in texts:
     # Count the letters
     if c >='a' and c <= 'z':
         letters += 1
-
     # Count the sentences
     if c == '!' or c == '?' or c == '.':
         sentences += 1
-
+# Final computation
 L = letters / words * 100
 S = sentences / words * 100
 index = 0.0588 * L - 0.296 * S - 15.8
@@ -24,7 +23,6 @@ print(index)
 
 # Print the Grade
 grade = round(index)
-
 if grade < 1:
     print("Before Grade 1")
 elif grade > 16:
