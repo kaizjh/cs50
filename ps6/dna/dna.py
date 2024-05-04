@@ -28,7 +28,7 @@ def main():
 
     # TODO: Check database for matching profiles
     for row in rows:
-        for value in row.values():
+        for value in list(row.values())[1:]:
             print(value)
 
     return
