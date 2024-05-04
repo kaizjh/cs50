@@ -4,7 +4,7 @@ import re
 def main():
     # Get the number and make sure it's entirely numeric
     number = cs50.get_int("Number: ")
-    print(number)
+    print(number[1])
 
     if is_desired_length(number, 15):
         if is_VISA(number):
