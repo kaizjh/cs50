@@ -10,6 +10,7 @@ def main():
         if c == ' ':
             words += 1
         # Count the letters
-        
+        c.lower()
+        print(c)
 
 main()
