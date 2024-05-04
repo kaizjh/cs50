@@ -23,7 +23,7 @@ def main():
             print("MASTERCARD")
             return 0
 
-    print("INVALID\n")
+    print("INVALID")
     return 0
 
 
