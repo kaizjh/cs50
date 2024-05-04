@@ -25,3 +25,6 @@ print(index)
 # Print the Grade
 grade = round(index)
 
+for i in range(16):
+    if i == grade:
+        print(f"Grade: {grade}")
