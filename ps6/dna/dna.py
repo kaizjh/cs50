@@ -5,12 +5,14 @@ import sys
 def main():
 
     # TODO: Check for command-line usage
-    n = len(argv)
+    n = len(sys.argv)
     if n != 3:
         print("Usage:python dna.py filename.csv filename.txt")
 
     # TODO: Read database file into a variable
-    with open (")
+    with open (sys.argv[1]) as file:
+        
+
     # TODO: Read DNA sequence file into a variable
 
     # TODO: Find longest match of each STR in DNA sequence
