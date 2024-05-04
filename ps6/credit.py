@@ -12,6 +12,7 @@ def main():
             print("VISA")
             return 0
     elif is_desired_length(str_number, 13):
+        print(1)
         if is_AMEX(str_number):
             print("AMEX")
             return 0
