@@ -19,7 +19,7 @@ def main():
         if is_VISA(str_number):
             print("VISA")
             return 0
-        elif is_MASTERCARD:
+        elif is_MASTERCARD(str_number):
             print("MASTERCARD")
             return 0
 
