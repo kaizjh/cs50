@@ -28,8 +28,7 @@ def main():
 
     # TODO: Check database for matching profiles
     for row in rows:
-        for value in list(row.values())[1:]:
-            print(value)
+        print(row.value("AGATC"))
 
     return
 
