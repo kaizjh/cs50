@@ -1,11 +1,12 @@
 import cs50
 import re
 
-def main:
+def main():
     # Get the number and make sure it's entirely numeric
     number = cs50.get_int("Number: ")
     print(number)
-    valid_credit
+    if valid_credit(number, 16):
+        print(16)
 
 
 
@@ -20,3 +21,5 @@ def valid_credit(number, length):
     else:
         return False
 
+
+main()
