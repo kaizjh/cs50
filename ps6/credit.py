@@ -7,8 +7,7 @@ def main():
         if str_number.isnumeric():
             break
 
-
-
+    # Check the number and print the result
     if (is_desired_length(str_number, 13) or is_desired_length(str_number, 16)) and is_VISA(str_number):
         print("VISA")
     elif is_desired_length(str_number, 15) and is_AMEX(str_number):
