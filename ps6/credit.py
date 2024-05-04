@@ -5,6 +5,7 @@ def main():
     # Get the number and make sure it's entirely numeric
     number = cs50.get_int("Number: ")
     print(number)
+    
     if valid_credit(number, 16):
         print(16)
 
