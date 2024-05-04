@@ -7,7 +7,7 @@ def main():
     # Convert number from int to str for checking
     str_number = str(number)
 
-    if is_desired_length(str_number, 13) or is_desired_length(str_number, 16) and is_VISA(str_number):
+    if (is_desired_length(str_number, 13) or is_desired_length(str_number, 16)) and is_VISA(str_number):
         print("VISA")
     elif is_desired_length(str_number, 15) and is_AMEX(str_number):
         print("AMEX")
@@ -15,7 +15,7 @@ def main():
         print("MASTERCARD")
     else:
         print("INVALID")
-        
+
     return 0
 
 
