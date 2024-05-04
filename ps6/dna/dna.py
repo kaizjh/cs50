@@ -12,13 +12,10 @@ def main():
     # TODO: Read database file into a variable
     with open (sys.argv[1]) as file:
         reader = csv.DictReader(file)
-        # keys
-        print(reader.fieldnames)
-        # key value dict in rows
+        # Append every people's dict into a list
         rows = []
         for row in reader:
             rows.append(row)
-        print(rows[1])
 
     # TODO: Read DNA sequence file into a variable
     with open (sys.argv[2]) as file:
@@ -30,7 +27,9 @@ def main():
     TATC = longest_match(text, "TATC")
 
     # TODO: Check database for matching profiles
-    for i in 
+    for row in rows:
+        for value in row.values():
+            print(value)
 
     return
 
