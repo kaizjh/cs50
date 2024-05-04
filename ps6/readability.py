@@ -3,3 +3,5 @@ def main():
     text = input("Text: ")
     for word in text:
         print(word)
+
+main()
