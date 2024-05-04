@@ -25,6 +25,11 @@ print(index)
 # Print the Grade
 grade = round(index)
 
-for i in range(16):
-    if i == grade:
-        print(f"Grade: {grade}")
+if grade < 1:
+    print("Before Grade 1")
+elif grade > 16:
+    print("Grade 16+")
+else:
+    for i in range(1,16):
+        if i == grade:
+            print(f"Grade: {grade}")
