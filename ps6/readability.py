@@ -2,8 +2,6 @@ def main():
     text = input("Text: ")
 
     texts = text.lower()
-    print(texts)
-
     words = 1
     letters = 0
     sentences = 0
@@ -19,8 +17,10 @@ def main():
         # Count the sentences
         if c == '!' or c == '?' or c == '.':
             sentences += 1
-
     print(words, letters, sentences)
+
+    L = letters / words * 100
+    index = 0.0588 *
 
 
 main()
