@@ -20,7 +20,11 @@ def main():
     print(words, letters, sentences)
 
     L = letters / words * 100
-    index = 0.0588 *
+    print(L)
+    S = sentences / words * 100
+    print(S)
+    index = 0.0588 * L - 0.296 * S - 15.8
+    
 
 
 main()
