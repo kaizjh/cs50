@@ -39,7 +39,7 @@ def is_desired_length(number, desired_length):
 
 
 def is_VISA(number):
-    
+
 
 
 def is_AMEX(number):
@@ -49,5 +49,8 @@ def is_AMEX(number):
 def is_MASTERCARD(number):
     .
 
+
+# Use Luhn's Algorithm to check the
+def algorithm()
 
 main()
