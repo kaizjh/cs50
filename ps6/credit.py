@@ -41,7 +41,7 @@ def is_desired_length(str_number, desired_length):
 
 # Use Luhn's Algorithm to check the
 def algorithm(str_number):
-    
+    for i in 
 
 
 def is_VISA(str_number):
