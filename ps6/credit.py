@@ -40,15 +40,24 @@ def is_desired_length(str_number, desired_length):
 
 
 def is_VISA(str_number):
-    
+    if str_number[0] == '4':
+        if algorithm(str_number):
+            return True
+    return False
 
 
 def is_AMEX(str_number):
-    .
+    if str_number[0] == '3' and (str_number[1] == '4' or str_number[1] == '7'):
+        if algorithm(str_number):
+            return True
+    return False
 
 
 def is_MASTERCARD(str_number):
-    .
+    if str_number[0] == '5' and str_number[1] >= '1' and str_number[1] <= '5':
+        if algorithm(str_number):
+            return True
+    return False
 
 
 # Use Luhn's Algorithm to check the credit's validation
@@ -66,12 +75,10 @@ def algorithm(str_number):
     sum = sum(digits)
 
     # Final check
-    if sum % 10 = 0:
+    if sum % 10 == 0:
         return True
     else:
         return False
-
-
 
 
 main()
