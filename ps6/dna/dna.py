@@ -22,14 +22,18 @@ def main():
         text = file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
-    AGATC = longest_match(text, "AGATC")
-    AATG = longest_match(text, "AATG")
-    TATC = longest_match(text, "TATC")
+    AGATCs = longest_match(text, "AGATC")
+    AATGs = longest_match(text, "AATG")
+    TATCs = longest_match(text, "TATC")
+    print(AGATCs, AATGs, TATCs)
 
     # TODO: Check database for matching profiles
     for row in rows:
-        print(row.value("AGATC"))
+        if row.get('AGATC') == AGATCs and row.get('AATG') == AATGs and row.get('TATC') == TATCs:
+            print(row.get('name'))
+            return
 
+    print("No match")
     return
 
 
