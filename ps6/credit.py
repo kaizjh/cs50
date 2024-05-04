@@ -1,11 +1,13 @@
-import cs50
 import re
 
 def main():
     # Get the number and make sure it's entirely numeric
-    number = cs50.get_int("Number: ")
-    # Convert number from int to str for checking
-    str_number = str(number)
+    while(True):
+        str_number = input("Number: ")
+        if str_number.isnumeric()
+            break
+
+
 
     if (is_desired_length(str_number, 13) or is_desired_length(str_number, 16)) and is_VISA(str_number):
         print("VISA")
