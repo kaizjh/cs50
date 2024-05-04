@@ -22,6 +22,9 @@ def main():
         text = file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
+    STRs = []
+    for row in rows:
+        STR = 
     AGATCs = longest_match(text, "AGATC")
     AATGs = longest_match(text, "AATG")
     TATCs = longest_match(text, "TATC")
