@@ -15,16 +15,17 @@ def main():
         # keys
         print(reader.fieldnames)
         # key value dict in rows
+        rows = []
         for row in reader:
-            print(row)
+            rows.append(row)
+        print(rows)
 
     # TODO: Read DNA sequence file into a variable
     with open (sys.argv[2]) as file:
         text = file.read()
-        print(text)
 
     # TODO: Find longest match of each STR in DNA sequence
-    
+    #AGATC = longest_match(text, )
 
     # TODO: Check database for matching profiles
 
