@@ -7,16 +7,12 @@ def main():
     print(number)
 
     if is_desired_length(number, 15):
-        if is_AEMX:
-            ...
-        else:
-            print("INVALID\n")
-            return
+        is_
     elif is_desired_length(number, 13):
-        if is_VISA:
-            ...
+        if is_AMEX:
+            print("AMEX")
         else:
-            print("INVALID\n")
+            print("INVALID")
             return
     elif is_desired_length(number, 16):
         if is_VISA:
@@ -41,6 +37,18 @@ def is_desired_length(number, desired_length):
         return True
     else:
         return False
+
+
+def is_VISA():
+    .
+
+
+def is_AMEX():
+    .
+
+
+def is_MASTERCARD():
+    .
 
 
 main()
