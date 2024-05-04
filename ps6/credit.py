@@ -39,11 +39,6 @@ def is_desired_length(str_number, desired_length):
         return False
 
 
-# Use Luhn's Algorithm to check the
-def algorithm(str_number):
-    for i in 
-
-
 def is_VISA(str_number):
 
 
@@ -55,6 +50,10 @@ def is_AMEX(str_number):
 def is_MASTERCARD(str_number):
     .
 
+
+# Use Luhn's Algorithm to check the credit's validation
+def algorithm(str_number):
+    for i in
 
 
 main()
