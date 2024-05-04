@@ -7,7 +7,7 @@ def main():
     print(number)
 
     if is_desired_length(number, 15):
-        is_
+        is_VISA
     elif is_desired_length(number, 13):
         if is_AMEX:
             print("AMEX")
