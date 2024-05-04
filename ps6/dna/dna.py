@@ -30,7 +30,7 @@ def main():
     TATC = longest_match(text, "TATC")
 
     # TODO: Check database for matching profiles
-    
+    for i in 
 
     return
 
