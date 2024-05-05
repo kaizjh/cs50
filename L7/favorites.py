@@ -5,7 +5,7 @@ with open("favorites.csv", "r") as file:
 
     for row in reader:
         favorite = row[1]
-        print(favorite, end='')
+        print(favorite, end='  ')
 
 print("----------------------------")
 
@@ -14,4 +14,4 @@ with open("favorites.csv", "r") as file:
 
     for row in reader:
         favorite = row["language"]
-        print(favorite, end='')
+        print(favorite, end='  ')
