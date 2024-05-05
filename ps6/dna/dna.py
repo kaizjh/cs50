@@ -35,8 +35,8 @@ def main():
     n = len(STRs)
     for row in rows:
         for i in range(1,n):
-            print(numbers[i], STRs[i], end='  ')
-        print()
+            if numbers[i] == row.get(STRs[i]):
+                print(row.get(STRs[1]))
 
     print("No match")
     return
