@@ -29,7 +29,6 @@ def main():
     numbers = []
     for STR in STRs:
         numbers.append(longest_match(text, STR))
-    print(numbers)
 
     # TODO: Check database for matching profiles
     n = len(STRs)
