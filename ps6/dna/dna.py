@@ -35,6 +35,7 @@ def main():
     n = len(STRs)
     print(n)
     for row in rows:
+        print(row,rows)
         matched = True
         for i in range(1,n):
             print(numbers[i], row.get(STRs[i]))
