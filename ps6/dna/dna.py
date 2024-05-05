@@ -13,8 +13,8 @@ def main():
     with open (sys.argv[1]) as file:
         # Use reader to store csv file in dict
         reader = csv.DictReader(file)
-        fieldnames = reader.fieldnames
-        type(fieldnames)
+        # Get the csv fieldnames into a list
+        STRs = reader.fieldnames
         # Append dicts into a list, expect the fieldname
         rows = []
         for row in list(reader)[1:]:
@@ -26,7 +26,8 @@ def main():
 
     # TODO: Find longest match of each STR in DNA sequence
     # Not good, need some dynamic codes!
-    STRs = []
+    for STR in STRs:
+        
 
     AGATCs = longest_match(text, "AGATC")
     AATGs = longest_match(text, "AATG")
