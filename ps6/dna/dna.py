@@ -33,17 +33,19 @@ def main():
     # TODO: Check database for matching profiles
     n = len(STRs)
     for row in rows:
+        # Reset row's matched
         matched = True
+        # Check every STR in the row
         for i in range(1,n):
             # I hate python's no explicit typedef
             if numbers[i] != int(row.get(STRs[i])):
                 matched = False
                 break
-
+        # If every STRs is matched, then print the name and return
         if matched:
             print(row.get(STRs[0]))
             return
-
+    # If not return with matched name, then no match
     print("No match")
     return
 
