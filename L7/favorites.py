@@ -29,5 +29,5 @@ with open("favorites.csv", "r") as file:
         if favorite in counts:
             counts[favorite] += 1
         else:
-            # Whenever we see a new language, we create a lang
+            # Whenever we see a new language, we create a new item
             counts[favorite] = 1
