@@ -40,9 +40,10 @@ def main():
         for i in range(1,n):
             print(numbers[i], row.get(STRs[i]))
             if numbers[i] != row.get(STRs[i]):
+                print("Mismatch found:", numbers[i], "!=", row.get(STRs[i]))
                 matched = False
                 break
-        
+
         if matched:
             print(row.get(STRs[0]))
             return
