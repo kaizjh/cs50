@@ -34,12 +34,14 @@ def main():
     n = len(STRs)
     for row in rows:
         for i in range(1,n):
-            if numbers[i] == row.get(STRs[i]):
-                print("No match")
-                return
+            if numbers[i] != row.get(STRs[i]):
+                break
+        print(row.get(STRs[0]))
+        return
 
-    print(row.get(STRs[0]))
+    print("No match")
     return
+
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
