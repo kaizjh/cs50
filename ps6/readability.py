@@ -2,9 +2,7 @@ text = input("Text: ")
 
 # Compute the Coleman-Liau index
 texts = text.lower()
-words = 1
-letters = 0
-sentences = 0
+words, letters, sentences = 1, 0, 0
 for c in texts:
     # Count the words
     if c == ' ':
