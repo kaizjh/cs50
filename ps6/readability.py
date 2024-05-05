@@ -2,6 +2,7 @@ text = input("Text: ")
 
 # Compute the Coleman-Liau index
 texts = text.lower()
+# In python, we can initialize variables like this, not in C
 words, letters, sentences = 1, 0, 0
 for c in texts:
     # Count the words
