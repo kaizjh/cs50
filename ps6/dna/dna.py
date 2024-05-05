@@ -17,22 +17,19 @@ def main():
         STRs = reader.fieldnames
         # Append dicts into a list, expect the fieldname
         rows = []
-        for row in list(reader)[1:]:
-            rows.append(row)
+        for read in list(reader)[1:]:
+            rows.append(read)
 
     # TODO: Read DNA sequence file into a variable
     with open (sys.argv[2]) as file:
         text = file.read()
 
     # TODO: Find longest match of each STR in DNA sequence
-    # Not good, need some dynamic codes!
+    # Get every STR's longest_match in DNA sequence file, store them into list numbers
+    numbers = []
     for STR in STRs:
-        
-
-    AGATCs = longest_match(text, "AGATC")
-    AATGs = longest_match(text, "AATG")
-    TATCs = longest_match(text, "TATC")
-    print(AGATCs, AATGs, TATCs)
+        numbers.append(longest_match(text, STR))
+    print(numbers)
 
     # TODO: Check database for matching profiles
     for row in rows:
