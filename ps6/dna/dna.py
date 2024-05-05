@@ -13,9 +13,9 @@ def main():
     with open (sys.argv[1]) as file:
         # Use reader to store csv file in dict
         reader = csv.DictReader(file)
-        # Get the csv fieldnames into a list
+        # Get the csv fieldnames into list STRs
         STRs = reader.fieldnames
-        # Append dicts into a list, expect the fieldname
+        # Append dicts into list rows, expect the fieldname
         rows = []
         for read in list(reader)[1:]:
             rows.append(read)
@@ -32,11 +32,11 @@ def main():
     print(numbers)
 
     # TODO: Check database for matching profiles
+    n = len(STRs)
     for row in rows:
-        print(row.get('AGATC'), row.get('AATG'), row.get('TATC'))
-        if int(row.get('AGATC')) == AGATCs and int(row.get('AATG')) == AATGs and int(row.get('TATC')) == TATCs:
-            print(row.get('name'))
-            return
+        for i in range(1,n):
+            print(numbers[i], STRs[i], end='  ')
+        print()
 
     print("No match")
     return
