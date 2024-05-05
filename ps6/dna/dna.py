@@ -38,7 +38,6 @@ def main():
             if numbers[i] != row.get(STRs[i]):
                 break
         print(row.get(STRs[0]))
-        return
 
     print("No match")
     return
