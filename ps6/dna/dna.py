@@ -35,6 +35,7 @@ def main():
     for row in rows:
         matched = True
         for i in range(1,n):
+            print(numbers[i], row.get(STRs[i]))
             if numbers[i] != row.get(STRs[i]):
                 matched = False
                 break
