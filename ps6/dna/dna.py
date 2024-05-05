@@ -33,9 +33,7 @@ def main():
 
     # TODO: Check database for matching profiles
     n = len(STRs)
-    print(n)
     for row in rows:
-        print(row,rows)
         matched = True
         for i in range(1,n):
             # I hate python's no explicit typedef
