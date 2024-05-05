@@ -33,5 +33,5 @@ with open("favorites.csv", "r") as file:
         else:
             # Whenever we see a new language, we create a new item(technical term), and initialize it
             counts[favorite] = 1
-for favorite in counts:
+for favorite in sorted(counts):
     print(f"{favorite}: {counts[favorite]}")
