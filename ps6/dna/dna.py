@@ -42,7 +42,7 @@ def main():
             if numbers[i] != row.get(STRs[i]):
                 matched = False
                 break
-
+        
         if matched:
             print(row.get(STRs[0]))
             return
