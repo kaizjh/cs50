@@ -28,7 +28,6 @@ def main():
     # Get every STR's longest_match in DNA sequence file, store them into list numbers
     numbers = []
     for STR in STRs:
-        print(longest_match(text, STR))
         numbers.append(longest_match(text, STR))
 
     # TODO: Check database for matching profiles
