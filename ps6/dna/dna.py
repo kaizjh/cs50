@@ -38,9 +38,8 @@ def main():
         print(row,rows)
         matched = True
         for i in range(1,n):
-            print(numbers[i], row.get(STRs[i]))
-            if numbers[i] != row.get(STRs[i]):
-                print("Mismatch found:", numbers[i], "!=", row.get(STRs[i]))
+            # I hate python's no explicit typedef
+            if numbers[i] != int(row.get(STRs[i])):
                 matched = False
                 break
 
