@@ -50,3 +50,6 @@ for favorite in sorted(counts, key=get_value, reverse = True):
     print(f"{favorite}: {counts[favorite]}")
 
 print("__________________________________")
+# Sorted by value, but in a fancy way
+for favorite in sorted(counts, key=lambda language: counts[language], reverse = True):
+    print(f"{favorite}: {counts[favorite]}")
