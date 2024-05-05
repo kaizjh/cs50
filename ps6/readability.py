@@ -17,7 +17,6 @@ for c in texts:
 L = letters / words * 100
 S = sentences / words * 100
 index = 0.0588 * L - 0.296 * S - 15.8
-print(index)
 
 # Print the Grade
 grade = round(index)
