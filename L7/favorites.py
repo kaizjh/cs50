@@ -26,8 +26,12 @@ with open("favorites.csv", "r") as file:
 
     counts = {}
     for row in reader:
+        favorite = row["language"]
         if favorite in counts:
+            # Use the item's key to access the value in the dict, increase the value
             counts[favorite] += 1
         else:
             # Whenever we see a new language, we create a new item(technical term), and initialize it
             counts[favorite] = 1
+for favorite in counts:
+    print(f"{favorite}: {counts[favorite]}")
