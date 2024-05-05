@@ -34,6 +34,7 @@ def main():
     n = len(STRs)
     for row in rows:
         for i in range(1,n):
+            print(row.get(STRs[i]))
             if numbers[i] != row.get(STRs[i]):
                 break
         print(row.get(STRs[0]))
