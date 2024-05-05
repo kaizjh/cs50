@@ -36,6 +36,7 @@ def main():
         for i in range(1,n):
             if numbers[i] == row.get(STRs[i]):
                 print(row.get(STRs[1]))
+                return
 
     print("No match")
     return
