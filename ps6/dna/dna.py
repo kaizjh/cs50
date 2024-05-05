@@ -17,7 +17,7 @@ def main():
         STRs = reader.fieldnames
         # Append dicts into list rows, expect the fieldname
         rows = []
-        for read in list(reader)[1:]:
+        for read in list(reader):
             rows.append(read)
 
     # TODO: Read DNA sequence file into a variable
