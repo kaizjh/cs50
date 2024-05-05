@@ -25,6 +25,7 @@ def main():
     # Not good, need some dynamic codes!
     STRs = []
     for row in rows:
+        
 
     AGATCs = longest_match(text, "AGATC")
     AATGs = longest_match(text, "AATG")
