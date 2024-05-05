@@ -33,5 +33,20 @@ with open("favorites.csv", "r") as file:
         else:
             # Whenever we see a new language, we create a new item(technical term), and initialize it
             counts[favorite] = 1
+
+for favorite in counts:
+    print(f"{favorite}: {counts[favorite]}")
+
+# Get the print results sorted by keys' alphbets
 for favorite in sorted(counts):
     print(f"{favorite}: {counts[favorite]}")
+
+print("_________________________________")
+# Sorted by value(actually use values to substitute keys), and print
+def get_value(language):
+    return counts[language]
+
+for favorite in sorted(counts, key=get_value, reverse = True):
+    print(f"{favorite}: {counts[favorite]}")
+
+print("__________________________________")
