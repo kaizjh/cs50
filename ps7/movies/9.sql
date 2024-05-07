@@ -1,4 +1,4 @@
-SELECT people.name
+SELECT DISTINCT people.name
 FROM people
 JOIN stars, movies
 ON people.id = stars.person_id
