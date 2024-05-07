@@ -6,7 +6,7 @@ favorite = cs50.get_string("Favorites: ")
 
 # The '?' inside the "" is a placeholder, just like %S in C
 rows = db.execute("SELECT COUNT(*) AS n FROM favorites WHERE problem = ?", favorite)
-#
+# The code below would do the same thing as a Python way, but you will expose yourself to potential hack or attacks by trusting the user's input, so don't do this
 # rows = db.execute(f"SELECT COUNT(*) AS n FROM favorites WHERE problem = '{favorite}'")
 
 for row in rows:
