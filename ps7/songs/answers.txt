@@ -8,4 +8,5 @@ get a final number, which determines the audio aura in the past year.
 Hypothesize about why the way you’ve calculated this aura might not be very representative of the listener.
 What better ways of calculating this aura would you propose?
 
-More flexibility, and some average. No better way, I suppose.
+More flexibility, and some average.
+No better way, I suppose.
