@@ -9,3 +9,5 @@ rows = db.execute(f"SELECT COUNT(*) AS n FROM favorites WHERE problem = '{favori
 for row in rows:
     print(row['n'])
 
+# We can print this one, too, because there is only one row
+print(rows[0]['n'])
