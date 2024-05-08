@@ -34,7 +34,7 @@ AND     day = 28;
 
                 -- Check the transcript 161, to get information about bakery parking lot, within ten minutes of the theft, which is 2023-7-28 10:15am
                 SELECT *
-                FROM bakery_security_logs
+                FROM    bakery_security_logs
                 WHERE   year = 2023
                 AND     month = 7
                 AND     day = 28
@@ -59,10 +59,10 @@ AND     day = 28;
 
                         -- I see some cars exit the parking lot within the 10 minutes of the theft, so I going to check these 'exit' cars
                         SELECT *
-                        FROM people
-                        WHERE license_plate IN(
-                        SELECT license_plate
-                        FROM bakery_security_logs
+                        FROM    people
+                        WHERE   license_plate IN(
+                        SELECT  license_plate
+                        FROM    bakery_security_logs
                         WHERE   year = 2023
                         AND     month = 7
                         AND     day = 28
@@ -89,8 +89,8 @@ AND     day = 28;
         | 162 | I don't know the thief's name, but it was someone I recognized. Earlier this morning, before I arrived at Emma's bakery, I was walking by the ATM on Leggett Street and saw the thief there withdrawing some money.                                                                                                 |'
 
                 -- Check the transcript 161, looking for information about who withdrew many on Leggett Street 2023-7-28
-                SELECT *
-                FROM atm_transactions
+                SELECT  *
+                FROM    atm_transactions
                 WHERE   atm_location = 'Leggett Street'
                 AND     year = 2023
                 AND     month = 7
@@ -129,24 +129,40 @@ AND     day = 28;
                 | 36 | 8                 | 4                      | 2023 | 7     | 29  | 8    | 20     |
                 +----+-------------------+------------------------+------+-------+-----+------+--------+
 
-                        -- Check
-                        SELECT  passport_number
-                        FROM    passengers
-                        WHERE   flight_id IN(
-                        SELECT  id
-                        FROM    flights
+                        -- Check if there are 'parking lot suspects' on this flight, and get their personal information
+                        SELECT  *
+                        FROM    people
+                        WHERE   license_plate IN(
+                        SELECT  license_plate
+                        FROM    bakery_security_logs
                         WHERE   year = 2023
                         AND     month = 7
-                        AND     day = 29
-                        AND     hour = 8
-                        AND     minute = 20
+                        AND     day = 28
+                        AND     hour = 10
+                        AND     minute <= 25
+                        AND     minute >= 5
+                        AND     activity = 'exit'
+
+                        AND     passport_number IN(
+                                SELECT  passport_number
+                                FROM    passengers
+                                WHERE   flight_id IN(
+                                SELECT  id
+                                FROM    flights
+                                WHERE   year = 2023
+                                AND     month = 7
+                                AND     day = 29
+                                AND     hour = 8
+                                AND     minute = 20
+                        )
+                        )
                         );
 
 
                         -- Then looking for the origin_airport of this flight
-                        SELECT *
-                        FROM airports
-                        WHERE id IN (
+                        SELECT  *
+                        FROM    airports
+                        WHERE   id IN (
                                 SELECT  origin_airport_id
                                 FROM    flights
                                 WHERE   year = 2023
@@ -163,9 +179,9 @@ AND     day = 28;
                         +----+--------------+-----------------------------+------------+
 
                         -- Then looking for the destination_airport of this flight
-                        SELECT *
-                        FROM airports
-                        WHERE id IN (
+                        SELECT  *
+                        FROM    airports
+                        WHERE   id IN (
                                 SELECT  destination_airport_id
                                 FROM    flights
                                 WHERE   year = 2023
@@ -185,8 +201,8 @@ AND     day = 28;
 
 | 297 | Littering took place at 16:36. No known witnesses.
 
-        SELECT *
-        FROM bakery_security_logs
+        SELECT  *
+        FROM    bakery_security_logs
         WHERE   year = 2023
         AND     month = 7
         AND     day = 28
