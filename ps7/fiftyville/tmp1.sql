@@ -5,4 +5,6 @@ you might want to look for cars that left the parking lot in that time frame.   
 
 SELECT *
 FROM bakery_security_logs
-WHERE 
+WHERE   year = 2023
+AND     month = 7
+AND     day = 28
