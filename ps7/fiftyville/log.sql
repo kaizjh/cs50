@@ -129,6 +129,20 @@ AND     day = 28;
                 | 36 | 8                 | 4                      | 2023 | 7     | 29  | 8    | 20     |
                 +----+-------------------+------------------------+------+-------+-----+------+--------+
 
+                        -- Check
+                        SELECT  passport_number
+                        FROM    passengers
+                        WHERE   flight_id IN(
+                        SELECT  id
+                        FROM    flights
+                        WHERE   year = 2023
+                        AND     month = 7
+                        AND     day = 29
+                        AND     hour = 8
+                        AND     minute = 20
+                        );
+
+
                         -- Then looking for the origin_airport of this flight
                         SELECT *
                         FROM airports
