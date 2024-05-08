@@ -56,7 +56,8 @@ AND     day = 28;
                 | 266 | 2023 | 7     | 28  | 10   | 23     | exit     | 322W7JE       |
                 | 267 | 2023 | 7     | 28  | 10   | 23     | exit     | 0NTHK55       |
                 +-----+------+-------+-----+------+--------+----------+---------------+
-                
+
+                -- I see some cars
 
 
         | 162 | I don't know the thief's name, but it was someone I recognized. Earlier this morning, before I arrived at Emma's bakery, I was walking by the ATM on Leggett Street and saw the thief there withdrawing some money.                                                                                                 |
