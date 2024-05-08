@@ -12,7 +12,7 @@ AND     day = 28;
 | 295 | Theft of the CS50 duck took place at 10:15am at the Humphrey Street bakery.
         Interviews were conducted today with three witnesses who were present at the time – each of their interview transcripts mentions the bakery.
 
-        -- Select the descriptino 295, line 1, looking for more information
+        -- Check the descriptino 295, line 1, looking for more information
         SELECT  *
         FROM    bakery_security_logs
         WHERE   year = 2023
@@ -22,7 +22,7 @@ AND     day = 28;
         AND     minute = 15;
         -- Nothing returns
 
-        -- Check the description 295, line 2,
+        -- Check the description 295, line 2, looking for more information from the interviews
         SELECT  id, transcript
         FROM    interviews
         WHERE   year = 2023
@@ -56,6 +56,7 @@ AND     day = 28;
                 | 266 | 2023 | 7     | 28  | 10   | 23     | exit     | 322W7JE       |
                 | 267 | 2023 | 7     | 28  | 10   | 23     | exit     | 0NTHK55       |
                 +-----+------+-------+-----+------+--------+----------+---------------+
+                
 
 
         | 162 | I don't know the thief's name, but it was someone I recognized. Earlier this morning, before I arrived at Emma's bakery, I was walking by the ATM on Leggett Street and saw the thief there withdrawing some money.                                                                                                 |
