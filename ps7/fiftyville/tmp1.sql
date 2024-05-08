@@ -3,8 +3,9 @@
         The thief then asked the person on the other end of the phone to purchase the flight ticket. |
 
 SELECT *
-FROM flights
-WHERE   year = 2023
-AND     month = 7
-AND     day = 29
-ORDER BY 
+FROM        flights
+WHERE       year = 2023
+AND         month = 7
+AND         day = 29
+ORDER BY    hour, minute ASC
+LIMIT 1;
