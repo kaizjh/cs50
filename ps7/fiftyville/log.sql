@@ -11,7 +11,9 @@ AND     day = 28;
 
 | 295 | Theft of the CS50 duck took place at 10:15am at the Humphrey Street bakery.
         Interviews were conducted today with three witnesses who were present at the time – each of their interview transcripts mentions the bakery.
-| 297 | Littering took place at 16:36. No known witnesses.
+
+# I think this one is less important, so I mark here, and skip it for now
+# | 297 | Littering took place at 16:36. No known witnesses.
 
 -- Try to find more infomation from bakery_security_logs since the first clue we got from crime_scene_reports:
 -- "Theft of the CS50 duck took place at 10:15am at the Humphrey Street bakery."
