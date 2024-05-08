@@ -88,6 +88,28 @@ AND     day = 28;
 
         | 162 | I don't know the thief's name, but it was someone I recognized. Earlier this morning, before I arrived at Emma's bakery, I was walking by the ATM on Leggett Street and saw the thief there withdrawing some money.                                                                                                 |'
 
+                -- Check the transcript 161, looking for information about who withdrew many on Leggett Street 2023-7-28
+                SELECT *
+                FROM atm_transactions
+                WHERE   atm_location = 'Leggett Street'
+                AND     year = 2023
+                AND     month = 7
+                AND     day = 28
+                AND     transaction_type = 'withdraw';
+
+                +-----+----------------+------+-------+-----+----------------+------------------+--------+
+                | id  | account_number | year | month | day |  atm_location  | transaction_type | amount |
+                +-----+----------------+------+-------+-----+----------------+------------------+--------+
+                | 246 | 28500762       | 2023 | 7     | 28  | Leggett Street | withdraw         | 48     |
+                | 264 | 28296815       | 2023 | 7     | 28  | Leggett Street | withdraw         | 20     |
+                | 266 | 76054385       | 2023 | 7     | 28  | Leggett Street | withdraw         | 60     |
+                | 267 | 49610011       | 2023 | 7     | 28  | Leggett Street | withdraw         | 50     |
+                | 269 | 16153065       | 2023 | 7     | 28  | Leggett Street | withdraw         | 80     |
+                | 288 | 25506511       | 2023 | 7     | 28  | Leggett Street | withdraw         | 20     |
+                | 313 | 81061156       | 2023 | 7     | 28  | Leggett Street | withdraw         | 30     |
+                | 336 | 26013199       | 2023 | 7     | 28  | Leggett Street | withdraw         | 35     |
+                +-----+----------------+------+-------+-----+----------------+------------------+--------+
+
         | 163 | As the thief was leaving the bakery, they called someone who talked to them for less than a minute. In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow. The thief then asked the person on the other end of the phone to purchase the flight ticket. |'
 
 
