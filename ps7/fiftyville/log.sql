@@ -258,7 +258,7 @@ AND     day = 28;
                         | 4  | LGA          | LaGuardia Airport | New York City |
                         +----+--------------+-------------------+---------------+
 
-                -- According to the transcript 163 line 1, and the main suspects from line 133's check, I am going to check this two suspects' phone_call information on theft day
+                -- According to the transcript 163 line 1, and the main suspects from line 133's check, I am going to check these two suspects' phone_call information on theft day
 
                 -- Check the first suspect, but returns nothing
                 SELECT  *
