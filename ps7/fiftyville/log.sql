@@ -88,7 +88,7 @@ AND     day = 28;
 
         | 162 | I don't know the thief's name, but it was someone I recognized. Earlier this morning, before I arrived at Emma's bakery, I was walking by the ATM on Leggett Street and saw the thief there withdrawing some money.                                                                                                 |'
 
-                -- Check the transcript 161, looking for information about who withdrew many on Leggett Street 2023-7-28
+                -- Check the transcript 162, looking for information about who withdrew many on Leggett Street 2023-7-28
                 SELECT  *
                 FROM    atm_transactions
                 WHERE   atm_location = 'Leggett Street'
