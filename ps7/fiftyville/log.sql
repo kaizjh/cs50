@@ -165,7 +165,7 @@ AND     day = 28;
                 In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow.
                 The thief then asked the person on the other end of the phone to purchase the flight ticket. |
 
-                -- Check the transcript 163 for earliest flight on 2023-7-29
+                -- Check the transcript 163 line 2 for earliest flight on 2023-7-29
                 SELECT      *
                 FROM        flights
                 WHERE       year = 2023
@@ -257,6 +257,8 @@ AND     day = 28;
                         +----+--------------+-------------------+---------------+
                         | 4  | LGA          | LaGuardia Airport | New York City |
                         +----+--------------+-------------------+---------------+
+
+                -- Check the transcript 163 line 1 for earliest flight on 2023-7-29
 
 
 
