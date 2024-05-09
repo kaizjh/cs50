@@ -33,7 +33,7 @@ AND     day = 28;
         | 161 | Sometime within ten minutes of the theft, I saw the thief get into a car in the bakery parking lot and drive away. If you have security footage from the bakery parking lot, you might want to look for cars that left the parking lot in that time frame.                                                          |
 
                 -- Check the transcript 161, to get information about bakery parking lot, within ten minutes of the theft, which is 2023-7-28 10:15am
-                SELECT *
+                SELECT  *
                 FROM    bakery_security_logs
                 WHERE   year = 2023
                 AND     month = 7
@@ -58,7 +58,7 @@ AND     day = 28;
                 +-----+------+-------+-----+------+--------+----------+---------------+
 
                         -- I see some cars exit the parking lot within the 10 minutes of the theft, so I going to check these 'exit' cars
-                        SELECT *
+                        SELECT  *
                         FROM    people
                         WHERE   license_plate IN(
                         SELECT  license_plate
@@ -110,7 +110,7 @@ AND     day = 28;
                 | 336 | 26013199       | 2023 | 7     | 28  | Leggett Street | withdraw         | 35     |
                 +-----+----------------+------+-------+-----+----------------+------------------+--------+
 
-                -- Check if there are suspects on the flight 36, also suspects exit at theft time, also suspects withdraw many the theft day morning
+                -- Check if there are suspects on the flight 36, also suspects exit at theft time, also suspects withdraw money at the theft day's morning
                 SELECT  *
                 FROM    people
                 WHERE   license_plate IN(
