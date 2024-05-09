@@ -110,7 +110,56 @@ AND     day = 28;
                 | 336 | 26013199       | 2023 | 7     | 28  | Leggett Street | withdraw         | 35     |
                 +-----+----------------+------+-------+-----+----------------+------------------+--------+
 
-                -- Check if there are suspects on the flight 36
+                -- Check if there are suspects on the flight 36, also suspects exit at theft time, also suspects withdraw many the theft day morning
+                SELECT  *
+                FROM    people
+                WHERE   license_plate IN(
+                        SELECT  license_plate
+                        FROM    bakery_security_logs
+                        WHERE   year = 2023
+                        AND     month = 7
+                        AND     day = 28
+                        AND     hour = 10
+                        AND     minute <= 25
+                        AND     minute >= 5
+                        AND     activity = 'exit'
+
+                        AND     passport_number IN(
+                                SELECT  passport_number
+                                FROM    passengers
+                                WHERE   flight_id IN(
+                                SELECT  id
+                                FROM    flights
+                                WHERE   year = 2023
+                                AND     month = 7
+                                AND     day = 29
+                                AND     hour = 8
+                                AND     minute = 20
+                                )
+                        )
+                )
+                AND     id      IN(
+                        SELECT  person_id
+                        FROM    bank_accounts
+                        WHERE   account_number IN(
+                                SELECT  account_number
+                                FROM    atm_transactions
+                                WHERE   atm_location = 'Leggett Street'
+                                AND     year = 2023
+                                AND     month = 7
+                                AND     day = 28
+                                AND     transaction_type = 'withdraw'
+                        )
+                );
+
+                -- Here are two suspects
+                +--------+-------+----------------+-----------------+---------------+
+                |   id   | name  |  phone_number  | passport_number | license_plate |
+                +--------+-------+----------------+-----------------+---------------+
+                | 467400 | Luca  | (389) 555-5198 | 8496433585      | 4328GD8       |
+                | 686048 | Bruce | (367) 555-5533 | 5773159633      | 94KL13X       |
+                +--------+-------+----------------+-----------------+---------------+
+
 
         | 163 | As the thief was leaving the bakery, they called someone who talked to them for less than a minute.
                 In the call, I heard the thief say that they were planning to take the earliest flight out of Fiftyville tomorrow.
