@@ -251,7 +251,7 @@ AND     day = 28;
                                 AND     hour = 8
                                 AND     minute = 20
                         );
-
+                        -- From this return table, I know that the theft has gone to New York City
                         +----+--------------+-------------------+---------------+
                         | id | abbreviation |     full_name     |     city      |
                         +----+--------------+-------------------+---------------+
@@ -276,7 +276,7 @@ AND     day = 28;
                 AND     day = 28
                 AND     caller = '(367) 555-5533';
 
-                -- Returns:
+                -- From these two checks' returns, I have confirmed, finally, that the theft is Bruce, whose phone_number is (367) 555-5533, and id is 686048
                 +-----+----------------+----------------+------+-------+-----+----------+
                 | id  |     caller     |    receiver    | year | month | day | duration |
                 +-----+----------------+----------------+------+-------+-----+----------+
@@ -285,9 +285,9 @@ AND     day = 28;
                 | 245 | (367) 555-5533 | (022) 555-4052 | 2023 | 7     | 28  | 241      |
                 | 285 | (367) 555-5533 | (704) 555-5790 | 2023 | 7     | 28  | 75       |
                 +-----+----------------+----------------+------+-------+-----+----------+
-                -- From this table, I have confirmed, finally, that the theft is Bruce, whose id is 686048
 
-                        -- According the transcript 163 line 1, 'talked less than a minute', and the table of phone_call, I can tell that the ACCOMPLICE's phone_number is (375) 555-8161, now let me find him
+
+                        -- According the transcript 163 line 1, 'talked less than a minute', and the table of phone_call, I can tell that the ACCOMPLICE's phone_number is '(375) 555-8161', now let me find him
                         SELECT  *
                         FROM    people
                         WHERE   phone_number = '(375) 555-8161';
@@ -304,6 +304,7 @@ AND     day = 28;
 
 | 297 | Littering took place at 16:36. No known witnesses.
 
+        -- Want to get some information, but nothing returns
         SELECT  *
         FROM    bakery_security_logs
         WHERE   year = 2023
@@ -312,4 +313,3 @@ AND     day = 28;
         AND     hour = 16
         AND     minute = 36;
 
-        -- Nothing returns
