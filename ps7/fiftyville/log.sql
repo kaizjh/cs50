@@ -287,6 +287,17 @@ AND     day = 28;
                 +-----+----------------+----------------+------+-------+-----+----------+
                 -- From this table, I have confirmed, finally, that the theft is Bruce, whose id is 686048
 
+                        -- According the transcript 163 line 1, 'talked less than a minute', and the table of phone_call, I can tell that the ACCOMPLICE's phone_number is (375) 555-8161, now let me find him
+                        SELECT  *
+                        FROM    people
+                        WHERE   phone_number = '(375) 555-8161';
+
+                        -- Now I got the ACCOMPLICE, who is Robin, finally
+                        +--------+-------+----------------+-----------------+---------------+
+                        |   id   | name  |  phone_number  | passport_number | license_plate |
+                        +--------+-------+----------------+-----------------+---------------+
+                        | 864400 | Robin | (375) 555-8161 | NULL            | 4V16VO0       |
+                        +--------+-------+----------------+-----------------+---------------+
 
 
 
