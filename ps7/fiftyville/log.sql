@@ -258,8 +258,36 @@ AND     day = 28;
                         | 4  | LGA          | LaGuardia Airport | New York City |
                         +----+--------------+-------------------+---------------+
 
-                -- According to the transcript 163 line 1, and the main suspects from line 133's check, I am going to check this two suspects' phone_call information at theft time
-                
+                -- According to the transcript 163 line 1, and the main suspects from line 133's check, I am going to check this two suspects' phone_call information on theft day
+
+                -- Check the first suspect, but returns nothing
+                SELECT  *
+                FROM    phone_calls
+                WHERE   year = 2023
+                AND     month = 7
+                AND     day = 28
+                AND     caller = '(389) 555-5198';
+
+                -- Check the second suspect
+                SELECT *
+                FROM    phone_calls
+                WHERE   year = 2023
+                AND     month = 7
+                AND     day = 28
+                AND     caller = '(367) 555-5533';
+
+                -- Returns:
+                +-----+----------------+----------------+------+-------+-----+----------+
+                | id  |     caller     |    receiver    | year | month | day | duration |
+                +-----+----------------+----------------+------+-------+-----+----------+
+                | 233 | (367) 555-5533 | (375) 555-8161 | 2023 | 7     | 28  | 45       |
+                | 236 | (367) 555-5533 | (344) 555-9601 | 2023 | 7     | 28  | 120      |
+                | 245 | (367) 555-5533 | (022) 555-4052 | 2023 | 7     | 28  | 241      |
+                | 285 | (367) 555-5533 | (704) 555-5790 | 2023 | 7     | 28  | 75       |
+                +-----+----------------+----------------+------+-------+-----+----------+
+                -- From this table, I have confirmed, finally, that the theft is Bruce, whose id is 686048
+
+
 
 
 
