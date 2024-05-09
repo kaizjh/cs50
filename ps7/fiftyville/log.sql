@@ -158,7 +158,7 @@ AND     day = 28;
                                 )
                         );
 
-                        -- Here are the suspects in a smaller scope
+                        -- Here are the suspects on the flight 36
                         +--------+--------+----------------+-----------------+---------------+
                         |   id   |  name  |  phone_number  | passport_number | license_plate |
                         +--------+--------+----------------+-----------------+---------------+
