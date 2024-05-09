@@ -152,7 +152,7 @@ AND     day = 28;
                         )
                 );
 
-                -- Here are two suspects
+                -- Here are two main suspects
                 +--------+-------+----------------+-----------------+---------------+
                 |   id   | name  |  phone_number  | passport_number | license_plate |
                 +--------+-------+----------------+-----------------+---------------+
@@ -258,7 +258,7 @@ AND     day = 28;
                         | 4  | LGA          | LaGuardia Airport | New York City |
                         +----+--------------+-------------------+---------------+
 
-                -- Check the transcript 163 line 1 for earliest flight on 2023-7-29
+                -- Check the transcript 163 line 1 for
 
 
 
