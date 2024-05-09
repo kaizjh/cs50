@@ -110,7 +110,7 @@ AND     day = 28;
                 | 336 | 26013199       | 2023 | 7     | 28  | Leggett Street | withdraw         | 35     |
                 +-----+----------------+------+-------+-----+----------------+------------------+--------+
 
-                -- Check if there are suspects on the flight 36, also suspects exit at theft time, also suspects withdraw money at the theft day's morning
+                -- Check if there are suspects on the flight 36 (logs below), also suspects exit at theft time, also suspects withdraw money at the theft day's morning
                 SELECT  *
                 FROM    people
                 WHERE   license_plate IN(
