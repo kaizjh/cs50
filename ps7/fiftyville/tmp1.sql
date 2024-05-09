@@ -1,17 +1,4 @@
-SELECT  person_id
-FROM    bank_accounts
-WHERE   account_number IN(
-    SELECT  account_number
-    FROM    atm_transactions
-    WHERE   atm_location = 'Leggett Street'
-    AND     year = 2023
-    AND     month = 7
-    AND     day = 28
-    AND     transaction_type = 'withdraw';
-)
-
-
-SELECT  id
+SELECT  *
 FROM    people
 WHERE   license_plate IN(
         SELECT  license_plate
@@ -37,4 +24,17 @@ WHERE   license_plate IN(
                 AND     minute = 20
                 )
         )
-);
+)
+AND     id      IN(
+        SELECT  person_id
+        FROM    bank_accounts
+        WHERE   account_number IN(
+                SELECT  account_number
+                FROM    atm_transactions
+                WHERE   atm_location = 'Leggett Street'
+                AND     year = 2023
+                AND     month = 7
+                AND     day = 28
+                AND     transaction_type = 'withdraw';
+        )
+)
