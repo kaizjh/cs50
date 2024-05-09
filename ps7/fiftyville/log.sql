@@ -258,7 +258,8 @@ AND     day = 28;
                         | 4  | LGA          | LaGuardia Airport | New York City |
                         +----+--------------+-------------------+---------------+
 
-                -- Check the transcript 163 line 1 for
+                -- According to the transcript 163 line 1, and the main suspects from line 133's check, I am going to check this two suspects' phone_call information at theft time
+                
 
 
 
