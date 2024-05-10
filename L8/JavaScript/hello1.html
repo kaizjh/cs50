@@ -6,7 +6,7 @@
     <head>
         <!-- Inside the <script> is really JavaScirpt codes, but outside is still HTML codes -->
         <script>
-            
+            <!-- The 'DOMContentLoaded' means run the codes inside {} only after the DOM Content is Loaded -->
             document.addEventListener('DOMContentLoaded', function(){
                 document.querySelector('form').addEventListener('submit', function(event){
                     let name = document.querySelector('#name').value;
