@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html lang = 'en'>
+    <head>
+        <!-- Inside the <script> is really JavaScirpt codes, but outside is still HTML codes -->
+        <script>
+            function greet()
+            {
+                let name = document.querySelector('#name').value;
+                alert('hello, ' + name);
+            }
+        </script>
+        <title>
+            hello, title
+        </title>
+    </head>
+    <body>
+        <form>
+            <input autocomplete="off" autofocus id="name" placeholder="Name" type="text">
+            <button type="submit">Greet</button>
+        </form>
+    </body>
+</html>
