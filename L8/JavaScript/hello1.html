@@ -7,6 +7,13 @@
         <!-- Inside the <script> is really JavaScirpt codes, but outside is still HTML codes -->
         <script>
 
+            document.addEventListener('DOMContentLoaded', function(){
+                document.querySelector('form').addEventListener('submit', function(event){
+                    let name = document.querySelector('#name').value;
+                    alert('hello, ' + name);
+                    event.preventDefault();
+                })
+            })
         </script>
         <title>
             hello, title
