@@ -1,0 +1,24 @@
+/* Styles for the colorDiv */
+#colorDiv {
+    width: 200px;
+    height: 200px;
+    background-color: white; /* Default background color */
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+/* Styles for the buttons */
+.jQButton {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #e0e0e0; /* Button background color */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.jQButton:hover {
+    background-color: #d3d3d3; /* Button background color on hover */
+}
+
+/* Additional styles if needed */
