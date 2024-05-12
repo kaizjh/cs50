@@ -1,6 +1,7 @@
-.h1 {
+.header {
+    font-size: 65pt;
     text-align: center;
     background-color: #2baae0;
     width: device-width;
-    height: 100px;
+    height: 150px;
 }
