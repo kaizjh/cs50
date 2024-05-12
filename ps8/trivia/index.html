@@ -9,12 +9,22 @@
             // TODO: Add code to check answers to questions
             // Run script only after DOM is loaded
             document.addEventListener('DOMContentLoaded', function(){
+                // When correct answer is clicked, change color to green, and give a feedback
                 let correct = document.querySelector('.correct');
                 correct.addEventLister('click', function(){
                     correct.style.backgroundColor = 'green';
                     document.querySelector('#feedback1').innerHTML = 'Correct';
+
+                // When any incorrect answer is clicked, change color to red, and give a feedback
+                let incorrects = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrects.length; i++){
+                    incorrects[i].addEventLister('click',function(){
+                        incorrects[i].style.backgroundColor = 'red';
+                        document.querySelector('#feedback1').innerHTML = 'Incorrect';
+                    })
+                }
                 });
-                
+
             })
         </script>
     <body>
@@ -28,10 +38,10 @@
                 <hr>
                 <!-- TODO: Add multiple choice question here -->
                 <h3>What is approximate ratio of people to sheep in New Zealand? How much people per 1 sheep?   </h3>
-                <button>6 people</button>
-                <button>3 people</button>
-                <button>2 people</button>
-                <button>1 people</button>
+                <button class="incorret">6 people</button>
+                <button class="incorrect">3 people</button>
+                <button class="incorrect">2 people</button>
+                <button class="correct">1 people</button>
 
                 <p id="feedback1"></p>
             </div>
