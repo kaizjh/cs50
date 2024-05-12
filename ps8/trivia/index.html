@@ -9,7 +9,12 @@
             // TODO: Add code to check answers to questions
             // Run script only after DOM is loaded
             document.addEventListener('DOMContentLoaded', function(){
-                document.querySelectorAll()
+                let correct = document.querySelector('.correct');
+                correct.addEventLister('click', function(){
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector('#feedback1').innerHTML = 'Correct';
+                });
+                
             })
         </script>
     <body>
@@ -28,7 +33,7 @@
                 <button>2 people</button>
                 <button>1 people</button>
 
-                <p id="feedback"></p>
+                <p id="feedback1"></p>
             </div>
 
             <div class="section">
@@ -38,6 +43,8 @@
                 <h3>In which country is it illegal to own only one guinea pig, as a lone guinea pig might be lonely?</h3>
                 <input name="answer" placeholder="Type your answer here" type="text">
                 <button id="check">Check Your Answer</button>
+
+                <p id="feedback2"></p>
             </div>
         </div>
     </body>
