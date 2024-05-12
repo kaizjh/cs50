@@ -28,13 +28,17 @@
 
                 // Part 2
                 document.querySelect('check').addEventListener('submit', function(){
-                    let answer = document.querySelector('#answer').value;
-                    if (answer == 'Switzerland'){
-                        
+                    let answer = document.querySelector('#answer');
+                    if (answer.value == 'Switzerland'){
+                        answer.style.backgroundColor = 'green';
+                        document.querySelector('#feedback2').innerHTML = 'Correct';
                     }
-
-                })
-            })
+                    else{
+                        answer.style.backgroundColor = 'red';
+                        document.querySelector('#feedback2').innerHTML = 'Incorrect';
+                    }
+                });
+            });
         </script>
     <body>
         <div class="header">
