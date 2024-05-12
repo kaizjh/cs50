@@ -11,14 +11,14 @@
             document.addEventListener('DOMContentLoaded', function(){
                 // When correct answer is clicked, change color to green, and give a feedback
                 let correct = document.querySelector('.correct');
-                correct.addEventLIstener('click', function(){
+                correct.addEventListener('click', function(){
                     correct.style.backgroundColor = 'green';
                     document.querySelector('#feedback1').innerHTML = 'Correct';
 
                 // When any incorrect answer is clicked, change color to red, and give a feedback
                 let incorrects = document.querySelectorAll('.incorrect');
                 for (let i = 0; i < incorrects.length; i++){
-                    incorrects[i].addEventLIstener('click',function(){
+                    incorrects[i].addEventListener('click',function(){
                         incorrects[i].style.backgroundColor = 'red';
                         document.querySelector('#feedback1').innerHTML = 'Incorrect';
                     })
