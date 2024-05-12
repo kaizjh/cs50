@@ -1,6 +1,6 @@
 .h1 {
-    text-align: center;
+    text-align: vertical-center;
     background-color: #2baae0;
     width: device-width;
-    length: 100px;
+    height: 100px;
 }
