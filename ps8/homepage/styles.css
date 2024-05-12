@@ -1,4 +1,6 @@
 .h1 {
     text-align: center;
-    backgroundColor: #2baae0;
+    background-color: #2baae0;
+    width: device-width;
+    length: 100px;
 }
