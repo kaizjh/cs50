@@ -10,8 +10,8 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-
-@app.route("/greet")
+# The default methods=["GET"]
+@app.route("/greet", methods=["POST"])
 def greet():
     # request.args.get() is a method inside the object request.args, and the  "world" is the default value of the function
     return render_template("greet.html", name=request.args.get("name", "world"))
