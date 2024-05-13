@@ -5,4 +5,6 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # This is known as a decorator in Python, not a flask feature
-@app.route()
+@app.route("/")
+def index():
+    return "hello, world"
