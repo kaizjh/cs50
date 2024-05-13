@@ -7,4 +7,8 @@ app = Flask(__name__)
 # This is known as a decorator in Python, not a flask feature
 @app.route("/")
 def index():
-    return render_template("index.html")
+    if "name" in request.args:
+        name = request.args["name"]
+    else:
+        name = "world"
+    return render_template("index.html", name=name)
