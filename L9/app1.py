@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # This is known as a decorator in Python, not a flask feature
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 
 def index():
     return render_template("index.html")
