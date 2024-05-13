@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 # This is known as a decorator in Python, not a flask feature
 @app.route("/")
-def index():
-    name = request.args.get("name", "world")
 
-    return render_template("index.html", name=name)
+def index():
+    return render_template("index.html")
