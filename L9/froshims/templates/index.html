@@ -6,9 +6,9 @@
         <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
         <select name="sport">
             <option disabled selected>Sport</option>
-            <!-- Using Jinja instead of hard codes, not only more dynamic but also more safe -->
+            <!-- Using Jinja instead of hard codes, not only more dynamic but also safer(Internet Security) -->
             {% for sport in sports %}
-
+                <option value="{{ sport }}">{{ sport }}</option>
             {% endfor %}
 
             <!--
