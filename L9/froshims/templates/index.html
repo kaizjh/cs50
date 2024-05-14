@@ -6,9 +6,18 @@
         <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
         <select name="sport">
             <option disabled selected>Sport</option>
-            <option value="Basketball">Basketball</option>
-            <option value="Soccer">Soccer</option>
-            <option value="Ultimate Frisbee">Ultimate Frisbee</option>
+            <!-- Using Jinja instead of hard codes, not only more dynamic but also more safe -->
+            {% for sport in sports %}
+
+            {% endfor %}
+
+            <!--
+                No hard codes!
+                <option value="Basketball">Basketball</option>
+                <option value="Soccer">Soccer</option>
+                <option value="Ultimate Frisbee">Ultimate Frisbee</option>
+            -->
+
         </select>
         <button type="submit">Register</button>
     </form>
