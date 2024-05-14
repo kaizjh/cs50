@@ -4,6 +4,12 @@ app = Flask(__name__)
 
 REGISTRANTS = {}
 
+SPORTS = [
+    "Basketball",
+    "Soccer",
+    "Ultimate Frisbee"
+]
+
 @app.route("/")
 def index():
     return render_template("index.html")
