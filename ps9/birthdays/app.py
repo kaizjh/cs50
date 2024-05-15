@@ -40,6 +40,6 @@ def index():
         return render_template("index.html", birthdays=birthdays)
 
 
-@app.route("/delete", methods="POST")
+@app.route("/", methods="POST")
 def delete():
-    
+
