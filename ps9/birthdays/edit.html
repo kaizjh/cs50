@@ -15,9 +15,9 @@
 
                 <h2>Edit the Birthday</h2>
                 <form action="/" method="post">
-                    <input autocomplete="off" name="name" type="text" value="birthday.name">
-                    <input autocomplete="off" name="month" type="text" value="birthday.month">
-                    <input autocomplete="off" name="day" type="text" value="birthday.day">
+                    <input autocomplete="off" name="name" type="text" value="{{ birthday.name }}">
+                    <input autocomplete="off" name="month" type="text" value="{{birthday.month}}">
+                    <input autocomplete="off" name="day" type="text" value="{{birthday.day}}">
                     <button type="submit">Edit</button>
                 </form>
         </div>
