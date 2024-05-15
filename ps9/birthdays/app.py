@@ -54,8 +54,8 @@ def edit():
     if id:
         birthdays = db.execute("SELECT * FROM birthdays WHERE id = ?", id)
         db.execute("DELETE FROM birthdays WHERE id = ?", id)
-        name = birthdays.name
-        month = birthdays.month
-        day = birthdays.day
+        name = birthdays[0].name
+        month = birthdays[0].month
+        day = birthdays[0].day
         return render_template("edit.html", name=name, month=month, day=day)
     return redirect("/")
