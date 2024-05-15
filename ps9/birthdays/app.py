@@ -42,5 +42,4 @@ def index():
 
 @app.route("/delete", methods="POST")
 def delete():
-    db.execute("DELETE FROM)
-
+    

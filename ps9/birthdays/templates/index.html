@@ -38,8 +38,8 @@
                         {% for birthday in birthdays %}
                                 <tr>
                                     <td>{{ birthday["name"] }}</td>
-                                    <td>{{ birthday["month"] }}.{{ birthday["day"] }}</td>
-                                    <button name="delete"></button>
+                                    <td>{{ birthday["month"] }}-{{ birthday["day"] }}</td>
+                                    <td><button>Delete</button></td>
                                 </tr>
                         {% endfor %}
                     </tbody>
