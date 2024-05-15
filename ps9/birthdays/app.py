@@ -54,4 +54,3 @@ def edit():
     if id:
         birthday = db.execute("SELETE * FROM birthdays WHERE id = ?", id)
         return render_template("edit.html", birthday=birthday)
-    return redirect("/")
