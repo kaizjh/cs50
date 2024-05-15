@@ -48,3 +48,11 @@ def delete():
     return redirect("/")
 
 
+@app.route("/edit", methods=["POST"])
+def edit():
+    id = request.form.get("id")
+    if id:
+        birthdays = db.execute("SELECT * FROM birthdays WHERE id = ?", id)
+        db.execute("DELETE FROM birthdays WHERE id = ?", id)
+        return render_template("edit.html", birthdays=birthdays)
+    return redirect("/")
