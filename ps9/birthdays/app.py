@@ -52,5 +52,5 @@ def delete():
 def edit():
     id = request.form.get("id")
     if id:
-        birthday = db.execute("SELETE * FROM birthdays WHERE id = ?", id)
+        birthday = db.execute("SELECT * FROM birthdays WHERE id = ?", id)
         return render_template("edit.html", birthday=birthday)
