@@ -13,14 +13,12 @@
         <div class="container">
             <div class="section">
                 <h2>Edit the Birthday</h2>
-                {% for birthday in birthdays %}
                 <form action="/" method="post">
-                    <input name="name" type="text" value="{{ birthday.name }}">
-                    <input name="month" type="text" value="{{ birthday.month }}">
-                    <input name="day" type="text" value="{{ birthday.day }}">
+                    <input name="name" type="text" value=name>
+                    <input name="month" type="text" value=month>
+                    <input name="day" type="text" value=day>
                     <button type="submit">Edit</button>
                 </form>
-                {% endfor %}
             </div>
         </div>
     </body>
