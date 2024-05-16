@@ -122,7 +122,7 @@ def register():
         if not username or not password or not confirmation:
             return apology("Invalid username or/and Invalid password")
         elif password != confirmation:
-            return apology("")
+            return apology("Twice passwords do not matched")
 
         username_exists = db.excute("SELECT * FROM users WHERE username = ?", username)
         if username_exists:
