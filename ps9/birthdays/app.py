@@ -30,7 +30,7 @@ def index():
         name = request.form.get("name")
         month = request.form.get("month")
         day = request.form.get("day")
-        
+
         # Do not trust any input from the user
         if not name or not month or not day:
             redirect("/")
@@ -59,8 +59,11 @@ def edit():
     if id:
         birthdays = db.execute("SELECT * FROM birthdays WHERE id = ?", id)
         db.execute("DELETE FROM birthdays WHERE id = ?", id)
+
+        # birthdays is a list of dictionaries, and here has only one dictionary to edit
         name = birthdays[0]["name"]
         month = birthdays[0]["month"]
         day = birthdays[0]["day"]
+        
         return render_template("edit.html", name=name, month=month, day=day)
     return redirect("/")
