@@ -60,7 +60,8 @@ def edit():
         rows = db.execute("SELECT * FROM birthdays WHERE id = ?", id)
         db.execute("DELETE FROM birthdays WHERE id = ?", id)
 
-        # rows is a list of dictionaries, in this case, rows only has 
+        # rows is a list of dictionaries, in this case, rows only has one element, that is the only one dictionary I want
         row = rows[0]
+        
         return render_template("edit.html", birthday = row)
     return redirect("/")
