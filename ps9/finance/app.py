@@ -120,8 +120,12 @@ def register():
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
         if not username or not password or not confirmation:
-            return apology("Invalid Username or/and Invalid Password")
-        elif username
+            return apology("Invalid username or/and Invalid password")
+
+        username_exists = db.excute("SELECT * FROM users WHERE username = ?", username)
+        if username_exists:
+            return apology("Username already exists")
+
         else:
             hash = generate_password_hash(password)
             db.execute("INSERT INTO users(username, hash) VALUES(?, ?)", username, hash )
