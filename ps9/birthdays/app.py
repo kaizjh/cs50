@@ -64,6 +64,7 @@ def edit():
         name = birthdays[0]["name"]
         month = birthdays[0]["month"]
         day = birthdays[0]["day"]
+        print(birthdays)
         
         return render_template("edit.html", name=name, month=month, day=day)
     return redirect("/")
