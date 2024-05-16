@@ -124,14 +124,13 @@ def register():
         elif password != confirmation:
             return apology("Twice passwords do not matched")
 
-        username_exists = db.excute("SELECT * FROM users WHERE username = ?", username)
+        username_exists = db.execute("SELECT * FROM users WHERE username = ?", username)
         if username_exists:
             return apology("Username already exists")
 
-        else:
-            hash = generate_password_hash(password)
-            db.execute("INSERT INTO users(username, hash) VALUES(?, ?)", username, hash )
-            return redirect("/login")
+        hash = generate_password_hash(password)
+        db.execute("INSERT INTO users(username, hash) VALUES(?, ?)", username, hash )
+        return redirect("/login")
 
 
 @app.route("/sell", methods=["GET", "POST"])
