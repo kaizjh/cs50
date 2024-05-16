@@ -57,14 +57,8 @@ def delete():
 def edit():
     id = request.form.get("id")
     if id:
-        birthdays = db.execute("SELECT * FROM birthdays WHERE id = ?", id)
+        rows = db.execute("SELECT * FROM birthdays WHERE id = ?", id)
         db.execute("DELETE FROM birthdays WHERE id = ?", id)
-
-        # birthdays is a list of dictionaries, and here has only one dictionary to edit
-        name = birthdays[0]["name"]
-        month = birthdays[0]["month"]
-        day = birthdays[0]["day"]
-        print(birthdays)
-        
-        return render_template("edit.html", name=name, month=month, day=day)
+        row = rows[0]
+        return render_template("edit.html", birthday = row)
     return redirect("/")
