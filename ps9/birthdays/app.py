@@ -59,6 +59,8 @@ def edit():
     if id:
         rows = db.execute("SELECT * FROM birthdays WHERE id = ?", id)
         db.execute("DELETE FROM birthdays WHERE id = ?", id)
+
+        # rows is a list of dictionaries, in this case, rows only has 
         row = rows[0]
         return render_template("edit.html", birthday = row)
     return redirect("/")
