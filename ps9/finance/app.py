@@ -111,6 +111,9 @@ def quote():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if methods = ["GET"]:
+        return redirect("register.html")
+    else:
     """Register user"""
     return apology("TODO")
 
