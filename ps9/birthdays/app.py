@@ -33,7 +33,7 @@ def index():
 
         # Do not trust any input from the user
         if not name or not month or not day or month not in range(1,13) or day not in range(1,32):
-            redirect("/failure.html")
+            return redirect("/failure.html")
 
         db.execute("INSERT INTO birthdays(name, month, day) VALUES(?, ?, ?)", name, month, day)
         return redirect("/")
