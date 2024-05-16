@@ -32,7 +32,7 @@ def index():
         day = request.form.get("day")
 
         # Do not trust any input from the user
-        if not name or not month or not day:
+        if not name or not month or not day or month not in range(12) or day not in range(31):
             redirect("/")
 
         db.execute("INSERT INTO birthdays(name, month, day) VALUES(?, ?, ?)", name, month, day)
@@ -62,6 +62,6 @@ def edit():
 
         # rows is a list of dictionaries, in this case, rows only has one element, that is the only one dictionary I want
         row = rows[0]
-        
+
         return render_template("edit.html", birthday = row)
     return redirect("/")
