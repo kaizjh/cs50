@@ -131,7 +131,7 @@ def register():
         if username_exists:
             return apology("username already exists")
 
-        # Hash the password and 
+        # Hash the password and insert the new user into the database
         hash = generate_password_hash(password)
         db.execute("INSERT INTO users(username, hash) VALUES(?, ?)", username, hash )
         return redirect("/login")
