@@ -115,7 +115,7 @@ def quote():
             return apology("invalid symbol")
         else:
             stock = lookup(symbol)
-            return render_template("quoted.html", price=stock["price"], symbol=stock["symbol"])
+            return render_template("quoted.html", price=usd(stock["price"]), symbol=stock["symbol"])
 
 
 
