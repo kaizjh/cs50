@@ -21,7 +21,7 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///finance.db")
 
-
+# Disable caching of responses --Irving
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
