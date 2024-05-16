@@ -5,11 +5,10 @@
 {% endblock %}
 
 {% block main %}
-    {% set stock = lookup(symbol) %}
     <table>
         <tr>
-            <td>{{ stock.symbol }}</td>
-            <td>{{ stock.price }}</td>
+            <td>{{ symbol }}</td>
+            <td>{{ price }}</td>
         </tr>
     </table>
 {% endblock %}
