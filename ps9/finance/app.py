@@ -113,6 +113,8 @@ def quote():
         symbol = request.form.get("symbol")
         if not symbol:
             return apology("invalid symbol")
+        else:
+            return render_template("quoted.html")
 
 
 
