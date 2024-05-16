@@ -123,7 +123,8 @@ def register():
             return apology("Invalid Username or/and Invalid Password")
         else:
             hash = generate_password_hash(password)
-
+            db.execute("INSERT INTO users(username, hash) VALUE(?, ?)", username, hash )
+            return redirect("/login")
 
 
 @app.route("/sell", methods=["GET", "POST"])
