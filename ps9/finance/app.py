@@ -119,8 +119,9 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
-        if not username or not password or not confirmation or password != confirmation:
+        if not username or not password or not confirmation:
             return apology("Invalid Username or/and Invalid Password")
+        elif username
         else:
             hash = generate_password_hash(password)
             db.execute("INSERT INTO users(username, hash) VALUES(?, ?)", username, hash )
