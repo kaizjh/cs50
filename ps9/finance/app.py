@@ -63,7 +63,7 @@ def buy():
             cash = db.execute("SELECT MIN(cash) FROM buy WHERE user_id = ?", session["user_id"])
 
             if total > cash:
-                return apology("your cash in the account can't afford this purchase")
+                return apology("Your account balance is insufficient for this transaction")
             else:
                 cash = cash - total
                 db.execute("INSERT INTO buy(username, symbol, price, cash) VALUES(?, ?, ?, ?)", username, symbol, stock["price"], cash)
