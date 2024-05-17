@@ -63,6 +63,7 @@ def buy():
             else:
                 remaining_cash = remaining_cash - total
                 db.execute("INSERT INTO buy(username, symbol, price, remaining_cash) VALUES(?, ?, ?, ?)", username, symbol, stock["price"], remaining_cash)
+                return render_template("bougth.html")
 
 @app.route("/history")
 @login_required
