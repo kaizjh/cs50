@@ -60,7 +60,6 @@ def buy():
 
             # Check the total cash is going to cost, if this account does not have so much money, then fail to buy and apology
             total = stock["price"] * shares
-            username = session.get('username')
             print(username)
             cash = db.execute("SELECT MIN(cash) FROM buy WHERE username = ?", username)
             if not cash:
