@@ -48,6 +48,11 @@ def buy():
         symbol = request.form.get("symbol")
         if not symbol:
             return apology("invalid symbol")
+        else:
+            stock = lookup(symbol)
+            if not stock:
+                return apology("this symbol not exists")
+
 
 
 @app.route("/history")
@@ -120,6 +125,11 @@ def quote():
             return apology("invalid symbol")
         else:
             stock = lookup(symbol)
+
+            # Check if symbol exists
+            if not stock:
+                return apology("this symbol not exists")
+
             return render_template("quoted.html", price=usd(stock["price"]), symbol=stock["symbol"])
 
 
