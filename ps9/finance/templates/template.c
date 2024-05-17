@@ -1,5 +1,5 @@
 CREATE TABLE buy (
-    times INTEGER NOT NULL,
+    times INTEGER PRIMARY KEY AUTOINCR NOT NULL,
     username TEXT NOT NULL,
-    
+
 )
