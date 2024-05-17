@@ -46,7 +46,7 @@ def buy():
     if request.method == "GET":
         return render_template("buy.html")
     else:
-        symbol = request.form.get("symbol")
+        symbol = request.form.get("symbol").upper()
         shares = int(request.form.get("shares"))
 
         # Check the validation
