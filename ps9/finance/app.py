@@ -47,6 +47,8 @@ def buy():
     else:
         symbol = request.form.get("symbol")
         shares = int(request.form.get("shares"))
+
+        # Check the validation
         if not symbol or shares <= 0:
             return apology("invalid symbol or/and number of shares")
         else:
@@ -61,7 +63,7 @@ def buy():
             cash = db.execute("SELECT MIN(cash) FROM buy WHERE username = ?", username)
             if not cash:
                 cash = 10000
-                
+
             if total > cash:
                 return apology("your money in the account can't afford this purchase")
             else:
