@@ -56,7 +56,7 @@ def buy():
                 return apology("this symbol does not exists")
 
             total = stock["price"] * shares
-            
+            remaining_cash = db.execute(SELECT cash)
 
 
 @app.route("/history")
