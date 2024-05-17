@@ -58,16 +58,12 @@ def buy():
             if not stock:
                 return apology("this symbol does not exists")
 
-            user_id = session["user_id"]
             # Check the total cash is going to cost, if this account does not have so much money, then fail to buy and apology
             total = stock["price"] * shares
-            print(username)
-            cash = db.execute("SELECT MIN(cash) FROM buy WHERE username = ?", username)
-            if not cash:
-                cash = 10000
+            cash = db.execute("SELECT MIN(cash) FROM buy WHERE user_id = ?", session["user_id"])
 
             if total > cash:
-                return apology("your money in the account can't afford this purchase")
+                return apology("your cash in the account can't afford this purchase")
             else:
                 cash = cash - total
                 db.execute("INSERT INTO buy(username, symbol, price, cash) VALUES(?, ?, ?, ?)", username, symbol, stock["price"], cash)
