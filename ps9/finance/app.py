@@ -74,8 +74,8 @@ def buy():
             if not cashs:
                 cash = 10000
             else:
-                cash = [row['cash'] for row in cashs]
-                cash = min(cash)
+                cash_list = [row['cash'] for row in cashs]
+                cash = min(cash_list)
 
             # If this account does not have so much money, then apology
             if total > cash:
