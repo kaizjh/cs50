@@ -12,6 +12,6 @@ SELECT shares FROM buy WHERE symbol = (
     SELECT DISTINCT(symbol) FROM buy WHERE user_id = 2
 );
 
-SELECT DISTINCT(symbol), SUM(shares) as total_shares
+SELECT symbol, SUM(shares) as total_shares
 FROM buy
-WHERE user_id = 2;
+GROUP BY symbol;
