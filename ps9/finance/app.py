@@ -56,8 +56,13 @@ def buy():
                 return apology("this symbol does not exists")
 
             total = stock["price"] * shares
-            remaining_cash = db.execute("SELECT MIN(remaining_cash) FROM buy WHERE username = ?", session.username)
-
+            username = session.get('username')
+            remaining_cash = db.execute("SELECT MIN(remaining_cash) FROM buy WHERE username = ?", username)
+            if total > remaining_cash:
+                return apology("your money in the account can't afford this purchase")
+            else:
+                remaining_cash = remaining_cash - total
+                db.execute("INSERT INTO buy(username, symbol, price, remaining_cash) VALUES(?, ?, ?, ?)", username, symbol, stock["price"], remaining_cash)
 
 @app.route("/history")
 @login_required
