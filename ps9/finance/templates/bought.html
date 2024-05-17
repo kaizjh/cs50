@@ -6,5 +6,18 @@
 
 {% block main %}
     <h1>Congratulation on buying a new stock</h1>
-    <table></table>
+    <table>
+        <tr>
+            <th>Stock's symbol</th>
+            <th>Stock's price</th>
+            <th>Username</th>
+            <th>Remaining cash</th>
+        </tr>
+        <tr>
+            <td>{{ symbol }}</td>
+            <td>{{ price }}</td>
+            <td>{{ username }}</td>
+            <td>{{ remaining_cash }}</td>
+        </tr>
+    </table>
 {% endblock %}
