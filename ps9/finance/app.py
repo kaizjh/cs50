@@ -58,14 +58,16 @@ def buy():
             total = stock["price"] * shares
             username = session.get('username')
             print(username)
-            remaining_cash = db.execute("SELECT MIN(remaining_cash) FROM buy WHERE username = ?", username)
-            print(remaining_cash)
-            if total > remaining_cash:
+            cash = db.execute("SELECT MIN(cash) FROM buy WHERE username = ?", username)
+            if not cash:
+                cash = 10000
+                
+            if total > cash:
                 return apology("your money in the account can't afford this purchase")
             else:
-                remaining_cash = remaining_cash - total
-                db.execute("INSERT INTO buy(username, symbol, price, remaining_cash) VALUES(?, ?, ?, ?)", username, symbol, stock["price"], remaining_cash)
-                return render_template("bougth.html", symbol=symbol, price=stock["price"], username=username, remaining_cash=remaining_cash)
+                cash = cash - total
+                db.execute("INSERT INTO buy(username, symbol, price, cash) VALUES(?, ?, ?, ?)", username, symbol, stock["price"], cash)
+                return render_template("bougth.html", symbol=symbol, price=stock["price"], username=username, cash=cash)
 
 @app.route("/history")
 @login_required

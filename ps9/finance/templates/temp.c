@@ -3,4 +3,4 @@ CREATE TABLE buy (
     username TEXT NOT NULL,
     symbol TEXT NOT NULL,
     price NUMERIC NOT NULL,
-    remaining_cash NUMERIC NOT NULL);
+    cash NUMERIC NOT NULL);
