@@ -62,11 +62,13 @@ def buy():
             total = stock["price"] * shares
             print(session["user_id"])
             cashs = db.execute("SELECT cash FROM buy WHERE user_id = ?", session["user_id"])
-            # If it is the first transaction, get the default money
+
+            # If it is the first transaction, get the default money, if not, get the minimum cash of the list cashs
             if not cashs:
                 cash = 10000
             else:
-                cash = cashs.min()
+                cash = min(cashs)
+
             print(cash)
             # If this account does not have so much money, then fail to buy and apology
             if total > cash:
@@ -74,7 +76,7 @@ def buy():
             else:
                 # Record the transaction
                 cash = cash - total
-                db.execute("INSERT INTO buy(user_id, symbol, price, cash) VALUES(?, ?, ?, ?)", username, symbol, stock["price"], cash)
+                db.execute("INSERT INTO buy(user_id, symbol, price, cash) VALUES(?, ?, ?, ?)", user_id, symbol, stock["price"], cash)
                 return render_template("bought.html", symbol=symbol, shares=shares, price=usd(stock["price"]), cash=cash)
 
 @app.route("/history")
