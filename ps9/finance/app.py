@@ -79,7 +79,7 @@ def buy():
             else:
                 # Record the transaction
                 cash = cash - total
-                db.execute("INSERT INTO buy(user_id, symbol, price, cash) VALUES(?, ?, ?, ?)", user_id, symbol, stock["price"], cash)
+                db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash) VALUES(?, ?, ?, ?)", user_id, symbol, stock["price"], cash)
                 return render_template("bought.html", symbol=symbol, shares=shares, price=usd(stock["price"]), cash=cash, total=total)
 
 @app.route("/history")
