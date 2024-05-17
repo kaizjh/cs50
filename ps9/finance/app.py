@@ -75,7 +75,6 @@ def buy():
                 cash = 10000
             else:
                 cash = [row['cash'] for row in cashs]
-                print(cash)
                 cash = min(cash)
 
             # If this account does not have so much money, then apology
