@@ -60,11 +60,13 @@ def buy():
 
             # Check the total cash is going to cost
             total = stock["price"] * shares
-            cash = db.execute("SELECT MIN(cash) FROM buy WHERE user_id = ?", session["user_id"])
-
+            print(session["user_id"])
+            cashs = db.execute("SELECT cash FROM buy WHERE user_id = ?", session["user_id"])
             # If it is the first transaction, get the default money
-            if not cash:
+            if not cashs:
                 cash = 10000
+            else:
+                cash = cashs.min()
             print(cash)
             # If this account does not have so much money, then fail to buy and apology
             if total > cash:
