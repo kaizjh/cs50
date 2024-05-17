@@ -58,10 +58,12 @@ def buy():
             if not stock:
                 return apology("this symbol does not exists")
 
-            # Check the total cash is going to cost
+            # Get the user_id from session remembered by login()
+            user_id = session["user_id"]
+
+            # Get the total price of stocks, and the cashs of this account
             total = stock["price"] * shares
-            print(session["user_id"])
-            cashs = db.execute("SELECT cash FROM buy WHERE user_id = ?", session["user_id"])
+            cashs = db.execute("SELECT cash FROM buy WHERE user_id = ?", user_id)
 
             # If it is the first transaction, get the default money, if not, get the minimum cash of the list cashs
             if not cashs:
@@ -69,8 +71,7 @@ def buy():
             else:
                 cash = min(cashs)
 
-            print(cash)
-            # If this account does not have so much money, then fail to buy and apology
+            # If this account does not have so much money, then apology
             if total > cash:
                 return apology("Your account balance is insufficient for this transaction")
             else:
