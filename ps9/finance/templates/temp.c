@@ -3,7 +3,7 @@ CREATE TABLE transaction (
     symbol TEXT NOT NULL,
     price NUMERIC NOT NULL,
     shares NUMERIC NOT NULL,
-    cash NUMERIC NOT NULL DEFAULT 10000,
-    time DATE NOT NULL,
+    cash NUMERIC NOT NULL,
+    time TIMESTAMP NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
     );
