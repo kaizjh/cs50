@@ -65,7 +65,7 @@ def buy():
             # If it is the first transaction, get the default money
             if not cash:
                 cash = 10000
-
+            print(cash)
             # If this account does not have so much money, then fail to buy and apology
             if total > cash:
                 return apology("Your account balance is insufficient for this transaction")

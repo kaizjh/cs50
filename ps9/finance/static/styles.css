@@ -23,6 +23,14 @@ nav .navbar-brand .green
 }
 
 /* Style for table from birthdays/.css */
+.header {
+    background-color: #477bff;
+    color: #fff;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
 table {
     background-color: transparent;
     margin-bottom: 1rem;
@@ -36,3 +44,4 @@ table td {
 tbody tr:nth-of-type(odd) {
     background-color: rgb(179, 208, 255, 0.3)
 }
+

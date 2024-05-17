@@ -5,19 +5,25 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Congratulation on buying a new stock</h1>
+    <p class=header>Bought</p>
     <table>
         <tr>
-            <th>Stock's symbol</th>
-            <th>Stock's price</th>
-            <th>Username</th>
-            <th>Remaining cash</th>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Total</th>
         </tr>
         <tr>
             <td>{{ symbol }}</td>
+            <td>{{ shares }}</td>
             <td>{{ price }}</td>
-            <td>{{ username }}</td>
-            <td>{{ remaining_cash }}</td>
+            <td>{{ shares * price }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Cash</td>
+            <td>{{ cash }}</td>
         </tr>
     </table>
 {% endblock %}
