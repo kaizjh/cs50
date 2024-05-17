@@ -1,4 +1,4 @@
-CREATE TABLE buy (
+CREATE TABLE transaction (
     user_id INTEGER NOT NULL,
     symbol TEXT NOT NULL,
     price NUMERIC NOT NULL,
