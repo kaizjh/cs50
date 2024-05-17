@@ -51,9 +51,12 @@ def buy():
             return apology("invalid symbol or/and number of shares")
         else:
             stock = lookup(symbol)
+
             if not stock:
                 return apology("this symbol does not exists")
 
+            total = stock["price"] * shares
+            
 
 
 @app.route("/history")
