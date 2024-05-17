@@ -40,6 +40,7 @@ def index():
     # Get the user who is logged in currently
     user_id = session["user_id"]
     username = db.execute("SELECT username FROM users WHERE id = ?", user_id)
+    stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy GROUP BY symbol WHERE user_id = ?", user_id)
     return render_template("index.html")
 
 
