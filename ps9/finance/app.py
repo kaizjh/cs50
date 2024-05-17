@@ -56,7 +56,7 @@ def buy():
                 return apology("this symbol does not exists")
 
             total = stock["price"] * shares
-            remaining_cash = db.execute("SELECT MIN(remaining_cash) FROM buy WHERE username = ?", username)
+            remaining_cash = db.execute("SELECT MIN(remaining_cash) FROM buy WHERE username = ?", session.username)
 
 
 @app.route("/history")
