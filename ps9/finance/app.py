@@ -1,3 +1,4 @@
+import datetime
 import os
 
 from cs50 import SQL
@@ -79,7 +80,9 @@ def buy():
             else:
                 # Record the transaction
                 cash = cash - total
-                db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash) VALUES(?, ?, ?, ?)", user_id, symbol, stock["price"], cash)
+                print(datetime.datetime.now())
+                print(datetime.now())
+                # db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, stock["price"], shares, cash)
                 return render_template("bought.html", symbol=symbol, shares=shares, price=usd(stock["price"]), cash=cash, total=total)
 
 @app.route("/history")
