@@ -1,5 +1,7 @@
 CREATE TABLE buy (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     username TEXT NOT NULL,
+    symbol TEXT NOT NULL,
+    price NUMERIC NOT NULL,
     used_cash NUMERIC
 )
