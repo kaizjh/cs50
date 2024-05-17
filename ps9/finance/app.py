@@ -63,15 +63,15 @@ def buy():
 
             # Get the total price of stocks, and the cashs of this account
             total = stock["price"] * shares
-            cash_dict = db.execute("SELECT cash FROM buy WHERE user_id = ?", user_id)
-            print(cash_dict)
+            cashs = db.execute("SELECT cash FROM buy WHERE user_id = ?", user_id)
+            print(cashs)
             # If it is the first transaction, get the default money, if not, get the minimum cash of the list cashs
-            if not cash_dict:
+            if not cashs:
                 cash = 10000
             else:
-                cash_list = cash_dict["cash"]
-                print(cash_list)
-                cash = min(cash_list)
+                cash = [row['cash'] for row in cashs]
+                print(cash)
+                cash = min(cash)
 
             # If this account does not have so much money, then apology
             if total > cash:
