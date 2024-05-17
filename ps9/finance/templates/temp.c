@@ -7,3 +7,7 @@ CREATE TABLE buy (
     time TIMESTAMP NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
     );
+
+SELECT shares,symbol FROM buy WHERE symbol = (
+    SELECT DISTINCT(symbol) FROM buy WHERE user_id = 2
+);
