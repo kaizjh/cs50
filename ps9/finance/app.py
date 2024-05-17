@@ -47,6 +47,7 @@ def buy():
     else:
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
+        print(type(shares))
         if not symbol or shares <= 0:
             return apology("invalid symbol or/and number of shares")
         else:
