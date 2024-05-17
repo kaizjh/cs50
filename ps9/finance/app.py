@@ -36,6 +36,10 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
+
+    # Get the user who is logged in currently
+    user_id = session["user_id"]
+    username = db.execute("SELECT username FROM users WHERE id = ?", user_id)
     return render_template("index.html")
 
 
