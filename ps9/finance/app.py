@@ -58,16 +58,19 @@ def buy():
             if not stock:
                 return apology("this symbol does not exists")
 
-            # Check the total cash is going to cost, if this account does not have so much money, then fail to buy and apology
+            # Check the total cash is going to cost
             total = stock["price"] * shares
             cash = db.execute("SELECT MIN(cash) FROM buy WHERE user_id = ?", session["user_id"])
 
-            # If it is the 
+            # If it is the first transaction, get the default money
             if not cash:
                 cash = 10000
+
+            # If this account does not have so much money, then fail to buy and apology
             if total > cash:
                 return apology("Your account balance is insufficient for this transaction")
             else:
+                # Record the transaction
                 cash = cash - total
                 db.execute("INSERT INTO buy(username, symbol, price, cash) VALUES(?, ?, ?, ?)", username, symbol, stock["price"], cash)
                 return render_template("bougth.html", symbol=symbol, price=stock["price"], username=username, cash=cash)
