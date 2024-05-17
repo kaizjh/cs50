@@ -62,6 +62,9 @@ def buy():
             total = stock["price"] * shares
             cash = db.execute("SELECT MIN(cash) FROM buy WHERE user_id = ?", session["user_id"])
 
+            # If it is the 
+            if not cash:
+                cash = 10000
             if total > cash:
                 return apology("Your account balance is insufficient for this transaction")
             else:
