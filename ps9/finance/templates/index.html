@@ -1,33 +1,9 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Quote
+    Stocks
 {% endblock %}
 
 {% block main %}
-    <p class=header>Bought!</p>
-    <table>
-        <tr>
-            <th>Symbol</th>
-            <th>Shares</th>
-            <th>Price</th>
-            <th>Total price</th>
-        </tr>
-        <tr>
-            <td>{{ symbol }}</td>
-            <td>{{ shares }}</td>
-            <td>{{ price }}</td>
-            <td>{{ total }}</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>Cash</td>
-            <td>{{ cash | round(2) }}</td>
-        </tr>
-        <td></td>
-            <td></td>
-            <td>Total cash</td>
-            <td>10000</td>
-    </table>
+
 {% endblock %}
