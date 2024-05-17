@@ -58,7 +58,7 @@ def buy():
             if not stock:
                 return apology("this symbol does not exists")
 
-            
+            user_id = session["user_id"]
             # Check the total cash is going to cost, if this account does not have so much money, then fail to buy and apology
             total = stock["price"] * shares
             print(username)
