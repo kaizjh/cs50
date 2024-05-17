@@ -52,11 +52,13 @@ def buy():
         if not symbol or shares <= 0:
             return apology("invalid symbol or/and number of shares")
         else:
-            stock = lookup(symbol)
 
+            # Using lookup function to get the stock's price, if it returns None, the stock of this symbol does not exists
+            stock = lookup(symbol)
             if not stock:
                 return apology("this symbol does not exists")
 
+            # Check the total cash is going to cost, if this account does not have so much money, then fail to buy and apology
             total = stock["price"] * shares
             username = session.get('username')
             print(username)
