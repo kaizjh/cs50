@@ -8,6 +8,6 @@ CREATE TABLE buy (
     FOREIGN KEY (user_id) REFERENCES users(id)
     );
 
-SELECT shares,symbol FROM buy WHERE symbol = (
+SELECT shares FROM buy WHERE symbol = (
     SELECT DISTINCT(symbol) FROM buy WHERE user_id = 2
 );
