@@ -69,6 +69,7 @@ def buy():
             if not cashs:
                 cash = 10000
             else:
+
                 cash = min(cashs)
 
             # If this account does not have so much money, then apology
