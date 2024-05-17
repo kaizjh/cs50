@@ -6,6 +6,17 @@
 
 {% block main %}
     <table>
-        
+        <thead>
+            <th>Symbol</th>
+            <th>Shares</th>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <td>{{ stock.symbol }}</td>
+                    <td>{{ stock.total_shares }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
     </table>
 {% endblock %}
