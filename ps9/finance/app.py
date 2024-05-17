@@ -46,8 +46,7 @@ def buy():
         return render_template("buy.html")
     else:
         symbol = request.form.get("symbol")
-        shares = request.form.get("shares")
-        print(type(shares))
+        shares = int(request.form.get("shares"))
         if not symbol or shares <= 0:
             return apology("invalid symbol or/and number of shares")
         else:
@@ -59,6 +58,7 @@ def buy():
             total = stock["price"] * shares
             username = session.get('username')
             remaining_cash = db.execute("SELECT MIN(remaining_cash) FROM buy WHERE username = ?", username)
+            print(remaining_cash)
             if total > remaining_cash:
                 return apology("your money in the account can't afford this purchase")
             else:
