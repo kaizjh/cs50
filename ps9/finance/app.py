@@ -51,7 +51,7 @@ def buy():
         else:
             stock = lookup(symbol)
             if not stock:
-                return apology("this symbol not exists")
+                return apology("this symbol does not exists")
 
 
 
@@ -128,7 +128,7 @@ def quote():
 
             # Check if symbol exists
             if not stock:
-                return apology("this symbol not exists")
+                return apology("this symbol does not exists")
 
             return render_template("quoted.html", price=usd(stock["price"]), symbol=stock["symbol"])
 
