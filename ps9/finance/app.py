@@ -47,7 +47,7 @@ def index():
     # Look up for the current price according to the stock's symobl, stored in the prices list
     prices = []
     for stock in stocks:
-        prices.append(lookup(stock["symbol"]))
+        prices.append(lookup(stock["symbol"])["price"])
     print(prices)
     return render_template("index.html", stocks=stocks, username=username)
 
