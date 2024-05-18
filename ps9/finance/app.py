@@ -249,7 +249,7 @@ def sell():
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
 
-        # Check if the shares is a positive number, no letter, no empty
+        # Check if the shares is a positive number
         if not shares.isnumeric() or int(shares) <= 0:
             return apology("invalid shares")
 
