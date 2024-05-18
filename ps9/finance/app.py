@@ -80,7 +80,7 @@ def buy():
         return render_template("buy.html")
     else:
         symbol = request.form.get("symbol").upper()
-        shares = int(request.form.get("shares"))
+        shares = float(request.form.get("shares"))
 
         # Check the validation
         if not symbol or shares <= 0:
@@ -135,7 +135,7 @@ def history():
     # If the user hasn't bought stocks, apology
     if not stocks:
         return apology("you haven't bought or sold any stocks,let's go quote and buy!")
-    
+
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -264,7 +264,7 @@ def sell():
         shares = request.form.get("shares")
 
         # Check if the shares is a positive number
-        if not shares.isnumeric() or int(shares) <= 0:
+        if not shares.isnumeric() or float(shares) <= 0:
             return apology("invalid shares")
 
         # Check if the user owned this the symbol of stock and if the user's shares is enough
@@ -272,13 +272,13 @@ def sell():
         print(owned)
         if not owned:
             return apology("you haven't bought this stock or invalid symbol")
-        elif owned["total_shares"] < int(shares):
+        elif owned["total_shares"] < float(shares):
             return apology("you haven't bought enough shares of this stock")
 
         # Refresh the TABLE buy
         price = owned["price"]
         cashs = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)[0]["cash"]
-        cash = int(cashs) + int(shares) * int(price)
+        cash = float(cashs) + float(shares) * float(price)
         time = datetime.datetime.now()
         db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, -int(shares), cash, time)
 
