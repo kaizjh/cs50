@@ -57,7 +57,7 @@ def index():
 
     # Get the minimum cash of the list cashs
     cash_list = [row['cash'] for row in cashs]
-    cash = usd(min(cash_list))
+    cash = min(cash_list)
     print(cash_list, cash)
     # Calculate the total
     total = cash
@@ -66,7 +66,7 @@ def index():
         total = total + stock["value"]
     total = usd(total)
 
-    return render_template("index.html", stocks=stocks, username=username, cash=cash, total=total)
+    return render_template("index.html", stocks=stocks, username=username, cash=usd(cash), total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
