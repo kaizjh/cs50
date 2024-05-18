@@ -83,7 +83,7 @@ def buy():
         shares = float(request.form.get("shares"))
 
         # Check the validation
-        if not symbol or shares <= 0:
+        if not symbol or not is_positive_integer(shares):
             return apology("invalid symbol or/and number of shares")
         else:
 
