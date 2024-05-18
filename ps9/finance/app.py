@@ -255,7 +255,8 @@ def sell():
         if not shares.isnumeric() or int(shares) <= 0:
             return apology("invalid shares")
 
-        # Check the sy
+        # Check the symbol
+        
         else:
             return redirect("/")
 
