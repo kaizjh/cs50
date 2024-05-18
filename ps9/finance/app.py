@@ -48,7 +48,7 @@ def index():
     # Look up for the current price according to the stock's symobl, then add a '$' sign, then add price into the stocks
     for stock in stocks:
         price = lookup(stock["symbol"])["price"]
-        stock["value"] = price * stock["total_shares"]
+        stock["value"] = usd(price * stock["total_shares"])
         stock["price"] = usd(price)
     return render_template("index.html", stocks=stocks, username=username)
 

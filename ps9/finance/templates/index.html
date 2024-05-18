@@ -11,6 +11,7 @@
             <th>Symbol</th>
             <th>Shares</th>
             <th>Current price</th>
+            <th>Value</th>
         </thead>
         <tbody>
             {% for stock in stocks %}
@@ -18,6 +19,7 @@
                     <td>{{ stock.symbol }}</td>
                     <td>{{ stock.total_shares }}</td>
                     <td>{{ stock.price }}</td>
+                    <td>{{ stock.value }}</td>
                 </tr>
             {% endfor %}
         </tbody>
