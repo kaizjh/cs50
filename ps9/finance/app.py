@@ -44,11 +44,10 @@ def index():
     # Get the user's stocks'symbol and shares from datebase
     stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
     print(stocks)
-    # Look up for the current price according to the stock's symobl, stored in the prices list
-    prices = []
+    # Look up for the current price according to the stock's symobl, then add it into the stocks
     for stock in stocks:
-        prices.append(lookup(stock["symbol"])["price"])
-    print(prices)
+        stock["price"] = lookup(stock["symbol"])["price"]
+    print(stocks)
     return render_template("index.html", stocks=stocks, username=username)
 
 
