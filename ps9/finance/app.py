@@ -247,11 +247,11 @@ def sell():
 
     # If "POST"
     else:
+        # Get the argument from sell.html
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
-        print(shares, type(shares))
-        print()
-        print()
+
+        # Check if the shares is numeric, this method works even if the shares is str, pretty powerful
         if not shares.isnumeric():
             return apology("invalid shares")
         elif not symbol or int(shares) <= 0:
