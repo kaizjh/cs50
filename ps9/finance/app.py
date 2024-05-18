@@ -234,7 +234,7 @@ def register():
 def sell():
     """Sell shares of stock"""
 
-    if request.method = ["GET"]:
+    if request.method == ["GET"]:
         # Get the user's id from session who is logged in currently
         user_id = session["user_id"]
 
@@ -243,6 +243,6 @@ def sell():
 
         # If the user hasn't bought stocks, apology
         if not stocks:
-            return apology("you haven't bought any stocks,let's go quote and buy!")
-
-    return apology("TODO")
+            return apology("you have nothing to sell,let's go quote and buy!")
+        else:
+            return render_template("sell.html")
