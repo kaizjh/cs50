@@ -247,4 +247,9 @@ def sell():
         else:
             return render_template("sell.html", stocks=stocks)
 
+    # If "POST"
+    else:
+        symbol = request.form.get("symbol")
+        shares = request.form.get("shares")
+        print(symbol, shares)
 
