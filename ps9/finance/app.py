@@ -80,7 +80,7 @@ def buy():
         return render_template("buy.html")
     else:
         symbol = request.form.get("symbol").upper()
-        shares = float(request.form.get("shares"))
+        shares = request.form.get("shares")
 
         # Check the validation
         if not symbol or not is_positive_integer(shares):
@@ -96,7 +96,7 @@ def buy():
             user_id = session["user_id"]
 
             # Get the total price of stocks, and the cashs of this account
-            total = stock["price"] * shares
+            total = stock["price"] * float(shares)
             cashs = db.execute("SELECT cash FROM buy WHERE user_id = ?", user_id)
 
             # If it is the first transaction, get the default money, if not, get the minimum cash of the list cashs
