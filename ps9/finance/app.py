@@ -130,11 +130,11 @@ def history():
 
     # Get the user's stocks'symbol and shares from datebase
     stocks = db.execute("SELECT symbol, price, shares, time FROM buy WHERE user_id = ?", user_id)
+    print(stocks)
 
     # If the user hasn't bought stocks, apology
     if not stocks:
-        return apology("you haven't bought any stocks,let's go quote and buy!")
-    return apology("TODO")
+        return apology("you haven't bought or sold any stocks,let's go quote and buy!")
 
 
 @app.route("/login", methods=["GET", "POST"])
