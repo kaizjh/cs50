@@ -250,17 +250,12 @@ def sell():
         # Get the argument from sell.html
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
-        print("shit", shares, "shit", "shit")
-        shit  shit shit
 
-        # Check if the shares is numeric, this method works even if the shares is str, pretty powerful
-        if not shares.isnumeric():
-            print("shit", shares, "shit")
-            print()
-            print()
-            return apology("invalid ")
-        elif int(shares) <= 0:
+        # Check if the shares is a positive number, no letter, no empty
+        if not shares.isnumeric() or int(shares) <= 0:
             return apology("invalid shares")
+
+        # Check the sy
         else:
             return redirect("/")
 
