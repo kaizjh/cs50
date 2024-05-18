@@ -261,7 +261,7 @@ def sell():
     else:
         # Get arguments from sell.html
         symbol = request.form.get("symbol")
-        shares = request.form.get("shares")how to check if  a str "shares" is a positive integer in python?
+        shares = request.form.get("shares")
 
         # Check if the shares is a positive number
         if not shares.isnumeric() or float(shares) <= 0:
@@ -285,5 +285,8 @@ def sell():
         return redirect("/")
 
 
-def is_positive_integer(number):
+def is_positive_integer(string):
+    string = string.strip()
+    try:
+        value = 
 
