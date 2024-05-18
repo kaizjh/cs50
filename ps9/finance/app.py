@@ -66,11 +66,9 @@ def index():
         # Get the minimum cash of the list cashs
         cash_list = [row['cash'] for row in cashs]
         cash = min(cash_list)
-        print(cash_list, cash)
         # Calculate the total
         total = cash
         for stock in stocks:
-            print(stock["value"])
             total = total + stock["value"]
 
         return render_template("index.html", stocks=stocks, username=username, cash=usd(cash), total=usd(total))
@@ -251,6 +249,9 @@ def sell():
     else:
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
+        print(shares, type(shares))
+        print()
+        print()
         if not shares.isnumeric():
             return apology("invalid shares")
         elif not symbol or int(shares) <= 0:
