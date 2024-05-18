@@ -61,12 +61,8 @@ def index():
             stock["usd_price"] = usd(stock["price"])
 
         # Get the user's remaining cash from TABLE buy
-        cashs = db.execute("SELECT cash FROM buy WHERE user_id = ?", user_id)
+        cash = db.execute("SELECT cash FROM buy WHERE user_id = ?", user_id)
 
-        # Get the minimum cash of the list cashs
-        cash_list = [row['cash'] for row in cashs]
-        cash = min(cash_list)
-        
         # Calculate the total
         total = cash
         for stock in stocks:
