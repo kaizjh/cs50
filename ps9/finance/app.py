@@ -37,11 +37,17 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
-    # Get the user who is logged in currently
+    # Get the user who is logged in currently from session
     user_id = session["user_id"]
     username = db.execute("SELECT username FROM users WHERE id = ?", user_id)
+
+    # Get the user's stocks'symbol and shares from datebase
     stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
-    stock = lookup
+
+    # Look up for the current price according to the stock's symobl, stored in the prices list
+    prices[]
+    for stock in stocks:
+        prices.append(lookup(stock["symbol"]))
     return render_template("index.html", stocks=stocks, username=username)
 
 
