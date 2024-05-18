@@ -247,7 +247,4 @@ def sell():
         else:
             return render_template("sell.html", stocks=stocks)
 
-    # If "POST"
-    else:
-        if 
 

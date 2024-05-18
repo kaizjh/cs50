@@ -6,7 +6,7 @@
 
 {% block main %}
     <form action="/sell" method="post">
-        <select class="form-select mx-auto w-auto" name="symbol" requied>
+        <select class="form-select mx-auto w-auto" name="symbol">
             <option disabled selected>Symbol</option>
             {% for stock in stocks %}
             <option>{{ stock.symbol }}</option>
