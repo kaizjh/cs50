@@ -61,7 +61,12 @@ def index():
         cash_list = [row['cash'] for row in cashs]
         cash = min(cash_list)
     cash = usd(cash)
-     
+
+    # Calculate the total
+    total = cash
+    for stock in stocks:
+        total =
+
     return render_template("index.html", stocks=stocks, username=username, cash=cash)
 
 
