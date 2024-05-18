@@ -233,11 +233,9 @@ def sell():
     """Sell shares of stock"""
 
     if request.method == "GET":
-        # Get the user's id from session who is logged in currently
-        user_id = session["user_id"]
 
         # Get the user's stocks'symbol and shares from datebase
-        stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
+        stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", session["user_id"])
 
         # If the user hasn't bought stocks, apology
         if not stocks:
@@ -247,7 +245,7 @@ def sell():
 
     # If "POST"
     else:
-        # Get the argument from sell.html
+        # Get arguments from sell.html
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
 
@@ -256,7 +254,8 @@ def sell():
             return apology("invalid shares")
 
         # Check the symbol
-        
+        s = db.execute("SELECT symbol FROM buy WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
+
         else:
             return redirect("/")
 
