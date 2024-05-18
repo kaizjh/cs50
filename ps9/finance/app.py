@@ -48,7 +48,8 @@ def index():
     # Look up for the current price according to the stock's symobl, then add a '$' sign, then add price into the stocks
     for stock in stocks:
         price = lookup(stock["symbol"])["price"]
-        stock["value"] = usd(price * stock["total_shares"])
+        stock["value"] = price * stock["total_shares"]
+        stock["usd_value"] = usd(stock["value"])
         stock["price"] = usd(price)
 
     # Get the user's remaining cash from TABLE buy
