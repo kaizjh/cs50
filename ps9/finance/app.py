@@ -62,6 +62,7 @@ def index():
     # Calculate the total
     total = cash
     for stock in stocks:
+        print(stock["value"])
         total = total + stock["value"]
     total = usd(total)
 
