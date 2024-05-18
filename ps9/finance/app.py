@@ -264,7 +264,7 @@ def sell():
         shares = request.form.get("shares")
 
         # Check if the shares is a positive number
-        if not shares.isnumeric() or float(shares) <= 0:
+        if is_positive_integer(shares):
             return apology("invalid shares")
 
         # Check if the user owned this the symbol of stock and if the user's shares is enough
@@ -287,6 +287,7 @@ def sell():
 
 def is_positive_integer(string):
     string = string.strip()
-    try:
-        value = 
+    if string.isnumeric():
+        return int(string) > 0
+    return False
 
