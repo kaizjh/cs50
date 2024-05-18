@@ -136,7 +136,7 @@ def history():
     if not stocks:
         return apology("you haven't bought or sold any stocks,let's go quote and buy!")
     else:
-        ...
+        return render_template("history.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
