@@ -45,18 +45,20 @@ def index():
     # Get the user's stocks'symbol and shares from datebase
     stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
 
-    # If the user hasn't bought stocks apology
+    # If the user hasn't bought stocks, apology
     if not stocks:
-        return apology("you haven't bought any stocks,let's go quote and buy it!")
+        return apology("you haven't bought any stocks,let's go quote and buy!")
 
     # If bought, display the information
     else:
         # Look up for the current price according to the stock's symobl, then add a '$' sign, then add price into the stocks
         for stock in stocks:
-            price = lookup(stock["symbol"])["price"]
-            stock["value"] = price * stock["total_shares"]
+            stock["price"] = lookup(stock["symbol"])["price"]
+            stock["value"] = stock["price"] * stock["total_shares"]
+
+            # Store the usds in a sigle column
             stock["usd_value"] = usd(stock["value"])
-            stock["price"] = usd(price)
+            stock["usd_price"] = usd(stock["price"])
 
         # Get the user's remaining cash from TABLE buy
         cashs = db.execute("SELECT cash FROM buy WHERE user_id = ?", user_id)
@@ -70,9 +72,8 @@ def index():
         for stock in stocks:
             print(stock["value"])
             total = total + stock["value"]
-        total = usd(total)
 
-        return render_template("index.html", stocks=stocks, username=username, cash=usd(cash), total=total)
+        return render_template("index.html", stocks=stocks, username=username, cash=usd(cash), total=usd(total))
 
 
 @app.route("/buy", methods=["GET", "POST"])
