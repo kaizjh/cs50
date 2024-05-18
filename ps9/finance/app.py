@@ -251,7 +251,9 @@ def sell():
     else:
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
-        if not symbol or  or int(shares) <= 0:
+        if not shares.isnumeric():
+            return apology("invalid shares")
+        elif not symbol or int(shares) <= 0:
             return apology("invalid symbol or/and shares")
         else:
             return redirect("/")
