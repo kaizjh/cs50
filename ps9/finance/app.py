@@ -262,8 +262,10 @@ def sell():
         elif owned["total_shares"] < int(shares):
             return apology("you haven't bought enough shares of this stock")
 
+        price = owned["price"]
         cash = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)[0]["cash"]
-        db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, owned["price"], -shares, cash, time)
+        cash = cash - shares * price
+        db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, -shares, cash, time)
         return redirect("/")
 
 
