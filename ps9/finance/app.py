@@ -250,8 +250,8 @@ def sell():
     # If "POST"
     else:
         symbol = request.form.get("symbol")
-        shares = int(request.form.get("shares"))
-        if not symbol or shares <= 0:
+        shares = request.form.get("shares")
+        if not symbol or  or int(shares) <= 0:
             return apology("invalid symbol or/and shares")
         else:
             return redirect("/")
