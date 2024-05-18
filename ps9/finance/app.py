@@ -261,6 +261,7 @@ def sell():
         elif owned[0]["total_shares"] < int(shares):
             return apology("you haven't bought enough shares of this stock")
 
+        db.
         return redirect("/")
 
 
