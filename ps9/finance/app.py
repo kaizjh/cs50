@@ -239,10 +239,11 @@ def sell():
         user_id = session["user_id"]
 
         # Get the user's stocks'symbol and shares from datebase
-        stocks = db.execute("SELECT symbol FROM buy WHERE user_id = ?", user_id)
+        stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
 
         # If the user hasn't bought stocks, apology
         if not stocks:
             return apology("you have nothing to sell,let's go quote and buy!")
         else:
-            return render_template("sell.html")
+
+            return render_template("sell.html", stocks=stocks)
