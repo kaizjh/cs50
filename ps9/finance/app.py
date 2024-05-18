@@ -61,7 +61,7 @@ def index():
             stock["usd_price"] = usd(stock["price"])
 
         # Get the user's remaining cash from TABLE buy
-        cash = db.execute("SELECT cash FROM buy WHERE user_id = ?", user_id)
+        cash = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time LIMIT 1", user_id)
 
         # Calculate the total
         total = cash
@@ -258,7 +258,6 @@ def sell():
         elif owned[0]["total_shares"] < int(shares):
             return apology("you haven't bought enough shares of this stock")
 
-        db.
         return redirect("/")
 
 
