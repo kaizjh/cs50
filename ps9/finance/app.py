@@ -258,7 +258,7 @@ def sell():
         print(owned)
         if not owned:
             return apology("you haven't bought this stock or invalid symbol")
-        elif owned[0]["total_shares"] < shares:
+        elif owned[0]["total_shares"] < int(shares):
             return apology("you haven't bought enough shares of this stock")
 
         return redirect("/")
