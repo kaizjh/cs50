@@ -235,5 +235,14 @@ def sell():
     """Sell shares of stock"""
 
     if request.method = ["GET"]:
-        
+        # Get the user's id from session who is logged in currently
+        user_id = session["user_id"]
+
+        # Get the user's stocks'symbol and shares from datebase
+        stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
+
+        # If the user hasn't bought stocks, apology
+        if not stocks:
+            return apology("you haven't bought any stocks,let's go quote and buy!")
+
     return apology("TODO")
