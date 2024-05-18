@@ -254,9 +254,10 @@ def sell():
             return apology("invalid shares")
 
         # Check the symbol
-        s = db.execute("SELECT symbol FROM buy WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
+        owned = db.execute("SELECT symbol FROM buy WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
+        if not owned:
+            return apology("you haven't bought this stock or invalid symbol")
 
-        else:
-            return redirect("/")
+        return redirect("/")
 
 
