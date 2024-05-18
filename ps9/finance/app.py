@@ -44,11 +44,12 @@ def index():
 
     # Get the user's stocks'symbol and shares from datebase
     stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
-    print(stocks)
-    # Look up for the current price according to the stock's symobl, then add it into the stocks
+
+    # Look up for the current price according to the stock's symobl, then add a '$' sign, then add price into the stocks
     for stock in stocks:
-        stock["price"] = lookup(stock["symbol"])["price"]
-    print(stocks)
+        price = lookup(stock["symbol"])["price"]
+        stock["value"] = price * stock["total_shares"]
+        stock["price"] = usd(price)
     return render_template("index.html", stocks=stocks, username=username)
 
 
@@ -78,7 +79,7 @@ def buy():
             # Get the total price of stocks, and the cashs of this account
             total = stock["price"] * shares
             cashs = db.execute("SELECT cash FROM buy WHERE user_id = ?", user_id)
-            print(cashs)
+
             # If it is the first transaction, get the default money, if not, get the minimum cash of the list cashs
             if not cashs:
                 cash = 10000
