@@ -245,5 +245,9 @@ def sell():
         if not stocks:
             return apology("you have nothing to sell,let's go quote and buy!")
         else:
-
             return render_template("sell.html", stocks=stocks)
+
+    # If "POST"
+    else:
+        
+
