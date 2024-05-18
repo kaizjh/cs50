@@ -1,15 +1,15 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Quote
+    Sell
 {% endblock %}
 
 {% block main %}
-    <form action="/buy" method="post">
+    <form action="/sell" method="post">
         <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Stock's symbol" required type="text">
         <br>
         <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="shares" placeholder="Number of shares" required type="number">
         <br>
-        <button class="btn btn-primary" type="submit">Buy</button>
+        <button class="btn btn-primary" type="submit">Sell</button>
     </form>
 {% endblock %}
