@@ -253,10 +253,13 @@ def sell():
         if not shares.isnumeric() or int(shares) <= 0:
             return apology("invalid shares")
 
-        # Check the symbol
-        owned = db.execute("SELECT symbol FROM buy WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
+        # Check if the user owned this the symbol of stock and if the user's shares is enough
+        owned = db.execute("SELECT symbol, shares FROM buy WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
+        print(owned)
         if not owned:
             return apology("you haven't bought this stock or invalid symbol")
+        elif owned["shares"] < shares:
+            return apology("you haven't bought enough shares of this stock")
 
         return redirect("/")
 
