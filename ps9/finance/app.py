@@ -234,7 +234,7 @@ def register():
 def sell():
     """Sell shares of stock"""
 
-    if request.method == ["GET"]:
+    if request.method == "GET":
         # Get the user's id from session who is logged in currently
         user_id = session["user_id"]
 
