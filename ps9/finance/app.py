@@ -37,9 +37,10 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
-    # Get the user who is logged in currently from session
+    # Get the user's id and name from session who is logged in currently
     user_id = session["user_id"]
-    username = db.execute("SELECT username FROM users WHERE id = ?", user_id)
+    # Only get the str username, not a list or a dict
+    username = db.execute("SELECT username FROM users WHERE id = ?", user_id)[0]["username"]
 
     # Get the user's stocks'symbol and shares from datebase
     stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
