@@ -41,7 +41,7 @@ def index():
     user_id = session["user_id"]
     username = db.execute("SELECT username FROM users WHERE id = ?", user_id)
     stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
-    print(stocks)
+    stock = lookup
     return render_template("index.html", stocks=stocks, username=username)
 
 
