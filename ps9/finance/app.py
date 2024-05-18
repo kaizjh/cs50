@@ -45,28 +45,34 @@ def index():
     # Get the user's stocks'symbol and shares from datebase
     stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
 
-    # Look up for the current price according to the stock's symobl, then add a '$' sign, then add price into the stocks
-    for stock in stocks:
-        price = lookup(stock["symbol"])["price"]
-        stock["value"] = price * stock["total_shares"]
-        stock["usd_value"] = usd(stock["value"])
-        stock["price"] = usd(price)
+    # If the user hasn't bought stocks apology
+    if not stocks:
+        return apology("you haven't bought any stocks,let's go quote and buy it!")
 
-    # Get the user's remaining cash from TABLE buy
-    cashs = db.execute("SELECT cash FROM buy WHERE user_id = ?", user_id)
+    # If bought, display the information
+    else:
+        # Look up for the current price according to the stock's symobl, then add a '$' sign, then add price into the stocks
+        for stock in stocks:
+            price = lookup(stock["symbol"])["price"]
+            stock["value"] = price * stock["total_shares"]
+            stock["usd_value"] = usd(stock["value"])
+            stock["price"] = usd(price)
 
-    # Get the minimum cash of the list cashs
-    cash_list = [row['cash'] for row in cashs]
-    cash = min(cash_list)
-    print(cash_list, cash)
-    # Calculate the total
-    total = cash
-    for stock in stocks:
-        print(stock["value"])
-        total = total + stock["value"]
-    total = usd(total)
+        # Get the user's remaining cash from TABLE buy
+        cashs = db.execute("SELECT cash FROM buy WHERE user_id = ?", user_id)
 
-    return render_template("index.html", stocks=stocks, username=username, cash=usd(cash), total=total)
+        # Get the minimum cash of the list cashs
+        cash_list = [row['cash'] for row in cashs]
+        cash = min(cash_list)
+        print(cash_list, cash)
+        # Calculate the total
+        total = cash
+        for stock in stocks:
+            print(stock["value"])
+            total = total + stock["value"]
+        total = usd(total)
+
+        return render_template("index.html", stocks=stocks, username=username, cash=usd(cash), total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
