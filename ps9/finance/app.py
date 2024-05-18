@@ -135,6 +135,8 @@ def history():
     # If the user hasn't bought stocks, apology
     if not stocks:
         return apology("you haven't bought or sold any stocks,let's go quote and buy!")
+    else:
+        ...
 
 
 @app.route("/login", methods=["GET", "POST"])
