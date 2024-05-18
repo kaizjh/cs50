@@ -6,7 +6,6 @@
 
 {% block main %}
     <form action="/sell" method="post">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="shares" placeholder="Number of shares" required type="number">
         <select name="symbol">
             <option disabled selected>Symbol</option>
             {% for stock in stocks %}
@@ -14,6 +13,9 @@
             {% endfor %}
 
         </select>
+        <br>
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="shares" placeholder="Number of shares" required type="number">
+        <br>
         <button class="btn btn-primary" type="submit">Sell</button>
     </form>
 {% endblock %}
