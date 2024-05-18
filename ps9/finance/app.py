@@ -230,10 +230,13 @@ def register():
 def sell():
     """Sell shares of stock"""
 
+    # Get the user's id from session
+    user_id = session["user_id"]
+
     if request.method == "GET":
 
         # Get the user's stocks'symbol and shares from datebase
-        stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", session["user_id"])
+        stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
 
         # If the user hasn't bought stocks, apology
         if not stocks:
@@ -252,13 +255,14 @@ def sell():
             return apology("invalid shares")
 
         # Check if the user owned this the symbol of stock and if the user's shares is enough
-        owned = db.execute("SELECT SUM(shares) as total_shares FROM buy WHERE symbol = ? AND user_id = ?",symbol, session["user_id"])
+        owned = db.execute("SELECT SUM(shares) as total_shares FROM buy WHERE symbol = ? AND user_id = ?",symbol, user_id)
         print(owned)
         if not owned:
             return apology("you haven't bought this stock or invalid symbol")
         elif owned[0]["total_shares"] < int(shares):
             return apology("you haven't bought enough shares of this stock")
 
+        db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash, time)
         return redirect("/")
 
 
