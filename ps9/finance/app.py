@@ -129,7 +129,7 @@ def history():
     username = db.execute("SELECT username FROM users WHERE id = ?", user_id)[0]["username"]
 
     # Get the user's stocks'symbol and shares from datebase
-    stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
+    stocks = db.execute("SELECT symbol, price, shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
 
     # If the user hasn't bought stocks, apology
     if not stocks:
