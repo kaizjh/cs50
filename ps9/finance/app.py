@@ -66,6 +66,7 @@ def index():
         # Get the minimum cash of the list cashs
         cash_list = [row['cash'] for row in cashs]
         cash = min(cash_list)
+        
         # Calculate the total
         total = cash
         for stock in stocks:
