@@ -135,7 +135,10 @@ def history():
     # If the user hasn't bought stocks, apology
     if not stocks:
         return apology("you haven't bought or sold any stocks,let's go quote and buy!")
+    else:
+        for stock in stocks
 
+        return render_template("history.html", stocks = stocks)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -265,7 +268,7 @@ def sell():
 
         # Check if the shares is a positive number
         if is_positive_integer(shares):
-            return apology("invalid shares")
+            return apology("invalid number of shares")
 
         # Check if the user owned this the symbol of stock and if the user's shares is enough
         owned = db.execute("SELECT SUM(shares) as total_shares, price FROM buy WHERE symbol = ? AND user_id = ?",symbol, user_id)[0]
