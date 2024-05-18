@@ -10,31 +10,20 @@
         <thead>
             <th>Symbol</th>
             <th>Method</th>
+            <th>Price</th>
             <th>Shares</th>
-            <th>Current price</th>
-            <th>Value</th>
+            <th>Time</th>
         </thead>
         <tbody>
             {% for stock in stocks %}
                 <tr>
                     <td>{{ stock.symbol }}</td>
-                    <td>{{ stock.total_shares }}</td>
-                    <td>{{ stock.usd_price }}</td>
-                    <td>{{ stock.usd_value }}</td>
+                    <td>{{ stock.method }}</td>
+                    <td>{{ stock.price }}</td>
+                    <td>{{ stock.shares }}</td>
+                    <td>{{ stock.time }}</td>
                 </tr>
             {% endfor %}
-            <tr>
-                <td></td>
-                <td></td>
-                <th>Remaining Cash</th>
-                <td>{{ cash }}</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <th>Total</th>
-                <td>{{ total }}</td>
-            </tr>
         </tbody>
     </table>
 {% endblock %}
