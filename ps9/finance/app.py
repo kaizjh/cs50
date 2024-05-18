@@ -252,9 +252,10 @@ def sell():
         shares = request.form.get("shares")
 
         # Check if the shares is numeric, this method works even if the shares is str, pretty powerful
-        if not shares.isnumeric() or int(shares) <= 0:
+        if not shares.isnumeric():
+            return apology("invalid ")
+        elif int(shares) <= 0:
             return apology("invalid shares")
-        
         else:
             return redirect("/")
 
