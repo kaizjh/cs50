@@ -249,9 +249,10 @@ def sell():
         # Get arguments from sell.html
         symbol = request.form.get("symbol")
         shares = request.form.get("shares")
+        shares_int = int(shares)
 
         # Check if the shares is a positive number
-        if not shares.isnumeric() or int(shares) <= 0:
+        if not shares.isnumeric() or shares_int <= 0:
             return apology("invalid shares")
 
         # Check if the user owned this the symbol of stock and if the user's shares is enough
@@ -259,13 +260,13 @@ def sell():
         print(owned)
         if not owned:
             return apology("you haven't bought this stock or invalid symbol")
-        elif owned["total_shares"] < int(shares):
+        elif owned["total_shares"] < shares_int:
             return apology("you haven't bought enough shares of this stock")
 
         # Refresh the TABLE buy
         price = int(owned["price"])
         cash = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)[0]["cash"]
-        cash = cash - shares * price
+        cash = cash - shares_int * price
         time = datetime.datetime.time()
         db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, -shares, cash, time)
 
