@@ -143,7 +143,7 @@ def history():
             else:
                 stock["method"] = "Bought"
 
-        return render_template("history.html", stocks = stocks)
+        return render_template("history.html", stocks = stocks, username=username)
 
 
 @app.route("/login", methods=["GET", "POST"])
