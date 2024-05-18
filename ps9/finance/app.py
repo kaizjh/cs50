@@ -54,20 +54,17 @@ def index():
     # Get the user's remaining cash from TABLE buy
     cashs = db.execute("SELECT cash FROM buy WHERE user_id = ?", user_id)
 
-    # If this user has no transaction, get the default money, if not, get the minimum cash of the list cashs
-    if not cashs:
-        cash = 10000
-    else:
-        cash_list = [row['cash'] for row in cashs]
-        cash = min(cash_list)
-    cash = usd(cash)
-
+    # Get the minimum cash of the list cashs
+    cash_list = [row['cash'] for row in cashs]
+    cash = usd(min(cash_list))
+    print(cash_list, cash)
     # Calculate the total
     total = cash
     for stock in stocks:
-        total =
+        total = total + stock["value"]
+    total = usd(total)
 
-    return render_template("index.html", stocks=stocks, username=username, cash=cash)
+    return render_template("index.html", stocks=stocks, username=username, cash=cash, total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
