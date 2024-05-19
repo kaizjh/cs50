@@ -280,7 +280,8 @@ def sell():
         if not owned:
             return apology("missing symbol")
         elif owned["total_shares"] < float(shares):
-            return apology("you haven't bought enough shares of this stock")
+            return apology("symbol not owned")
+        elif owned["total_shares"] = float(shares):
 
         # Refresh the TABLE buy
         price = owned["price"]
