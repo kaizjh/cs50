@@ -94,7 +94,7 @@ def buy():
             if not stock:
                 return apology("this symbol does not exists")
 
-            # Get the total price of stocks, and the cashs of this account
+            # Get the total price of stocks
             price = stock["price"]
             total = price * float(shares)
 
