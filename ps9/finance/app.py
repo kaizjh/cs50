@@ -48,12 +48,12 @@ def index():
     stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
 
     # Get the user's remaining cash from TABLE buy
-        cash = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)[0]["cash"]
+    cash = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)[0]["cash"]
 
-        # Calculate the total
-        total = cash
-        for stock in stocks:
-            total = total + stock["value"]
+    # Calculate the total
+    total = cash
+    for stock in stocks:
+        total = total + stock["value"]
 
     # If the user has bought stocks, get the stock's information
     if stocks:
