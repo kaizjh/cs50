@@ -18,16 +18,16 @@
             <th>Value</th>
         </thead>
         <tbody>
-            {% if stocks %}
-                {% for stock in stocks %}
+            {% for stock in stocks %}
+                {% if stock.total_shares > 0 %}
                     <tr>
                         <td>{{ stock.symbol }}</td>
                         <td>{{ stock.total_shares }}</td>
                         <td>{{ stock.usd_price }}</td>
                         <td>{{ stock.usd_value }}</td>
                     </tr>
-                {% endfor %}
-            {% endif %}
+                {% endif %}
+            {% endfor %}
             <tr>
                 <td></td>
                 <td></td>
