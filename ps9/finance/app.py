@@ -39,7 +39,7 @@ def index():
 
     # Get the user_id and message from session
     user_id = session["user_id"]
-    message = session.pop["message"]
+    message = session.pop("message", None)
 
     # Only get the str username, not a list or a dict
     username = db.execute("SELECT username FROM users WHERE id = ?", user_id)[0]["username"]
