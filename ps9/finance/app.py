@@ -117,7 +117,7 @@ def buy():
                 cash = cash - float(shares) * price
                 cash_formatted = f"{cash:.2f}"
                 time = datetime.datetime.now()
-                db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash_formatted, time)
+                db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", (user_id, symbol, price, shares, cash_formatted, time))
 
                 # After a successful purchase, back to the homepage with a message
                 session["message"] = "Bought!"
@@ -291,7 +291,7 @@ def sell():
         cash = float(cashs) + float(shares) * float(price)
         cash_formatted = f"{cash:.2f}"
         time = datetime.datetime.now()
-        db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, -int(shares), cash_formatted, time)
+        db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", (user_id, symbol, price, -int(shares), cash_formatted, time))
 
         # After a successful sale, back to the homepage with a message
         session["message"] = "Sold!"
