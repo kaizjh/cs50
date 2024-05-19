@@ -68,7 +68,6 @@ def index():
         # Calculate the total
         total = cash
         for stock in stocks:
-            print(total, stock["value"])
             total = total + stock["value"]
 
         return render_template("index.html", cash=usd(cash), stocks=stocks, total=usd(total), username=username, message=message)
@@ -133,12 +132,12 @@ def history():
 
     # Get the user's stocks'symbol and shares from datebase
     stocks = db.execute("SELECT symbol, price, shares, time FROM buy WHERE user_id = ?", user_id)
-    print(stocks)
 
     # If the user hasn't bought stocks, apology
     if not stocks:
         return apology("you haven't bought or sold any stocks,let's go quote and buy!")
     else:
+        
         return render_template("history.html", stocks = stocks, username=username)
 
 
@@ -278,7 +277,6 @@ def sell():
 
         # Check if the user owned this the symbol of stock and if the user's shares is enough
         owned = db.execute("SELECT SUM(shares) as total_shares, price FROM buy WHERE symbol = ? AND user_id = ?",symbol, user_id)[0]
-        print(owned)
         if not owned:
             return apology("you haven't bought this stock or invalid symbol")
         elif owned["total_shares"] < float(shares):
