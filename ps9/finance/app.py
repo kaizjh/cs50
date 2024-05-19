@@ -281,8 +281,8 @@ def sell():
             return apology("missing symbol")
         elif owned["total_shares"] < int(shares):
             return apology("symbol not owned")
-        elif owned["total_shares"] = int(shares):
-            
+        elif owned["total_shares"] == int(shares):
+            ...
 
         # Refresh the TABLE buy
         price = owned["price"]
