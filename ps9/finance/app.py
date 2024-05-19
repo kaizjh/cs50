@@ -139,13 +139,6 @@ def history():
     if not stocks:
         return apology("you haven't bought or sold any stocks,let's go quote and buy!")
     else:
-        for stock in stocks:
-            if stock["shares"] < 0:
-                stock["method"] = "Sold"
-                stock["shares"] = -stock["shares"]
-            else:
-                stock["method"] = "Bought"
-
         return render_template("history.html", stocks = stocks, username=username)
 
 
