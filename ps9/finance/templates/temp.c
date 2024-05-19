@@ -1,4 +1,4 @@
-CREATE TABLE buy (
+CREATE TABLE history (
     user_id INTEGER NOT NULL,
     symbol TEXT NOT NULL,
     price NUMERIC NOT NULL,
@@ -7,7 +7,3 @@ CREATE TABLE buy (
     time TIMESTAMP NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
     );
-
-SELECT symbol, SUM(shares) as total_shares
-FROM buy
-GROUP BY symbol;
