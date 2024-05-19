@@ -104,7 +104,7 @@ def buy():
             # Get remaining cash from TABLE buy, if this is the first transaction, get the default money
             cashs = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)
             if not cashs:
-                cashs = 10000
+                cash = 10000
             else:
                 cash = cashs[0]["cash"]
 
