@@ -106,12 +106,12 @@ def buy():
                 cash_list = [row['cash'] for row in cashs]
                 cash = min(cash_list)
 
+            print(total)
             # If this account does not have so much money, then apology
             if total > cash:
                 return apology("Your account balance is insufficient for this transaction")
             else:
                 # Record the transaction
-                former = cash
                 cash = cash - total
                 time = datetime.datetime.now()
                 price = stock["price"]
