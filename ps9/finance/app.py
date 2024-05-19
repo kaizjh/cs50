@@ -239,7 +239,11 @@ def register():
         # Hash the password and insert the new user into the database
         hash = generate_password_hash(password)
         db.execute("INSERT INTO users(username, hash) VALUES(?, ?)", username, hash )
-        return redirect("/login")
+
+        # After a successful register, back to the homepage with a message
+        session['message'] = 'Registered!'
+        session[']
+        return redirect("/")
 
 
 @app.route("/sell", methods=["GET", "POST"])
