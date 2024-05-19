@@ -116,7 +116,7 @@ def buy():
                 time = datetime.datetime.now()
                 price = stock["price"]
                 db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash, time)
-                return render_template("index.html", )
+                return render_template("index.html", method = "Bought!")
 
 @app.route("/history")
 @login_required
