@@ -241,8 +241,9 @@ def register():
         db.execute("INSERT INTO users(username, hash) VALUES(?, ?)", username, hash )
 
         # After a successful register, back to the homepage with a message
+        session.clear
         session["message"] = "Registered"
-        session["user_id"] = db.execute("INSERT INTO users(username, hash) VALUES(?, ?)", username, hash )
+        session["user_id"] = db.execute("SELECT id FROM users WHERE username = ?", username)[0]["id"]
         return redirect("/")
 
 
