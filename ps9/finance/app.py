@@ -106,7 +106,7 @@ def buy():
                 cash_list = [row['cash'] for row in cashs]
                 cash = min(cash_list)
 
-            print(total)
+            print(total, cash)
             # If this account does not have so much money, then apology
             if total > cash:
                 return apology("Your account balance is insufficient for this transaction")
