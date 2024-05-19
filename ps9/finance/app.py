@@ -47,8 +47,12 @@ def index():
     # Get the user's stocks'symbol and shares from datebase
     stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
 
-    # Get the user's remaining cash from TABLE buy
-    cash = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)[0]["cash"]
+    # Get remaining cash from TABLE buy, if this is the first transaction, get the default money
+    cashs = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)
+    if not cashs:
+        cash = 10000
+    else:
+        cash = cashs[0]["cash"]
 
     # Calculate the total
     total = cash
@@ -238,7 +242,7 @@ def register():
 
         # After a successful register, back to the homepage with a message
         session.clear
-        session["message"] = "Registered"
+        session["message"] = "Registered!"
         session["user_id"] = db.execute("SELECT id FROM users WHERE username = ?", username)[0]["id"]
         return redirect("/")
 
