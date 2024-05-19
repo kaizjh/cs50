@@ -37,7 +37,7 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
-    # Get the user's id and name from session who is logged in currently
+    # Get the user_id from session remembered by login()
     user_id = session["user_id"]
     # Only get the str username, not a list or a dict
     username = db.execute("SELECT username FROM users WHERE id = ?", user_id)[0]["username"]
@@ -92,16 +92,15 @@ def buy():
             if not stock:
                 return apology("this symbol does not exists")
 
-            # Get the user_id from session remembered by login()
-            user_id = session["user_id"]
-
             # Get the total price of stocks, and the cashs of this account
             price = stock["price"]
             total = price * float(shares)
+
+            # Get the user_id from session remembered by login()
+            user_id = session["user_id"]
             cashs = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)[0]["cash"]
 
-            print(total, cashs, type(cashs))
-            # If this account does not have so much money, then apology
+            # If this account does not have so much money, apology
             if total > cashs:
                 return apology("Your account balance is insufficient for this transaction")
             else:
@@ -109,14 +108,14 @@ def buy():
                 cash = cashs + float(shares) * price
                 time = datetime.datetime.now()
                 db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash, time)
-                return render_template("index.html", method = "Bought!")
+                return redirect("/")
 
 @app.route("/history")
 @login_required
 def history():
     """Show history of transactions"""
 
-    # Get the user's id and name from session who is logged in currently
+    # Get the user_id from session remembered by login()
     user_id = session["user_id"]
     # Only get the str username, not a list or a dict
     username = db.execute("SELECT username FROM users WHERE id = ?", user_id)[0]["username"]
@@ -244,7 +243,7 @@ def register():
 def sell():
     """Sell shares of stock"""
 
-    # Get the user's id from session
+    # Get the user_id from session remembered by login()
     user_id = session["user_id"]
 
     if request.method == "GET":
