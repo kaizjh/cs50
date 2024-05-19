@@ -45,7 +45,7 @@ def index():
     username = db.execute("SELECT username FROM users WHERE id = ?", user_id)[0]["username"]
 
     # Get the user's stocks'symbol and shares from datebase
-    stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
+    stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM history WHERE user_id = ? GROUP BY symbol", user_id)
 
     # If the user hasn't bought stocks, return the default
     if not stocks:
@@ -61,7 +61,7 @@ def index():
             stock["usd_price"] = usd(stock["price"])
 
         # Get remaining cash from TABLE buy, if this is the first transaction, get the default money
-        cashs = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)
+        cashs = db.execute("SELECT cash FROM history WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)
         if not cashs:
             cash = 10000
         else:
@@ -103,7 +103,7 @@ def buy():
             user_id = session["user_id"]
 
             # Get remaining cash from TABLE buy, if this is the first transaction, get the default money
-            cashs = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)
+            cashs = db.execute("SELECT cash FROM history WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)
             if not cashs:
                 cash = 10000
             else:
@@ -117,7 +117,7 @@ def buy():
                 cash = cash - float(shares) * price
                 cash_formatted = f"{cash:.2f}"
                 time = datetime.datetime.now()
-                db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", (user_id, symbol, price, shares, cash_formatted, time))
+                db.execute("INSERT INTO history(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash_formatted, time)
 
                 # After a successful purchase, back to the homepage with a message
                 session["message"] = "Bought!"
@@ -134,7 +134,7 @@ def history():
     username = db.execute("SELECT username FROM users WHERE id = ?", user_id)[0]["username"]
 
     # Get the user's stocks'symbol and shares from datebase
-    stocks = db.execute("SELECT symbol, price, shares, time FROM buy WHERE user_id = ?", user_id)
+    stocks = db.execute("SELECT symbol, price, shares, time FROM history WHERE user_id = ?", user_id)
 
     # If the user hasn't bought stocks, apology
     if stocks:
@@ -260,7 +260,7 @@ def sell():
     if request.method == "GET":
 
         # Get the user's stocks'symbol and shares from datebase
-        stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
+        stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM history WHERE user_id = ? GROUP BY symbol", user_id)
 
         # If the user hasn't bought stocks, apology
         if not stocks:
@@ -279,7 +279,7 @@ def sell():
             return apology("invalid number of shares")
 
         # Check if the user owned this the symbol of stock and if the user's shares is enough
-        owned = db.execute("SELECT SUM(shares) as total_shares, price FROM buy WHERE symbol = ? AND user_id = ?",symbol, user_id)[0]
+        owned = db.execute("SELECT SUM(shares) as total_shares, price FROM history WHERE symbol = ? AND user_id = ?",symbol, user_id)[0]
         if not owned:
             return apology("missing symbol")
         elif owned["total_shares"] < int(shares):
@@ -287,11 +287,11 @@ def sell():
 
         # Refresh the TABLE buy
         price = owned["price"]
-        cashs = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)[0]["cash"]
+        cashs = db.execute("SELECT cash FROM history WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)[0]["cash"]
         cash = float(cashs) + float(shares) * float(price)
         cash_formatted = f"{cash:.2f}"
         time = datetime.datetime.now()
-        db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", (user_id, symbol, price, -int(shares), cash_formatted, time))
+        db.execute("INSERT INTO history(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, -int(shares), cash_formatted, time)
 
         # After a successful sale, back to the homepage with a message
         session["message"] = "Sold!"
