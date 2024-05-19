@@ -98,7 +98,11 @@ def buy():
 
             # Get the user_id from session remembered by login()
             user_id = session["user_id"]
-            cashs = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)[0]["cash"]
+
+            # Get remaining cash from TABLE buy, if this is the first transaction, get the default money
+            cashs = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)
+            if not cashs:
+                cashs = 10000
 
             # If this account does not have so much money, apology
             if total > cashs:
