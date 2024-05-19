@@ -47,20 +47,10 @@ def index():
     # Get the user's stocks'symbol and shares from datebase
     stocks = db.execute("SELECT symbol, SUM(shares) as total_shares FROM buy WHERE user_id = ? GROUP BY symbol", user_id)
 
-    # Get remaining cash from TABLE buy, if this is the first transaction, get the default money
-    cashs = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)
-    if not cashs:
-        cash = 10000
+    # If the user hasn't bought stocks, return the default
+    if not stocks:
+        return render_template("index.html", cash=usd(10000), stocks=stocks, total=usd(10000), username=username, message=message)
     else:
-        cash = cashs[0]["cash"]
-
-    # Calculate the total
-    total = cash
-    for stock in stocks:
-        total = total + stock["value"]
-
-    # If the user has bought stocks, get the stock's information
-    if stocks:
         # Look up for the current price according to the stock's symobl, then add a '$' sign, then add price into the stocks
         for stock in stocks:
             stock["price"] = lookup(stock["symbol"])["price"]
@@ -70,8 +60,19 @@ def index():
             stock["usd_value"] = usd(stock["value"])
             stock["usd_price"] = usd(stock["price"])
 
+        # Get remaining cash from TABLE buy, if this is the first transaction, get the default money
+        cashs = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)
+        if not cashs:
+            cash = 10000
+        else:
+            cash = cashs[0]["cash"]
 
-    return render_template("index.html", cash=usd(cash), stocks=stocks, total=usd(total), username=username, message=message)
+        # Calculate the total
+        total = cash
+        for stock in stocks:
+            total = total + stock["value"]
+
+        return render_template("index.html", cash=usd(cash), stocks=stocks, total=usd(total), username=username, message=message)
 
 
 @app.route("/buy", methods=["GET", "POST"])
