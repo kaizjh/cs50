@@ -96,18 +96,18 @@ def buy():
             user_id = session["user_id"]
 
             # Get the total price of stocks, and the cashs of this account
-            total = stock["price"] * float(shares)
+            price = stock["price"]
+            total = price * float(shares)
             cashs = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)[0]["cash"]
 
-            print(total, cash)
+            print(total, cashs, type(cashs))
             # If this account does not have so much money, then apology
             if total > cashs:
                 return apology("Your account balance is insufficient for this transaction")
             else:
                 # Record the transaction
-                cash = float(cashs) + float(shares) * float(price)
+                cash = cashs + float(shares) * price
                 time = datetime.datetime.now()
-                price = stock["price"]
                 db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash, time)
                 return render_template("index.html", method = "Bought!")
 
