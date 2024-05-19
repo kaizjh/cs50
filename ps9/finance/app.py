@@ -84,7 +84,7 @@ def buy():
         symbol = request.form.get("symbol").upper()
         shares = request.form.get("shares")
 
-        # Check the validation
+        # Check the symbol and shares
         if not symbol or not is_positive_integer(shares):
             return apology("invalid symbol or/and number of shares")
         else:
