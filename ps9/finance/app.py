@@ -37,8 +37,10 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
-    # Get the user_id from session remembered by login()
+    # Get the user_id and message from session
     user_id = session["user_id"]
+    message = session["message"]
+
     # Only get the str username, not a list or a dict
     username = db.execute("SELECT username FROM users WHERE id = ?", user_id)[0]["username"]
 
@@ -113,6 +115,8 @@ def buy():
                 time = datetime.datetime.now()
                 db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash, time)
 
+                # After a successful purchase, back to the homepage with a message
+                session['message'] = 'Bought!'
                 return redirect("/")
 
 @app.route("/history")
@@ -287,6 +291,8 @@ def sell():
         time = datetime.datetime.now()
         db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, -int(shares), cash, time)
 
+        # After a successful sale, back to the homepage with a message
+        session['message'] = 'Sold!'
         return redirect("/")
 
 

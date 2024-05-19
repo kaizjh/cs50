@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block main %}
-    <h1>{{ head }}</h1>
+    {% if message %}
+    <h1>{{ message }}</h1>
+    {% endif %}
     <table>
         <thead>
             <th>Symbol</th>
