@@ -279,9 +279,10 @@ def sell():
         owned = db.execute("SELECT SUM(shares) as total_shares, price FROM buy WHERE symbol = ? AND user_id = ?",symbol, user_id)[0]
         if not owned:
             return apology("missing symbol")
-        elif owned["total_shares"] < float(shares):
+        elif owned["total_shares"] < int(shares):
             return apology("symbol not owned")
-        elif owned["total_shares"] = float(shares):
+        elif owned["total_shares"] = int(shares):
+            
 
         # Refresh the TABLE buy
         price = owned["price"]
