@@ -108,7 +108,7 @@ def buy():
                 cash = cashs + float(shares) * price
                 time = datetime.datetime.now()
                 db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash, time)
-                
+
                 return redirect("/")
 
 @app.route("/history")
@@ -279,7 +279,7 @@ def sell():
         # Refresh the TABLE buy
         price = owned["price"]
         cashs = db.execute("SELECT cash FROM buy WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)[0]["cash"]
-        cash = float(cashs) + float(shares) * float(price)
+        cash = float(cashs) - float(shares) * float(price)
         time = datetime.datetime.now()
         db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, -int(shares), cash, time)
 
