@@ -118,7 +118,7 @@ def buy():
                 db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash, time)
 
                 # After a successful purchase, back to the homepage with a message
-                session['message'] = 'Bought!'
+                session["message"] = 'Bought!'
                 return redirect("/")
 
 @app.route("/history")
@@ -241,8 +241,8 @@ def register():
         db.execute("INSERT INTO users(username, hash) VALUES(?, ?)", username, hash )
 
         # After a successful register, back to the homepage with a message
-        session['message'] = 'Registered!'
-        session[']
+        session["message"] = 'Registered!'
+        session["user_id"]
         return redirect("/")
 
 
@@ -291,7 +291,7 @@ def sell():
         db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, -int(shares), cash, time)
 
         # After a successful sale, back to the homepage with a message
-        session['message'] = 'Sold!'
+        session["message"] = “”
         return redirect("/")
 
 
