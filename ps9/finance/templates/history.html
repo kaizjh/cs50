@@ -14,14 +14,16 @@
             <th>Time</th>
         </thead>
         <tbody>
-            {% for stock in stocks %}
-                <tr>
-                    <td>{{ stock.symbol }}</td>
-                    <td>{{ stock.price }}</td>
-                    <td>{{ stock.shares }}</td>
-                    <td>{{ stock.time }}</td>
-                </tr>
-            {% endfor %}
+            {% if stocks %}
+                {% for stock in stocks %}
+                    <tr>
+                        <td>{{ stock.symbol }}</td>
+                        <td>{{ stock.price }}</td>
+                        <td>{{ stock.shares }}</td>
+                        <td>{{ stock.time }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
         </tbody>
     </table>
 {% endblock %}

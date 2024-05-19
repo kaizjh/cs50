@@ -134,9 +134,7 @@ def history():
     stocks = db.execute("SELECT symbol, price, shares, time FROM buy WHERE user_id = ?", user_id)
 
     # If the user hasn't bought stocks, apology
-    if not stocks:
-        return apology("you haven't bought or sold any stocks,let's go quote and buy!")
-    else:
+    if stocks:
         for stock in stocks:
             stock["price"] = usd(stock["price"])
 
