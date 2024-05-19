@@ -115,6 +115,7 @@ def buy():
             else:
                 # Record the transaction
                 cash = cash - float(shares) * price
+                cash_formatted = round(cash, 2)
                 time = datetime.datetime.now()
                 db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash, time)
 
