@@ -108,6 +108,7 @@ def buy():
                 cash = cashs + float(shares) * price
                 time = datetime.datetime.now()
                 db.execute("INSERT INTO buy(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash, time)
+                
                 return redirect("/")
 
 @app.route("/history")
