@@ -5,9 +5,11 @@
 {% endblock %}
 
 {% block main %}
+
     {% if message %}
     <h1>{{ message }}</h1>
     {% endif %}
+
     <table>
         <thead>
             <th>Symbol</th>
@@ -16,14 +18,16 @@
             <th>Value</th>
         </thead>
         <tbody>
-            {% for stock in stocks %}
-                <tr>
-                    <td>{{ stock.symbol }}</td>
-                    <td>{{ stock.total_shares }}</td>
-                    <td>{{ stock.usd_price }}</td>
-                    <td>{{ stock.usd_value }}</td>
-                </tr>
-            {% endfor %}
+            {% if stocks %}
+                {% for stock in stocks %}
+                    <tr>
+                        <td>{{ stock.symbol }}</td>
+                        <td>{{ stock.total_shares }}</td>
+                        <td>{{ stock.usd_price }}</td>
+                        <td>{{ stock.usd_value }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
             <tr>
                 <td></td>
                 <td></td>
