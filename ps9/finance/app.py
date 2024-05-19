@@ -110,7 +110,7 @@ def buy():
 
             # If this account does not have so much money, apology
             if total > cash:
-                return apology("Your account balance is insufficient for this transaction")
+                return apology("can't afford")
             else:
                 # Record the transaction
                 cash = cash - float(shares) * price
