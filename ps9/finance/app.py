@@ -118,10 +118,8 @@ def buy():
             else:
                 # Record the transaction
                 cash = cash - float(shares) * price
-                cash_usd = usd(cash)
-                price_usd = usd(price)
                 time = datetime.datetime.now()
-                db.execute("INSERT INTO history(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price_usd, shares, cash_usd, time)
+                db.execute("INSERT INTO history(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash, time)
 
                 # After a successful purchase, back to the homepage with a message
                 session["message"] = "Bought!"
