@@ -49,7 +49,7 @@ def index():
 
     # If the user hasn't bought stocks, return the default
     if not stocks:
-        return render_template("index.html", cash=usd(10000), stocks=stocks, total=usd(10000), username=username, message=message)
+        return render_template("index.html", cash_usd=usd(10000), stocks=stocks, total_usd=usd(10000), username=username, message=message)
     else:
         # Look up for the current price according to the stock's symobl, then add a '$' sign, then add price into the stocks
         for stock in stocks:
@@ -74,6 +74,8 @@ def index():
         cash_usd = usd(cash)
         total_usd = usd(total)
         print(cash_usd, total_usd)
+        print()
+        print()
 
         return render_template("index.html", cash_usd=cash_usd, stocks=stocks, total_usd=total_usd, username=username, message=message)
 
