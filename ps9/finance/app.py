@@ -92,6 +92,7 @@ def buy():
 
             # Using lookup function to get the stock's price, if it returns None, the stock of this symbol does not exists
             stock = lookup(symbol)
+            print(stock)
             if not stock:
                 return apology("this symbol does not exists")
 
