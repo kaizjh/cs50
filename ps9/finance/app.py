@@ -1,3 +1,7 @@
+# :( buy handles valid purchase
+Cause
+expected to find "9,888.00" in page, but it wasn't found
+
 import datetime
 import os
 
@@ -71,7 +75,7 @@ def index():
         total = cash
         for stock in stocks:
             total = total + stock["value"]
-            
+
         return render_template("index.html", cash_usd=usd(cash), stocks=stocks, total_usd=usd(total), username=username, message=message)
 
 
