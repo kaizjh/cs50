@@ -106,7 +106,7 @@ def buy():
             # Get remaining cash from TABLE buy, if this is the first transaction, get the default money
             cashs = db.execute("SELECT cash FROM history WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)
             if not cashs:
-                cash = 10000
+                cash = 10000.00
             else:
                 cash = cashs[0]["cash"]
 
@@ -118,7 +118,7 @@ def buy():
                 cash = cash - float(shares) * price
                 cash_formatted = f"{cash:.2f}"
                 time = datetime.datetime.now()
-                db.execute("INSERT INTO history(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash_formatted, time)
+                db.execute("INSERT INTO history(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash, time)
 
                 # After a successful purchase, back to the homepage with a message
                 session["message"] = "Bought!"
