@@ -72,7 +72,7 @@ def index():
         for stock in stocks:
             total = total + stock["value"]
 
-        return render_template("index.html", cash=cash, stocks=stocks, total=total, username=username, message=message)
+        return render_template("index.html", cash=usd(cash), stocks=stocks, total=usd(total), username=username, message=message)
 
 
 @app.route("/buy", methods=["GET", "POST"])
