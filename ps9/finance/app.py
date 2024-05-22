@@ -71,9 +71,7 @@ def index():
         total = cash
         for stock in stocks:
             total = total + stock["value"]
-
-        print(usd(cash))
-        print()
+            
         return render_template("index.html", cash_usd=usd(cash), stocks=stocks, total_usd=usd(total), username=username, message=message)
 
 
