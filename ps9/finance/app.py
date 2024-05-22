@@ -73,8 +73,9 @@ def index():
             total = total + stock["value"]
         cash_usd = usd(cash)
         total_usd = usd(total)
+        print(cash_usd, total_usd)
 
-        return render_template("index.html", cash=cash_usd, stocks=stocks, total=total_usd, username=username, message=message)
+        return render_template("index.html", cash_usd=cash_usd, stocks=stocks, total_usd=total_usd, username=username, message=message)
 
 
 @app.route("/buy", methods=["GET", "POST"])
