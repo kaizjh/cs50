@@ -63,9 +63,9 @@ def index():
         # Get remaining cash from TABLE buy, if this is the first transaction, get the default money
         cashs = db.execute("SELECT cash FROM history WHERE user_id = ? ORDER BY time DESC LIMIT 1", user_id)
         if not cashs:
-            cash = 10000
+            cash = 10000.00
         else:
-            cash = cashs[0]["cash"]
+            cash = float(cashs[0]["cash"])
 
         # Calculate the total
         total = cash
@@ -108,7 +108,7 @@ def buy():
             if not cashs:
                 cash = 10000.00
             else:
-                cash = cashs[0]["cash"]
+                cash = float(cashs[0]["cash"])
 
             # If this account does not have so much money, apology
             if total > cash:
