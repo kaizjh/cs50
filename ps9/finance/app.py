@@ -115,7 +115,7 @@ def buy():
                 return apology("can't afford")
             else:
                 # Record the transaction
-                cash = cash - float(shares) * price
+                cash = cash - total
                 time = datetime.datetime.now()
                 db.execute("INSERT INTO history(user_id, symbol, price, shares, cash, time) VALUES(?, ?, ?, ?, ?, ?)", user_id, symbol, price, shares, cash, time)
 
