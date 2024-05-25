@@ -11,7 +11,8 @@ def index():
     return render_template("index.html")
 
 # The default methods=["GET"]
-@app.route("/greet", methods=["GET"])
+@app.route("/greet")
 def greet():
     # request.args.get() is a method inside the object request.args, and the  "world" is the default value of the function
-    return render_template("greet.html", name=request.args.get("name", "world"))
+    name = request.args.get("name", "world")
+    return render_template("greet.html", name=name)
