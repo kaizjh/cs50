@@ -1,0 +1,9 @@
+.input-group-text {
+    background-color: transparent;
+    border: none;
+    margin-left: -40px; /* Adjust this value to position the icon inside the input box */
+}
+
+.input-group-text .bi-search {
+    color: #6c757d; /* Adjust icon color */
+}
