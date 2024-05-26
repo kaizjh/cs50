@@ -1,7 +1,7 @@
 """
     I think my finance is pretty good, but it still has a problem in check50, and I can't fix it, I am even thinking that the check50 is wrong,
     so I decide not to debug it, because I can't do it.
-    
+
     :( buy handles valid purchase
     Cause
     expected to find "9,888.00" in page, but it wasn't found
