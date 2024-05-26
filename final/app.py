@@ -1,4 +1,4 @@
-form flask import Flask, redirect, render_template, request, session
+from flask import Flask, redirect, render_template, request, session
 from flask_session import Session
 
 # Configure application
@@ -21,5 +21,5 @@ def after_request(response):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("layout.html")
 
